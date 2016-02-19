@@ -25,12 +25,14 @@
 - (void)awakeFromNib {
     // Initialization code
 //    self.layoutMargins = UIEdgeInsetsMake(5, 0, 0, 0);
+//    self.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)setFrame:(CGRect)frame
 {
 //    frame.origin.y += 3;
-//    frame.size.height -= 3;
+    frame.size.height -= 3;
+    
     [super setFrame:frame];
 }
 

@@ -15,10 +15,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vQp-7l-iwZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="196.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BY7-Fd-9ck">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="196.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="搀和一份" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kp-3v-z3E">
                                 <rect key="frame" x="161.5" y="100.5" width="52" height="16"/>
@@ -53,14 +53,14 @@
                     <constraint firstItem="vQp-7l-iwZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="AvG-0b-0Ot"/>
                     <constraint firstItem="vQp-7l-iwZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Eev-9m-xhp"/>
                     <constraint firstAttribute="trailing" secondItem="vQp-7l-iwZ" secondAttribute="trailing" id="Mag-bp-6hR"/>
-                    <constraint firstAttribute="bottom" secondItem="vQp-7l-iwZ" secondAttribute="bottom" constant="3" id="P7N-Ww-8PJ"/>
+                    <constraint firstAttribute="bottom" secondItem="vQp-7l-iwZ" secondAttribute="bottom" id="P7N-Ww-8PJ"/>
                     <constraint firstAttribute="bottom" secondItem="vQp-7l-iwZ" secondAttribute="bottom" id="W9G-ig-as3"/>
                     <constraint firstItem="BY7-Fd-9ck" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Xvo-8E-gTt"/>
                     <constraint firstAttribute="trailing" secondItem="vQp-7l-iwZ" secondAttribute="trailing" id="hkH-8B-8el"/>
                     <constraint firstItem="vQp-7l-iwZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="kqQ-VE-P4l"/>
                     <constraint firstAttribute="trailing" secondItem="BY7-Fd-9ck" secondAttribute="trailing" id="pE1-Ol-2Qi"/>
                     <constraint firstItem="BY7-Fd-9ck" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="wdR-Jp-m0C"/>
-                    <constraint firstAttribute="bottom" secondItem="BY7-Fd-9ck" secondAttribute="bottom" constant="3" id="zFe-Bb-Obu"/>
+                    <constraint firstAttribute="bottom" secondItem="BY7-Fd-9ck" secondAttribute="bottom" id="zFe-Bb-Obu"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
