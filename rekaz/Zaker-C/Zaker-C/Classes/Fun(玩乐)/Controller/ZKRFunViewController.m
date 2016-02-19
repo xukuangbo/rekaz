@@ -45,6 +45,7 @@
     if (!_tableVC) {
         ZKRColoumnsViewController *tableVC = [[ZKRColoumnsViewController alloc] init];
         _tableVC = tableVC;
+//        _tableVC.view.backgroundColor = [UIColor whiteColor];
         _tableVC.groupsArray = self.groupsArray;
         _tableVC.cycleURLString = self.cycleURLString;
     }
@@ -82,8 +83,8 @@
 - (void)setupTableView
 {
     UIView *columnsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGLScreenW, CGLScreenH)];
-    
     self.tableVC.tableView.frame = columnsView.bounds;
+    self.tableVC.view.backgroundColor = [UIColor whiteColor];
     
     [columnsView addSubview:self.tableVC.tableView];
     
