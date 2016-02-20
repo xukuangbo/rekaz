@@ -34,22 +34,28 @@ static NSString *CGLColumnsCellID = @"CGLColumnsCellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 55, 0);
-    
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGLScreenW, 150)];
-    imageView.contentMode = UIViewContentModeScaleAspectFill;
-    [imageView sd_setImageWithURL:[NSURL URLWithString:self.cycleURLString]];
-    
-    [self.tableView setTableHeaderView:imageView];
+    [self setupTableHeaderView];
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZKRColumnsViewCell class]) bundle:nil] forCellReuseIdentifier:CGLColumnsCellID];
-    
-    
     // cell底部分割线去除
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
-#pragma mark - Table view data source
+ /** 头部滚动视图 (未完) */
+- (void)setupTableHeaderView
+{
+    if (self.cycleURLString) {
+        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 55, 0);
+        
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGLScreenW, 150)];
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        [imageView sd_setImageWithURL:[NSURL URLWithString:self.cycleURLString]];
+        
+        [self.tableView setTableHeaderView:imageView];
+    }
+}
+
+#pragma mark - Table view
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -61,7 +67,6 @@ static NSString *CGLColumnsCellID = @"CGLColumnsCellID";
     
     ZKRFunGroupItem *group = self.groupsArray[section];
     [view sd_setImageWithURL:[NSURL URLWithString:group.banner[@"url"]]];
-    
 
     return view;
 }
@@ -76,6 +81,8 @@ static NSString *CGLColumnsCellID = @"CGLColumnsCellID";
     UITableViewHeaderFooterView *footer = (UITableViewHeaderFooterView *)view;
     [footer setBackgroundColor:[UIColor whiteColor]];
 }
+
+#pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -99,9 +106,17 @@ static NSString *CGLColumnsCellID = @"CGLColumnsCellID";
     
     ZKRFunGroupItem *group = self.groupsArray[indexPath.section];
     ZKRFunCellItem *cellItem = group.itemsArray[indexPath.row];
-    
+        
     cell.cellItem = cellItem;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(ZKRColumnsViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.alpha = 0;
+    [UIView animateWithDuration:0.2 animations:^{
+        cell.alpha = 1;
+    }];
 }
 @end

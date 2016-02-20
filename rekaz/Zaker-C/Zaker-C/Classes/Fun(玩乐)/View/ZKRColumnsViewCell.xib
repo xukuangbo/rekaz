@@ -14,26 +14,34 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqI-W2-8pJ" customClass="DALabeledCircularProgressView">
+                        <rect key="frame" x="162" y="75" width="50" height="50"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="jNR-WS-7B3"/>
+                            <constraint firstAttribute="height" constant="50" id="wM0-GC-cPC"/>
+                        </constraints>
+                    </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vQp-7l-iwZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BY7-Fd-9ck">
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BY7-Fd-9ck">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="搀和一份" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kp-3v-z3E">
-                                <rect key="frame" x="161.5" y="100.5" width="52" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="搀和一份" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kp-3v-z3E">
+                                <rect key="frame" x="161" y="100" width="52" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="私房面馆" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSQ-wH-v6e">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="私房面馆" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSQ-wH-v6e">
                                 <rect key="frame" x="153" y="80" width="68" height="20.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.41942349137931034" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="JSQ-wH-v6e" firstAttribute="top" secondItem="BY7-Fd-9ck" secondAttribute="top" constant="80" id="9SX-hL-Zwr"/>
                             <constraint firstItem="0kp-3v-z3E" firstAttribute="top" secondItem="JSQ-wH-v6e" secondAttribute="bottom" id="NXa-LB-0jh"/>
@@ -50,6 +58,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="vQp-7l-iwZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="2FG-yg-bmc"/>
+                    <constraint firstItem="mqI-W2-8pJ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6Q5-ii-JcU"/>
                     <constraint firstItem="vQp-7l-iwZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="AvG-0b-0Ot"/>
                     <constraint firstItem="vQp-7l-iwZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Eev-9m-xhp"/>
                     <constraint firstAttribute="trailing" secondItem="vQp-7l-iwZ" secondAttribute="trailing" id="Mag-bp-6hR"/>
@@ -57,6 +66,7 @@
                     <constraint firstAttribute="bottom" secondItem="vQp-7l-iwZ" secondAttribute="bottom" id="W9G-ig-as3"/>
                     <constraint firstItem="BY7-Fd-9ck" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Xvo-8E-gTt"/>
                     <constraint firstAttribute="trailing" secondItem="vQp-7l-iwZ" secondAttribute="trailing" id="hkH-8B-8el"/>
+                    <constraint firstItem="mqI-W2-8pJ" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="kVx-Fy-PIF"/>
                     <constraint firstItem="vQp-7l-iwZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="kqQ-VE-P4l"/>
                     <constraint firstAttribute="trailing" secondItem="BY7-Fd-9ck" secondAttribute="trailing" id="pE1-Ol-2Qi"/>
                     <constraint firstItem="BY7-Fd-9ck" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="wdR-Jp-m0C"/>
@@ -74,6 +84,8 @@
             <connections>
                 <outlet property="bgImageView" destination="vQp-7l-iwZ" id="gs3-Lz-NW0"/>
                 <outlet property="contentLabel" destination="0kp-3v-z3E" id="LtJ-P6-TKk"/>
+                <outlet property="lightGrayView" destination="BY7-Fd-9ck" id="9WT-Re-Evs"/>
+                <outlet property="progressView" destination="mqI-W2-8pJ" id="uYQ-aj-dll"/>
                 <outlet property="titleLabel" destination="JSQ-wH-v6e" id="ldi-dO-JjU"/>
             </connections>
             <point key="canvasLocation" x="270" y="292.5"/>
