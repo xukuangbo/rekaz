@@ -11,6 +11,11 @@
 		EE00B8C61C74CE3F001A444B /* ZKRSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE00B8C51C74CE3F001A444B /* ZKRSlideView.m */; };
 		EE00B8C81C74CEE8001A444B /* ZKRSlideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE00B8C71C74CEE8001A444B /* ZKRSlideView.xib */; };
 		EE00B8CB1C754D1A001A444B /* ZKRSlideViewButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EE00B8CA1C754D1A001A444B /* ZKRSlideViewButton.m */; };
+		EE5593481C78D23100985094 /* hot.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE5593471C78D23100985094 /* hot.plist */; };
+		EE5593511C78D45C00985094 /* ZKRHotGroupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5593501C78D45C00985094 /* ZKRHotGroupItem.m */; };
+		EE5593541C78D46B00985094 /* ZKRHotCellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5593531C78D46B00985094 /* ZKRHotCellItem.m */; };
+		EE5593581C78D57800985094 /* ZKRHotTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5593561C78D57800985094 /* ZKRHotTableViewCell.m */; };
+		EE5593591C78D57800985094 /* ZKRHotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE5593571C78D57800985094 /* ZKRHotTableViewCell.xib */; };
 		EE5E7A0A1C619FE800F30275 /* CycleButon.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5E79FF1C619FE800F30275 /* CycleButon.m */; };
 		EE5E7A0B1C619FE800F30275 /* CyclePageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5E7A011C619FE800F30275 /* CyclePageControl.m */; };
 		EE5E7A0C1C619FE800F30275 /* CycleView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5E7A031C619FE800F30275 /* CycleView.m */; };
@@ -61,6 +66,14 @@
 		EE00B8C71C74CEE8001A444B /* ZKRSlideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZKRSlideView.xib; sourceTree = "<group>"; };
 		EE00B8C91C754D1A001A444B /* ZKRSlideViewButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRSlideViewButton.h; sourceTree = "<group>"; };
 		EE00B8CA1C754D1A001A444B /* ZKRSlideViewButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRSlideViewButton.m; sourceTree = "<group>"; };
+		EE5593471C78D23100985094 /* hot.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = hot.plist; path = ../hot.plist; sourceTree = "<group>"; };
+		EE55934F1C78D45C00985094 /* ZKRHotGroupItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRHotGroupItem.h; sourceTree = "<group>"; };
+		EE5593501C78D45C00985094 /* ZKRHotGroupItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRHotGroupItem.m; sourceTree = "<group>"; };
+		EE5593521C78D46B00985094 /* ZKRHotCellItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRHotCellItem.h; sourceTree = "<group>"; };
+		EE5593531C78D46B00985094 /* ZKRHotCellItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRHotCellItem.m; sourceTree = "<group>"; };
+		EE5593551C78D57800985094 /* ZKRHotTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRHotTableViewCell.h; sourceTree = "<group>"; };
+		EE5593561C78D57800985094 /* ZKRHotTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRHotTableViewCell.m; sourceTree = "<group>"; };
+		EE5593571C78D57800985094 /* ZKRHotTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZKRHotTableViewCell.xib; sourceTree = "<group>"; };
 		EE5E79FE1C619FE800F30275 /* CycleButon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CycleButon.h; sourceTree = "<group>"; };
 		EE5E79FF1C619FE800F30275 /* CycleButon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleButon.m; sourceTree = "<group>"; };
 		EE5E7A001C619FE800F30275 /* CyclePageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CyclePageControl.h; sourceTree = "<group>"; };
@@ -339,6 +352,11 @@
 		EE88D3B41C55316A001300F8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EE5593471C78D23100985094 /* hot.plist */,
+				EE55934F1C78D45C00985094 /* ZKRHotGroupItem.h */,
+				EE5593501C78D45C00985094 /* ZKRHotGroupItem.m */,
+				EE5593521C78D46B00985094 /* ZKRHotCellItem.h */,
+				EE5593531C78D46B00985094 /* ZKRHotCellItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -346,6 +364,9 @@
 		EE88D3B51C55316A001300F8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EE5593551C78D57800985094 /* ZKRHotTableViewCell.h */,
+				EE5593561C78D57800985094 /* ZKRHotTableViewCell.m */,
+				EE5593571C78D57800985094 /* ZKRHotTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -569,10 +590,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE5593481C78D23100985094 /* hot.plist in Resources */,
 				EE5E7A0F1C619FE800F30275 /* HeadLinePageIndicator.png in Resources */,
 				EE5E7A0D1C619FE800F30275 /* HeadLineCurrentPageIndicator.png in Resources */,
 				EE7F728F1C7763E2007EFCBE /* ZKRColumnsViewCell.xib in Resources */,
 				EECC5E481C59181800540FB3 /* ZKRCollectionViewCell.xib in Resources */,
+				EE5593591C78D57800985094 /* ZKRHotTableViewCell.xib in Resources */,
 				EE5E7A111C619FE800F30275 /* placeholder.png in Resources */,
 				EE97C8D81C6652C600331134 /* rootBlocks.plist in Resources */,
 				EE5E7A0E1C619FE800F30275 /* HeadLineCurrentPageIndicator@2x.png in Resources */,
@@ -649,6 +672,7 @@
 				EE88D3E21C566C95001300F8 /* UIView+Frame.m in Sources */,
 				EE88D3C41C55316A001300F8 /* main.m in Sources */,
 				EE7F728E1C7763E2007EFCBE /* ZKRColumnsViewCell.m in Sources */,
+				EE5593511C78D45C00985094 /* ZKRHotGroupItem.m in Sources */,
 				EE88D3E01C566C95001300F8 /* UIImage+Render.m in Sources */,
 				EE7F72861C7751B0007EFCBE /* ZKRFunCellItem.m in Sources */,
 				EE5E7A0C1C619FE800F30275 /* CycleView.m in Sources */,
@@ -661,7 +685,9 @@
 				EE88D3F21C566ED4001300F8 /* ZKRCommunityViewController.m in Sources */,
 				EE5E7A0A1C619FE800F30275 /* CycleButon.m in Sources */,
 				EE88D3DE1C566C95001300F8 /* UIBarButtonItem+CGLExtension.m in Sources */,
+				EE5593581C78D57800985094 /* ZKRHotTableViewCell.m in Sources */,
 				EE88D3C71C553414001300F8 /* ZKRTabBarController.m in Sources */,
+				EE5593541C78D46B00985094 /* ZKRHotCellItem.m in Sources */,
 				EE88D3E91C566EB5001300F8 /* ZKRSubscriptionViewController.m in Sources */,
 				EE00B8CB1C754D1A001A444B /* ZKRSlideViewButton.m in Sources */,
 				EE88D3C31C55316A001300F8 /* AppDelegate.m in Sources */,
