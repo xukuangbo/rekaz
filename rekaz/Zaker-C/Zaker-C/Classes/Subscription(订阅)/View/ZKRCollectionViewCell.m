@@ -14,6 +14,7 @@
 #import "UIColor+Hex.h"
 @interface ZKRCollectionViewCell()
 
+@property (weak, nonatomic) IBOutlet UIImageView *tickImageView;
 @property (weak, nonatomic) IBOutlet UIButton *button;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @end
@@ -23,6 +24,14 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.ttickImageView = self.tickImageView;
+    
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
 }
 
 - (void)setItem:(ZKRRootTypeItem *)item
@@ -44,5 +53,18 @@
         [_button setImage:[UIImage imageNamed:item.pic] forState:UIControlStateNormal];
     }
 }
+
+- (void)setSelected:(BOOL)selected
+{
+    UIImage *image = self.tickImageView.image;
+    
+    if (selected) {
+        self.ttickImageView.image = [image imageWithTintColor:[UIColor redColor]];
+    } else {
+        self.ttickImageView.image = [image imageWithTintColor:[UIColor colorWithRed:0.92 green:0.92 blue:0.92 alpha:1]];
+    }
+    [super setSelected:selected];
+}
+
 
 @end

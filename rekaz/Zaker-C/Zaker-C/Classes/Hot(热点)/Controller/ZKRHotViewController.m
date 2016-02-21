@@ -46,11 +46,11 @@ static NSString *CGLHotCellID = @"CGLHotCellID";
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZKRHotTableViewCell class]) bundle:nil] forCellReuseIdentifier:CGLHotCellID];
     
-    self.tableView.rowHeight = 95;
+    self.tableView.rowHeight = 100;
     // cell底部分割线去除
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    self.tableView.backgroundColor = [UIColor colorWithRed:0.90 green:0.90 blue:0.90 alpha:1];
+    self.tableView.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1];
     
     self.tableView.showsVerticalScrollIndicator = NO;
     
