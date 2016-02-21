@@ -38,6 +38,11 @@
     self.cellImageView.clipsToBounds = YES;
     
     self.typeImageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+//    if ([self.titleLabel.text isEqualToString:@""]) {
+//        self.typeImageLeftConstraint.constant = -20;
+//        [self updateConstraintsIfNeeded];
+//    }
 }
 
 - (void)setFrame:(CGRect)frame
@@ -71,7 +76,12 @@
     
     if (!_cellItem.title) {
         //改变typeImage左约束
+//        self.typeImageLeftConstraint.constant = 50;
+//        [self updateConstraintsIfNeeded];
+    } else {
+//        self.typeImageLeftConstraint.constant = 0;
     }
+//    [self updateConstraintsIfNeeded];
     
     
 }
