@@ -39,13 +39,14 @@ static NSString *CGLColumnsCellID = @"CGLColumnsCellID";
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZKRColumnsViewCell class]) bundle:nil] forCellReuseIdentifier:CGLColumnsCellID];
     // cell底部分割线去除
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
 }
 
  /** 头部滚动视图 (未完) */
 - (void)setupTableHeaderView
 {
     if (self.cycleURLString) {
-        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 55, 0);
+        self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 55, 0);
         
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGLScreenW, 150)];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
