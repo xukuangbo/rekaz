@@ -51,6 +51,7 @@
         _scrollView.frame                          = self.bounds;
         _scrollView.delegate                       = self;
         _scrollView.pagingEnabled                  = YES;
+        _scrollView.bounces                        = NO;
         _scrollView.backgroundColor                = [UIColor colorWithWhite:0 alpha:0];
         _scrollView.showsVerticalScrollIndicator   = NO;
         _scrollView.showsHorizontalScrollIndicator = NO;

@@ -18,6 +18,7 @@
 #import "UIImageView+WebCache.h"
 
 #import "ZKRColoumnsViewController.h"
+#import "ZKRFunCategoryController.h"
 @interface ZKRFunViewController ()
 
 @property (nonatomic, strong) NSMutableArray *groupsArray;
@@ -48,6 +49,7 @@
 //        _tableVC.view.backgroundColor = [UIColor whiteColor];
         _tableVC.groupsArray = self.groupsArray;
         _tableVC.cycleURLString = self.cycleURLString;
+
     }
     return _tableVC;
 }
@@ -71,7 +73,7 @@
     
     //右
     ZKRBarButtonItem *btn = [[ZKRBarButtonItem alloc] init];
-    [btn setImage:[UIImage imageNamed:@"nav_location"] forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:@"life_classify"] forState:UIControlStateNormal];
     [btn setTitle:@"广州" forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(locationClick) forControlEvents:UIControlEventTouchUpInside];
     //让按钮的大小自适应.
@@ -142,7 +144,9 @@
 #pragma mark - ---| event |---
 - (void)locationClick
 {
-    CGLFunc
+//    CGLFunc
+    ZKRFunCategoryController *categoryVC = [[ZKRFunCategoryController alloc] init];
+    [self.navigationController pushViewController:categoryVC animated:YES];
 }
 
 @end

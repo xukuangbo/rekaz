@@ -95,7 +95,7 @@ static NSString *requestURL = @"http://iphone.myzaker.com/zaker/follow_promote.p
 {
     self.navigationItem.title = @"订阅";
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"life_my_account" highImage:@"life_my_account" target:self action:@selector(accountClick)];
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"icon-search-o" highImage:@"icon-search-o" target:self action:@selector(searchClick)];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"ExploreSearchButton" highImage:@"ExploreSearchButton" target:self action:@selector(searchClick)];
 }
 
  /** 初始化头条图片轮播 */
@@ -154,7 +154,7 @@ static NSString *requestURL = @"http://iphone.myzaker.com/zaker/follow_promote.p
     // 添加最后一个cell - 专门用来添加类型的cell
     ZKRRootTypeItem *item = [[ZKRRootTypeItem alloc] init];
     item.title = @"添加内容";
-    item.pic = @"SubscriptionNightAddChannel";
+    item.pic = @"addRootBlock_cell_add";
     item.need_userinfo = @"NO";
     item.block_color = @"#d3d7d4";
     
