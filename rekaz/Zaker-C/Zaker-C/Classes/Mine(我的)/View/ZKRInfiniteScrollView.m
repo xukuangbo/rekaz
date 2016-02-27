@@ -1,15 +1,14 @@
 //
-//  XMGInfiniteScrollView.m
-//  无限滚动
+//  ZKRInfiniteScrollView.m
+//  Zaker-C
 //
-//  Created by xmg on 16/2/21.
-//  Copyright © 2016年 xiaomage. All rights reserved.
+//  Created by GuangliChan on 16/2/26.
+//  Copyright © 2016年 GLChen. All rights reserved.
 //
 
-#import "XMGInfiniteScrollView.h"
+#import "ZKRInfiniteScrollView.h"
 #import <objc/runtime.h>
-
-@interface XMGInfiniteScrollView() <UIScrollViewDelegate>
+@interface ZKRInfiniteScrollView() <UIScrollViewDelegate>
 /** 页码显示 */
 @property (nonatomic, weak) UIPageControl *pageControl;
 /** 显示具体内容 */
@@ -18,7 +17,7 @@
 @property (nonatomic, weak) NSTimer *timer;
 @end
 
-@implementation XMGInfiniteScrollView
+@implementation ZKRInfiniteScrollView
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -39,18 +38,20 @@
             UIImageView *imageView = [[UIImageView alloc] init];
             imageView.userInteractionEnabled = YES;
             [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageClick:)]];
+            
+            imageView.contentMode = UIViewContentModeTop;
             [scrollView addSubview:imageView];
         }
         
         // pageControl
         UIPageControl *pageControl = [[UIPageControl alloc] init];
-        [pageControl setValue:[UIImage imageNamed:@"XMGInfiniteScrollView.bundle/other"] forKeyPath:@"_pageImage"];
-        [pageControl setValue:[UIImage imageNamed:@"XMGInfiniteScrollView.bundle/current"] forKeyPath:@"_currentPageImage"];
+        [pageControl setValue:[UIImage imageNamed:@"Dot-o-gray-5"] forKeyPath:@"_pageImage"];
+        [pageControl setValue:[UIImage imageNamed:@"Dot-gray-5"] forKeyPath:@"_currentPageImage"];
         [self addSubview:pageControl];
         self.pageControl = pageControl;
         
         // 开启定时器
-        [self startTimer];
+//        [self startTimer];
     }
     return self;
 }
@@ -65,7 +66,7 @@
     
     // scrollView
     self.scrollView.frame = self.bounds;
-    if (self.direction == XMGInfiniteScrollViewDirectionHorizontal) {
+    if (self.direction == ZKRInfiniteScrollViewDirectionHorizontal) {
         self.scrollView.contentSize = CGSizeMake(3 * scrollViewW, 0);
     } else {
         self.scrollView.contentSize = CGSizeMake(0, 3 * scrollViewH);
@@ -74,7 +75,7 @@
     // UIImageView
     for (NSInteger i = 0; i < 3; i++) {
         UIImageView *imageView = self.scrollView.subviews[i];
-        if (self.direction == XMGInfiniteScrollViewDirectionHorizontal) {
+        if (self.direction == ZKRInfiniteScrollViewDirectionHorizontal) {
             imageView.frame = CGRectMake(i * scrollViewW, 0, scrollViewW, scrollViewH);
         } else {
             imageView.frame = CGRectMake(0, i * scrollViewH, scrollViewW, scrollViewH);
@@ -82,9 +83,7 @@
     }
     
     // pageControl
-    CGFloat pageControlW = 150;
-    CGFloat pageControlH = 25;
-    self.pageControl.frame = CGRectMake(scrollViewW - pageControlW, scrollViewH - pageControlH, pageControlW, pageControlH);
+    self.pageControl.center = CGPointMake(self.cgl_width * 0.5, self.cgl_height - self.pageControl.cgl_height);
     
     // 更新内容
     [self updateContent];
@@ -101,7 +100,7 @@
 //- (void)setImageUrls:(NSArray *)imageUrls
 //{
 //    _imageUrls = imageUrls;
-//    
+//
 //    // 总页数
 //    self.pageControl.numberOfPages = imageUrls.count;
 //}
@@ -148,7 +147,7 @@
     }
     
     // 重置scrollView.contentOffset.x == 1倍宽度
-    if (self.direction == XMGInfiniteScrollViewDirectionHorizontal) {
+    if (self.direction == ZKRInfiniteScrollViewDirectionHorizontal) {
         self.scrollView.contentOffset = CGPointMake(self.scrollView.frame.size.width, 0);
     } else {
         self.scrollView.contentOffset = CGPointMake(0, self.scrollView.frame.size.height);
@@ -170,7 +169,7 @@
 
 - (void)nextPage
 {
-    if (self.direction == XMGInfiniteScrollViewDirectionHorizontal) {
+    if (self.direction == ZKRInfiniteScrollViewDirectionHorizontal) {
         [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x + self.scrollView.frame.size.width, 0) animated:YES];
     } else {
         [self.scrollView setContentOffset:CGPointMake(0, self.scrollView.contentOffset.y + self.scrollView.frame.size.height) animated:YES];
@@ -190,7 +189,7 @@
         UIImageView *imageView = self.scrollView.subviews[i];
         
         CGFloat delta = 0;
-        if (self.direction == XMGInfiniteScrollViewDirectionHorizontal) {
+        if (self.direction == ZKRInfiniteScrollViewDirectionHorizontal) {
             delta = ABS(self.scrollView.contentOffset.x - imageView.frame.origin.x);
         } else {
             delta = ABS(self.scrollView.contentOffset.y - imageView.frame.origin.y);
@@ -212,7 +211,7 @@
 {
     [self updateContent];
     
-    [self startTimer];
+//    [self startTimer];
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
@@ -222,7 +221,7 @@
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
-    [self updateContent];
+//    [self updateContent];
 }
 
 @end

@@ -15,7 +15,8 @@
 @interface ZKRCollectionViewCell()
 
 @property (weak, nonatomic) IBOutlet UIImageView *tickImageView;
-@property (weak, nonatomic) IBOutlet UIButton *button;
+//@property (weak, nonatomic) IBOutlet UIButton *button;
+@property (weak, nonatomic) IBOutlet UIImageView *cellImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @end
 
@@ -48,10 +49,14 @@
     
      /** 给内容类型添加图片 */
     if ([item.pic hasPrefix:@"http"]) {
-        [_button setImage:image forState:UIControlStateNormal];
+//        [_button setImage:image forState:UIControlStateNormal];
+        _cellImageView.image = image;
     } else {
-        [_button setImage:[UIImage imageNamed:item.pic] forState:UIControlStateNormal];
+//        [_button setImage:[UIImage imageNamed:item.pic] forState:UIControlStateNormal];
+        _cellImageView.image = [UIImage imageNamed:item.pic];
     }
+    
+    _tickImageView.image = [_tickImageView.image imageWithTintColor:[UIColor colorWithRed:0.92 green:0.92 blue:0.92 alpha:1]];
 }
 
 - (void)setSelected:(BOOL)selected
@@ -62,6 +67,7 @@
         self.ttickImageView.image = [image imageWithTintColor:[UIColor redColor]];
     } else {
         self.ttickImageView.image = [image imageWithTintColor:[UIColor colorWithRed:0.92 green:0.92 blue:0.92 alpha:1]];
+//        self.ttickImageView.image = image;
     }
     [super setSelected:selected];
 }
