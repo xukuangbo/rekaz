@@ -60,6 +60,7 @@
         self.deallocBlock();
         
     });
+    
 }
 
  /** 删除按钮点击 */

@@ -23,6 +23,7 @@ CGFloat const margin = 1;
 #import "CycleView.h"
 
 #import "ZKRRootTypeItem.h"
+#import "ZKRSubSearchController.h"
 
 @interface ZKRSubscriptionViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate>
 
@@ -39,6 +40,9 @@ CGFloat const margin = 1;
  /** collectionView 所有cell */
 @property (nonatomic, strong) NSArray *cellsArray;
 
+
+ /** 是否编辑模式 */
+@property (nonatomic, assign, getter=isEditing) BOOL editing;
 @end
 
 #pragma mark - ---| static |---
@@ -58,6 +62,7 @@ static NSString *requestURL = @"http://iphone.myzaker.com/zaker/follow_promote.p
             for (ZKRCollectionViewCell *cell in self.cellsArray) {
                 cell.ttickImageView.hidden = YES;
             }
+            self.editing = NO;
         };
     }
     return _slideView;
@@ -87,7 +92,7 @@ static NSString *requestURL = @"http://iphone.myzaker.com/zaker/follow_promote.p
     
     [self setupCollectionView];
     
-
+    
 }
 
  /** 初始化导航栏 */
@@ -123,6 +128,7 @@ static NSString *requestURL = @"http://iphone.myzaker.com/zaker/follow_promote.p
     contentTypeView.scrollEnabled = NO;
     contentTypeView.dataSource = self;
     contentTypeView.delegate = self;
+    
     
     // 注册cell
     [contentTypeView registerNib:[UINib nibWithNibName:NSStringFromClass([ZKRCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:ID];
@@ -164,14 +170,15 @@ static NSString *requestURL = @"http://iphone.myzaker.com/zaker/follow_promote.p
 
 - (void)collectionViewLongPress:(UILongPressGestureRecognizer *)gesture
 {
-    
+    //长按cell可以获得该cell的indexPath.section和indexPath.row值。并且注意的是，长按事件和单击事件并不会冲突，彼此没有任何关系，
     if (gesture.state == UIGestureRecognizerStateBegan) {
+        self.editing = YES;
         [[UIApplication sharedApplication].keyWindow addSubview:self.slideView];
         
         [UIView animateWithDuration:0.3 animations:^{
             self.slideView.cgl_y = CGLScreenH - 100;
         }];
-        
+        //判断手势落点位置是否在路径上
         NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:[gesture locationInView:self.collectionView]];
         if (!indexPath) {
             return;
@@ -180,37 +187,26 @@ static NSString *requestURL = @"http://iphone.myzaker.com/zaker/follow_promote.p
         self.cellsArray = [self.collectionView visibleCells];
         for (ZKRCollectionViewCell *cell in self.cellsArray) {
             cell.ttickImageView.hidden = NO;
+            if ([cell.item.title isEqualToString:@"添加内容"]) {
+                cell.ttickImageView.hidden = YES;
+                cell.alpha = 0.3;
+            }
         }
         
         [self.collectionView selectItemAtIndexPath:indexPath animated:YES scrollPosition:UICollectionViewScrollPositionNone];
         
         // 删除按钮可用
         self.slideView.setupDelButtonEnable = self.collectionView.indexPathsForSelectedItems.count;
+        //在路径上则开始移动该路径上的cell
+        [self.collectionView beginInteractiveMovementForItemAtIndexPath:indexPath];
     } else if (gesture.state == UIGestureRecognizerStateChanged){
 //        NSLog(@"UIGestureRecognizerStateChanged");
+        
+        [self.collectionView updateInteractiveMovementTargetPosition:[gesture locationInView:self.collectionView]];
     } else if (gesture.state == UIGestureRecognizerStateEnded) {
 //        NSLog(@"UIGestureRecognizerStateEnded");
-        
+        [self.collectionView endInteractiveMovement];
     }
-    //长按cell可以获得该cell的indexPath.section和indexPath.row值。并且注意的是，长按事件和单击事件并不会冲突，彼此没有任何关系，
-//    if (gesture.state == UIGestureRecognizerStateBegan) {
-//        //删除频道 , 退出编辑(未实现)
-//        //        NSLog(@"UIGestureRecognizerStateBegan");
-//        //判断手势落点位置是否在路径上
-//        NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:[gesture locationInView:self.collectionView]];
-//        if (indexPath == nil) {
-//            return;
-//        }
-//        //在路径上则开始移动该路径上的cell
-//        [self.collectionView beginInteractiveMovementForItemAtIndexPath:indexPath];
-//        
-//    } else if (gesture.state == UIGestureRecognizerStateChanged){
-//        //        NSLog(@"UIGestureRecognizerStateChanged");
-//        [self.collectionView updateInteractiveMovementTargetPosition:[gesture locationInView:self.collectionView]];
-//    } else if (gesture.state == UIGestureRecognizerStateEnded) {
-//        //        NSLog(@"UIGestureRecognizerStateEnded");
-//        [self.collectionView endInteractiveMovement];
-//    }
 }
 
 
@@ -232,11 +228,22 @@ static NSString *requestURL = @"http://iphone.myzaker.com/zaker/follow_promote.p
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
 //    ZKRCollectionViewCell *cell = (ZKRCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-
+    if (self.isEditing) {
+        return;
+    }
+    UIViewController *vc = [[UIViewController alloc] init];
+    vc.view.backgroundColor = [UIColor lightGrayColor];
+    vc.navigationController.navigationBarHidden = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    
 }
 
 // $$$$$ 02.08
 - (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == self.cellsArray.count - 1) {
+        return NO;
+    }
     //返回YES允许其item移动
     return YES;
 }
@@ -274,8 +281,7 @@ static NSString *requestURL = @"http://iphone.myzaker.com/zaker/follow_promote.p
 - (void)searchClick
 {
     //    CGLFunc
-    UIViewController *vc = [[UIViewController alloc] init];
-    vc.view.backgroundColor = [UIColor lightGrayColor];
+    ZKRSubSearchController *vc = [[ZKRSubSearchController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
