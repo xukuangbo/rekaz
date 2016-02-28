@@ -24,6 +24,8 @@ CGFloat const margin = 1;
 
 #import "ZKRRootTypeItem.h"
 #import "ZKRSubSearchController.h"
+#import "ZKRTitlePageRefreshHeader.h"
+
 
 @interface ZKRSubscriptionViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate>
 
@@ -61,6 +63,9 @@ static NSString *requestURL = @"http://iphone.myzaker.com/zaker/follow_promote.p
         _slideView.deallocBlock = ^(){
             for (ZKRCollectionViewCell *cell in self.cellsArray) {
                 cell.ttickImageView.hidden = YES;
+                if ([cell.item.title isEqualToString:@"添加内容"]) {
+                    cell.alpha = 1;
+                }
             }
             self.editing = NO;
         };
@@ -92,7 +97,19 @@ static NSString *requestURL = @"http://iphone.myzaker.com/zaker/follow_promote.p
     
     [self setupCollectionView];
     
-    
+    [self setupRefresh];
+}
+
+- (void)setupRefresh
+{
+    self.scroll.mj_header = [ZKRTitlePageRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadTitlePage)];
+
+    [self.scroll.mj_header beginRefreshing];
+}
+
+- (void)loadTitlePage
+{
+    [self.scroll.mj_header endRefreshing];
 }
 
  /** 初始化导航栏 */
@@ -122,7 +139,7 @@ static NSString *requestURL = @"http://iphone.myzaker.com/zaker/follow_promote.p
     flowLayout.minimumInteritemSpacing = margin;
     
     //创建collectionView
-    UICollectionView *contentTypeView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 200, CGLScreenW, 500) collectionViewLayout:flowLayout];
+    UICollectionView *contentTypeView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 200, CGLScreenW, CGLScreenW - 64 - 200) collectionViewLayout:flowLayout];
 
     contentTypeView.backgroundColor = CGLCommonBgColor;
     contentTypeView.scrollEnabled = NO;
@@ -227,25 +244,31 @@ static NSString *requestURL = @"http://iphone.myzaker.com/zaker/follow_promote.p
 #pragma mark - ---| collection delegate |---
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//    ZKRCollectionViewCell *cell = (ZKRCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    if (self.isEditing) {
+    ZKRCollectionViewCell *cell = (ZKRCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    if (!self.isEditing) {
+        if (![cell.item.title isEqualToString:@"添加内容"]) {
+            UIViewController *vc = [[UIViewController alloc] init];
+            vc.view.backgroundColor = [UIColor lightGrayColor];
+            vc.navigationController.navigationBarHidden = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        } else {
+            [self searchClick];
+            
+        }
+        
+    } else {
         return;
     }
-    UIViewController *vc = [[UIViewController alloc] init];
-    vc.view.backgroundColor = [UIColor lightGrayColor];
-    vc.navigationController.navigationBarHidden = YES;
-    [self.navigationController pushViewController:vc animated:YES];
-    
-    
 }
 
 // $$$$$ 02.08
 - (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == self.cellsArray.count - 1) {
-        return NO;
+    ZKRCollectionViewCell *cell = (ZKRCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    if (![cell.item.title isEqualToString:@"添加内容"]) {
+        return YES;
     }
     //返回YES允许其item移动
-    return YES;
+    return NO;
 }
 
 // $$$$$ 02.08

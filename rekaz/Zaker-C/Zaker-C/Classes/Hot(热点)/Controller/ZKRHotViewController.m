@@ -15,6 +15,7 @@
 #import "ZKRHotGroupItem.h"
 #import "ZKRHotCellItem.h"
 #import "ZKRHotTableViewCell.h"
+#import "ZKRRefreshHeader.h"
 
 @interface ZKRHotViewController ()
 @property (nonatomic, strong) NSMutableArray *itemsArray;
@@ -53,8 +54,21 @@ static NSString *CGLHotCellID = @"CGLHotCellID";
     self.tableView.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1];
     
     self.tableView.showsVerticalScrollIndicator = NO;
+    [self setupRefresh];
     
     [self loadPlist];
+}
+
+- (void)setupRefresh
+{
+    self.tableView.mj_header = [ZKRRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewCell)];
+    
+    [self.tableView.mj_header beginRefreshing];
+}
+
+- (void)loadNewCell
+{
+    [self.tableView.mj_header endRefreshing];
 }
 
 - (void)setupNav

@@ -63,9 +63,6 @@
     button3.backgroundColor = [UIColor blueColor];
     [self.topView addSubview:button3];
     [self.topButtonsArray addObject:button3];
-    
-    
-    
 }
 
 - (void)loadTopData
@@ -76,21 +73,16 @@
     para[@"_appid"] = @"iphone";
     
     [manager GET:@"http://iphone.myzaker.com/zaker/find_promotion.php" parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        [responseObject writeToFile:@"/Users/CGL/Desktop/choice.plist" atomically:YES];
         
         NSMutableArray *array = [ZKRSearchChoiceTopItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"list"][0]];
         [array addObjectsFromArray:[ZKRSearchChoiceTopItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"list"][1]]];
         
         self.itemsArray = array;
         
-//        NSLog(@"%@", self.topButtonsArray);
-        
         for (int i = 0; i < self.itemsArray.count; ++i) {
             ZKRSearchChoiceTopItem *item = self.itemsArray[i];
             UIButton *button = self.topButtonsArray[i];
             [button sd_setBackgroundImageWithURL:[NSURL URLWithString:item.promotion_img] forState:UIControlStateNormal];
-
-            
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
