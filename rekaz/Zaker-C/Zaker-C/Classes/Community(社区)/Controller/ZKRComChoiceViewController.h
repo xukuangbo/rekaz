@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZKRComChoiceViewController : UIViewController
+@interface ZKRComChoiceViewController : UITableViewController
 
 @end

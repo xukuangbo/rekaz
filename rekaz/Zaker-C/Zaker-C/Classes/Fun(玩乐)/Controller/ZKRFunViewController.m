@@ -19,6 +19,7 @@
 
 #import "ZKRColoumnsViewController.h"
 #import "ZKRFunCategoryController.h"
+
 @interface ZKRFunViewController ()
 
 @property (nonatomic, strong) NSMutableArray *groupsArray;
@@ -63,6 +64,7 @@
     [self loadData];
 }
 
+
 - (void)setNav
 {
     self.view.backgroundColor = [UIColor whiteColor];
@@ -84,7 +86,7 @@
 
 - (void)setupTableView
 {
-    UIView *columnsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGLScreenW, CGLScreenH)];
+    UIView *columnsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGLScreenW, CGLScreenH - 64)];
     self.tableVC.tableView.frame = columnsView.bounds;
     self.tableVC.view.backgroundColor = [UIColor whiteColor];
     
@@ -107,7 +109,7 @@
     para[@"c"] = @"columns";
     
     [manager GET:@"http://wl.myzaker.com/" parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        [responseObject writeToFile:@"/Users/CGL/Desktop/hehe.plist" atomically:YES];
+//        [responseObject writeToFile:@"/Users/CGL/Desktop/hehe.plist" atomically:YES];
         NSArray *groups = [ZKRFunGroupItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"columns"]];
         
         // 用来保存一个组的cell

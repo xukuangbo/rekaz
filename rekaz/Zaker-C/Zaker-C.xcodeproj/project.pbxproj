@@ -69,6 +69,8 @@
 		EE968F711C812BDB00C6D1E0 /* ZKRSearchChoiceTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE968F701C812BDB00C6D1E0 /* ZKRSearchChoiceTopView.xib */; };
 		EE97C8D61C66529500331134 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = EE97C8D51C66529500331134 /* UIImage+Tint.m */; };
 		EE97C8D81C6652C600331134 /* rootBlocks.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE97C8D71C6652C600331134 /* rootBlocks.plist */; };
+		EEA7ADB81C8210F900C5A0DA /* ZKRRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA7ADB71C8210F900C5A0DA /* ZKRRefreshHeader.m */; };
+		EEA7ADBB1C8212B700C5A0DA /* ZKRTitlePageRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA7ADBA1C8212B700C5A0DA /* ZKRTitlePageRefreshHeader.m */; };
 		EEB687F61C7FE9A3008CE2DC /* ZKRComDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB687F51C7FE9A3008CE2DC /* ZKRComDiscoverViewController.m */; };
 		EEB687FC1C7FEAE1008CE2DC /* ZKRComChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB687FB1C7FEAE1008CE2DC /* ZKRComChoiceViewController.m */; };
 		EEB687FF1C7FF5FF008CE2DC /* ZKRComDiscoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB687FE1C7FF5FF008CE2DC /* ZKRComDiscoverCell.m */; };
@@ -77,6 +79,16 @@
 		EECC5E481C59181800540FB3 /* ZKRCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EECC5E461C59181800540FB3 /* ZKRCollectionViewCell.xib */; };
 		EEDF82E91C5C631100FF5AA8 /* HFStretchableTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDF82E81C5C631100FF5AA8 /* HFStretchableTableHeaderView.m */; };
 		EEE7F27E1C757359000222AD /* ZKRAccountBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE7F27D1C757359000222AD /* ZKRAccountBarButtonItem.m */; };
+		EEF0906B1C836554005B522C /* ZKRCommentChoiceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF0906A1C836554005B522C /* ZKRCommentChoiceItem.m */; };
+		EEF0906F1C836811005B522C /* ZKRComChoiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF0906D1C836811005B522C /* ZKRComChoiceCell.m */; };
+		EEF090701C836811005B522C /* ZKRComChoiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEF0906E1C836811005B522C /* ZKRComChoiceCell.xib */; };
+		EEF090901C837A01005B522C /* ZKRChoiceOnePicView.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF090881C837A01005B522C /* ZKRChoiceOnePicView.m */; };
+		EEF090911C837A01005B522C /* ZKRChoiceOnePicView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEF090891C837A01005B522C /* ZKRChoiceOnePicView.xib */; };
+		EEF090921C837A01005B522C /* ZKRChoiceThreePicView.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF0908B1C837A01005B522C /* ZKRChoiceThreePicView.m */; };
+		EEF090931C837A01005B522C /* ZKRChoiceThreePicView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEF0908C1C837A01005B522C /* ZKRChoiceThreePicView.xib */; };
+		EEF090941C837A01005B522C /* ZKRChoiceTwoPicView.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF0908E1C837A01005B522C /* ZKRChoiceTwoPicView.m */; };
+		EEF090951C837A01005B522C /* ZKRChoiceTwoPicView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEF0908F1C837A01005B522C /* ZKRChoiceTwoPicView.xib */; };
+		EEF090981C837E42005B522C /* UIView+Init.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF090971C837E42005B522C /* UIView+Init.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -189,6 +201,10 @@
 		EE97C8D41C66529500331134 /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tint.h"; sourceTree = "<group>"; };
 		EE97C8D51C66529500331134 /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
 		EE97C8D71C6652C600331134 /* rootBlocks.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = rootBlocks.plist; sourceTree = "<group>"; };
+		EEA7ADB61C8210F900C5A0DA /* ZKRRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRRefreshHeader.h; sourceTree = "<group>"; };
+		EEA7ADB71C8210F900C5A0DA /* ZKRRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRRefreshHeader.m; sourceTree = "<group>"; };
+		EEA7ADB91C8212B700C5A0DA /* ZKRTitlePageRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRTitlePageRefreshHeader.h; sourceTree = "<group>"; };
+		EEA7ADBA1C8212B700C5A0DA /* ZKRTitlePageRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRTitlePageRefreshHeader.m; sourceTree = "<group>"; };
 		EEB687F41C7FE9A3008CE2DC /* ZKRComDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRComDiscoverViewController.h; sourceTree = "<group>"; };
 		EEB687F51C7FE9A3008CE2DC /* ZKRComDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRComDiscoverViewController.m; sourceTree = "<group>"; };
 		EEB687FA1C7FEAE1008CE2DC /* ZKRComChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRComChoiceViewController.h; sourceTree = "<group>"; };
@@ -203,6 +219,22 @@
 		EEDF82E81C5C631100FF5AA8 /* HFStretchableTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFStretchableTableHeaderView.m; sourceTree = "<group>"; };
 		EEE7F27C1C757359000222AD /* ZKRAccountBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRAccountBarButtonItem.h; sourceTree = "<group>"; };
 		EEE7F27D1C757359000222AD /* ZKRAccountBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRAccountBarButtonItem.m; sourceTree = "<group>"; };
+		EEF090691C836554005B522C /* ZKRCommentChoiceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRCommentChoiceItem.h; sourceTree = "<group>"; };
+		EEF0906A1C836554005B522C /* ZKRCommentChoiceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRCommentChoiceItem.m; sourceTree = "<group>"; };
+		EEF0906C1C836811005B522C /* ZKRComChoiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRComChoiceCell.h; sourceTree = "<group>"; };
+		EEF0906D1C836811005B522C /* ZKRComChoiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRComChoiceCell.m; sourceTree = "<group>"; };
+		EEF0906E1C836811005B522C /* ZKRComChoiceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZKRComChoiceCell.xib; sourceTree = "<group>"; };
+		EEF090871C837A01005B522C /* ZKRChoiceOnePicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRChoiceOnePicView.h; sourceTree = "<group>"; };
+		EEF090881C837A01005B522C /* ZKRChoiceOnePicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRChoiceOnePicView.m; sourceTree = "<group>"; };
+		EEF090891C837A01005B522C /* ZKRChoiceOnePicView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZKRChoiceOnePicView.xib; sourceTree = "<group>"; };
+		EEF0908A1C837A01005B522C /* ZKRChoiceThreePicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRChoiceThreePicView.h; sourceTree = "<group>"; };
+		EEF0908B1C837A01005B522C /* ZKRChoiceThreePicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRChoiceThreePicView.m; sourceTree = "<group>"; };
+		EEF0908C1C837A01005B522C /* ZKRChoiceThreePicView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZKRChoiceThreePicView.xib; sourceTree = "<group>"; };
+		EEF0908D1C837A01005B522C /* ZKRChoiceTwoPicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRChoiceTwoPicView.h; sourceTree = "<group>"; };
+		EEF0908E1C837A01005B522C /* ZKRChoiceTwoPicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRChoiceTwoPicView.m; sourceTree = "<group>"; };
+		EEF0908F1C837A01005B522C /* ZKRChoiceTwoPicView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZKRChoiceTwoPicView.xib; sourceTree = "<group>"; };
+		EEF090961C837E42005B522C /* UIView+Init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Init.h"; sourceTree = "<group>"; };
+		EEF090971C837E42005B522C /* UIView+Init.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Init.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -344,6 +376,8 @@
 			children = (
 				EE968F371C80282600C6D1E0 /* ZKRCommentCellItem.h */,
 				EE968F381C80282600C6D1E0 /* ZKRCommentCellItem.m */,
+				EEF090691C836554005B522C /* ZKRCommentChoiceItem.h */,
+				EEF0906A1C836554005B522C /* ZKRCommentChoiceItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -356,6 +390,10 @@
 				EEB687FD1C7FF5FF008CE2DC /* ZKRComDiscoverCell.h */,
 				EEB687FE1C7FF5FF008CE2DC /* ZKRComDiscoverCell.m */,
 				EEB688001C7FF609008CE2DC /* ZKRComDiscoverCell.xib */,
+				EEF0906C1C836811005B522C /* ZKRComChoiceCell.h */,
+				EEF0906D1C836811005B522C /* ZKRComChoiceCell.m */,
+				EEF0906E1C836811005B522C /* ZKRComChoiceCell.xib */,
+				EEF090861C837A01005B522C /* PicView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -483,6 +521,10 @@
 			children = (
 				EEE7F27C1C757359000222AD /* ZKRAccountBarButtonItem.h */,
 				EEE7F27D1C757359000222AD /* ZKRAccountBarButtonItem.m */,
+				EEA7ADB61C8210F900C5A0DA /* ZKRRefreshHeader.h */,
+				EEA7ADB71C8210F900C5A0DA /* ZKRRefreshHeader.m */,
+				EEA7ADB91C8212B700C5A0DA /* ZKRTitlePageRefreshHeader.h */,
+				EEA7ADBA1C8212B700C5A0DA /* ZKRTitlePageRefreshHeader.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -580,6 +622,8 @@
 				EE88D3DB1C566C95001300F8 /* UITextField+CGLplaceholderLabel.m */,
 				EE88D3DC1C566C95001300F8 /* UIView+Frame.h */,
 				EE88D3DD1C566C95001300F8 /* UIView+Frame.m */,
+				EEF090961C837E42005B522C /* UIView+Init.h */,
+				EEF090971C837E42005B522C /* UIView+Init.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -624,6 +668,22 @@
 				EE968F491C8041A100C6D1E0 /* ZKRInfiniteScrollView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		EEF090861C837A01005B522C /* PicView */ = {
+			isa = PBXGroup;
+			children = (
+				EEF090871C837A01005B522C /* ZKRChoiceOnePicView.h */,
+				EEF090881C837A01005B522C /* ZKRChoiceOnePicView.m */,
+				EEF090891C837A01005B522C /* ZKRChoiceOnePicView.xib */,
+				EEF0908D1C837A01005B522C /* ZKRChoiceTwoPicView.h */,
+				EEF0908E1C837A01005B522C /* ZKRChoiceTwoPicView.m */,
+				EEF0908F1C837A01005B522C /* ZKRChoiceTwoPicView.xib */,
+				EEF0908A1C837A01005B522C /* ZKRChoiceThreePicView.h */,
+				EEF0908B1C837A01005B522C /* ZKRChoiceThreePicView.m */,
+				EEF0908C1C837A01005B522C /* ZKRChoiceThreePicView.xib */,
+			);
+			path = PicView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -688,10 +748,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEF090701C836811005B522C /* ZKRComChoiceCell.xib in Resources */,
 				EE5593481C78D23100985094 /* hot.plist in Resources */,
 				EE5E7A0F1C619FE800F30275 /* HeadLinePageIndicator.png in Resources */,
+				EEF090951C837A01005B522C /* ZKRChoiceTwoPicView.xib in Resources */,
 				EE5E7A0D1C619FE800F30275 /* HeadLineCurrentPageIndicator.png in Resources */,
 				EE7F728F1C7763E2007EFCBE /* ZKRColumnsViewCell.xib in Resources */,
+				EEF090911C837A01005B522C /* ZKRChoiceOnePicView.xib in Resources */,
 				EECC5E481C59181800540FB3 /* ZKRCollectionViewCell.xib in Resources */,
 				EE5EBC441C7FDBC900777B5E /* ZKRComInterestViewController.xib in Resources */,
 				EE5593591C78D57800985094 /* ZKRHotTableViewCell.xib in Resources */,
@@ -703,6 +766,7 @@
 				EEB688011C7FF609008CE2DC /* ZKRComDiscoverCell.xib in Resources */,
 				EE00B8C81C74CEE8001A444B /* ZKRSlideView.xib in Resources */,
 				EE5E7A101C619FE800F30275 /* HeadLinePageIndicator@2x.png in Resources */,
+				EEF090931C837A01005B522C /* ZKRChoiceThreePicView.xib in Resources */,
 				EE968F541C80A2A800C6D1E0 /* ZKRFunCategoryController.xib in Resources */,
 				EE968F4F1C80459100C6D1E0 /* ZKRZAKERLoginController.xib in Resources */,
 				EE968F711C812BDB00C6D1E0 /* ZKRSearchChoiceTopView.xib in Resources */,
@@ -769,12 +833,15 @@
 				EEB687FF1C7FF5FF008CE2DC /* ZKRComDiscoverCell.m in Sources */,
 				EE968F4E1C80459100C6D1E0 /* ZKRZAKERLoginController.m in Sources */,
 				EE7F72871C7751B0007EFCBE /* ZKRFunGroupItem.m in Sources */,
+				EEF090901C837A01005B522C /* ZKRChoiceOnePicView.m in Sources */,
 				EE968F3D1C80325B00C6D1E0 /* ZKRLoginViewController.m in Sources */,
 				EE968F601C80B71C00C6D1E0 /* ZKRSearchChoiceController.m in Sources */,
+				EEF090981C837E42005B522C /* UIView+Init.m in Sources */,
 				EE97C8D61C66529500331134 /* UIImage+Tint.m in Sources */,
 				EE88D3EF1C566EC7001300F8 /* ZKRFunViewController.m in Sources */,
 				EE88D3EC1C566EBE001300F8 /* ZKRHotViewController.m in Sources */,
 				EE7F72921C776565007EFCBE /* ZKRColoumnsViewController.m in Sources */,
+				EEF090921C837A01005B522C /* ZKRChoiceThreePicView.m in Sources */,
 				EECC5E471C59181800540FB3 /* ZKRCollectionViewCell.m in Sources */,
 				EE9629D61C57907E00B992AD /* ZKRRotationItem.m in Sources */,
 				EE88D3E21C566C95001300F8 /* UIView+Frame.m in Sources */,
@@ -783,6 +850,7 @@
 				EE968F5B1C80B5EB00C6D1E0 /* ZKRSubSearchController.m in Sources */,
 				EE88D3C41C55316A001300F8 /* main.m in Sources */,
 				EE968F4A1C8041A100C6D1E0 /* ZKRInfiniteScrollView.m in Sources */,
+				EEF090941C837A01005B522C /* ZKRChoiceTwoPicView.m in Sources */,
 				EE7F728E1C7763E2007EFCBE /* ZKRColumnsViewCell.m in Sources */,
 				EE5593511C78D45C00985094 /* ZKRHotGroupItem.m in Sources */,
 				EE5EBC3F1C7F69D400777B5E /* CGLTitleButton.m in Sources */,
@@ -792,13 +860,16 @@
 				EE968F6F1C812BCC00C6D1E0 /* ZKRSearchChoiceTopView.m in Sources */,
 				EE5E7A0C1C619FE800F30275 /* CycleView.m in Sources */,
 				EE968F391C80282600C6D1E0 /* ZKRCommentCellItem.m in Sources */,
+				EEA7ADB81C8210F900C5A0DA /* ZKRRefreshHeader.m in Sources */,
 				EE88D3DF1C566C95001300F8 /* UIColor+Hex.m in Sources */,
 				EE968F641C80B7AC00C6D1E0 /* ZKRSearchChannelController.m in Sources */,
 				EE7E8DC61C58F60D004E71DA /* ZKRRootTypeItem.m in Sources */,
 				EE88D3E61C566D77001300F8 /* ZKRNavigationController.m in Sources */,
 				EE00B8C61C74CE3F001A444B /* ZKRSlideView.m in Sources */,
 				EE5E7A0B1C619FE800F30275 /* CyclePageControl.m in Sources */,
+				EEF0906B1C836554005B522C /* ZKRCommentChoiceItem.m in Sources */,
 				EEB687F61C7FE9A3008CE2DC /* ZKRComDiscoverViewController.m in Sources */,
+				EEA7ADBB1C8212B700C5A0DA /* ZKRTitlePageRefreshHeader.m in Sources */,
 				EE9629D31C5788B400B992AD /* ZKRBarButtonItem.m in Sources */,
 				EE88D3F21C566ED4001300F8 /* ZKRCommunityViewController.m in Sources */,
 				EE5E7A0A1C619FE800F30275 /* CycleButon.m in Sources */,
@@ -815,6 +886,7 @@
 				EEDF82E91C5C631100FF5AA8 /* HFStretchableTableHeaderView.m in Sources */,
 				EE88D3E11C566C95001300F8 /* UITextField+CGLplaceholderLabel.m in Sources */,
 				EE6646B41C5B96200064CDA6 /* ZKRMineTableController.m in Sources */,
+				EEF0906F1C836811005B522C /* ZKRComChoiceCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

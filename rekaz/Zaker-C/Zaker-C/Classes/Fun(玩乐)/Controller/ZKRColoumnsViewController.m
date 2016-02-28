@@ -17,6 +17,7 @@
 #import "ZKRFunCellItem.h"
 #import "ZKRColumnsViewCell.h"
 #import "UIImageView+WebCache.h"
+#import "ZKRRefreshHeader.h"
 
 static NSString *CGLColumnsCellID = @"CGLColumnsCellID";
 @interface ZKRColoumnsViewController ()
@@ -40,19 +41,32 @@ static NSString *CGLColumnsCellID = @"CGLColumnsCellID";
     // cell底部分割线去除
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    [self setupRefresh];
+}
+
+- (void)setupRefresh
+{
+    self.tableView.mj_header = [ZKRRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewCell)];
+    
+    [self.tableView.mj_header beginRefreshing];
+}
+
+- (void)loadNewCell
+{
+    [self.tableView.mj_header endRefreshing];
 }
 
  /** 头部滚动视图 (未完) */
 - (void)setupTableHeaderView
 {
     if (self.cycleURLString) {
-        self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 55, 0);
+        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 35, 0);
         
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGLScreenW, 150)];
-        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGLScreenW, 180)];
+        imageView.contentMode = UIViewContentModeScaleToFill;
         [imageView sd_setImageWithURL:[NSURL URLWithString:self.cycleURLString]];
         
-        [self.tableView setTableHeaderView:imageView];
+        self.tableView.tableHeaderView = imageView;
     }
 }
 

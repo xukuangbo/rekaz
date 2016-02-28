@@ -7,23 +7,140 @@
 //
 
 #import "ZKRComChoiceViewController.h"
+#import "ZKRRefreshHeader.h"
+#import "AFHTTPSessionManager.h"
+#import "ZKRCommentChoiceItem.h"
+#import "MJExtension.h"
+#import "ZKRComChoiceCell.h"
 
 @interface ZKRComChoiceViewController ()
 
+@property (nonatomic, strong) AFHTTPSessionManager *manager;
+
+@property (nonatomic, strong) NSMutableArray *itemsArray;
+
+@property (nonatomic, strong) NSMutableString *loadOldDataUrl;
+
 @end
 
+static NSString *ComChoiceCell = @"ComChoiceCell";
+
 @implementation ZKRComChoiceViewController
+
+#pragma mark - ---| hehe |---
+- (CGLItemType)type
+{
+    return 0;
+}
+
+#pragma mark - ---| lazy load |---
+- (AFHTTPSessionManager *)manager
+{
+    if (!_manager) {
+        _manager = [AFHTTPSessionManager manager];
+    }
+    return _manager;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.view.backgroundColor = CGLCommonBgColor;
+    
+    [self setupRefresh];
+    
+    self.tableView.contentInset = UIEdgeInsetsMake(35, 0, 0, 0);
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZKRComChoiceCell class]) bundle:nil] forCellReuseIdentifier:ComChoiceCell];
+    
+    // cell底部分割线去除
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [self loadData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setupRefresh
+{
+    self.tableView.mj_header = [ZKRRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewCell)];
+    
+    [self.tableView.mj_header beginRefreshing];
 }
 
+#pragma mark - ---| 加载数据 |---
+- (void)loadData
+{
+    NSMutableDictionary *para = [NSMutableDictionary dictionary];
+    para[@"_appid"] = @"iphone";
+    para[@"_udid"] = @"48E21014-9B62-48C3-B818-02F902C1619E";
+    para[@"_net"] = @"wifi";
+    para[@"_version"] = @"6.46";
+    para[@"_lbs_city"] = @"%E5%B9%BF%E5%B7%9E";
+    
+    [self.manager GET:@"http://dis.myzaker.com/api/get_post_selected.php" parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        self.itemsArray = [ZKRCommentChoiceItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"posts"]];
+        
+//        ZKRCommentChoiceItem *item = self.itemsArray[1];
+        //        NSLog(@"%@", [item getAllPropertiesAndVaules]);
+        
+        /** 上拉刷新的连接 */
+        self.loadOldDataUrl = responseObject[@"data"][@"info"][@"next_url"];
+        [self.tableView reloadData];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@", error);
+    }];
+
+}
+
+ /** 加载新数据 */
+- (void)loadNewCell
+{
+    
+//    [self.tableView.mj_header endRefreshing];
+    NSMutableDictionary *para = [NSMutableDictionary dictionary];
+    para[@"_appid"] = @"iphone";
+    para[@"_udid"] = @"48E21014-9B62-48C3-B818-02F902C1619E";
+    para[@"_net"] = @"wifi";
+    para[@"_version"] = @"6.46";
+    para[@"_lbs_city"] = @"%E5%B9%BF%E5%B7%9E";
+    
+    [self.manager GET:@"http://dis.myzaker.com/api/get_post_selected.php" parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        self.itemsArray = [ZKRCommentChoiceItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"posts"]];
+        
+        //        ZKRCommentChoiceItem *item = self.itemsArray[1];
+        //        NSLog(@"%@", [item getAllPropertiesAndVaules]);
+        
+        /** 上拉刷新的连接 */
+        self.loadOldDataUrl = responseObject[@"data"][@"info"][@"next_url"];
+        [self.tableView reloadData];
+        [self.tableView.mj_header endRefreshing];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@", error);
+    }];
+    
+}
+
+
+
+#pragma mark - ---| date source |---
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.itemsArray.count;
+}
+
+- (ZKRComChoiceCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    ZKRComChoiceCell *cell = [tableView dequeueReusableCellWithIdentifier:ComChoiceCell];
+
+    ZKRCommentChoiceItem *item = self.itemsArray[indexPath.row];
+    
+    cell.item = item;
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ZKRCommentChoiceItem *item = self.itemsArray[indexPath.row];
+    return item.cellHeight;
+}
 
 @end
