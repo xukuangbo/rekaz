@@ -25,6 +25,7 @@ CGFloat const margin = 1;
 #import "ZKRRootTypeItem.h"
 #import "ZKRSubSearchController.h"
 #import "ZKRTitlePageRefreshHeader.h"
+#import "ZKRSubArticlesController.h"
 
 
 @interface ZKRSubscriptionViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate>
@@ -54,6 +55,11 @@ static NSString *requestURL = @"http://iphone.myzaker.com/zaker/follow_promote.p
 
 @implementation ZKRSubscriptionViewController
 #pragma mark - ---| lazy load |---
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
 - (ZKRSlideView *)slideView
 {
     if (!_slideView) {
@@ -126,6 +132,7 @@ static NSString *requestURL = @"http://iphone.myzaker.com/zaker/follow_promote.p
     CycleView *cycleView = [[CycleView alloc] initWithFrame:CGRectMake(0, 0, CGLScreenW, 200)];
     
     self.articleScroll = cycleView;
+    
     [self.scroll addSubview:self.articleScroll];
 }
 
@@ -218,7 +225,9 @@ static NSString *requestURL = @"http://iphone.myzaker.com/zaker/follow_promote.p
         [self.collectionView beginInteractiveMovementForItemAtIndexPath:indexPath];
     } else if (gesture.state == UIGestureRecognizerStateChanged){
 //        NSLog(@"UIGestureRecognizerStateChanged");
-        
+        /**
+         *  cell 的数组还未调换顺序----- typeArray
+         */
         [self.collectionView updateInteractiveMovementTargetPosition:[gesture locationInView:self.collectionView]];
     } else if (gesture.state == UIGestureRecognizerStateEnded) {
 //        NSLog(@"UIGestureRecognizerStateEnded");
@@ -246,16 +255,17 @@ static NSString *requestURL = @"http://iphone.myzaker.com/zaker/follow_promote.p
 {
     ZKRCollectionViewCell *cell = (ZKRCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     if (!self.isEditing) {
+        
         if (![cell.item.title isEqualToString:@"添加内容"]) {
-            UIViewController *vc = [[UIViewController alloc] init];
-            vc.view.backgroundColor = [UIColor lightGrayColor];
-            vc.navigationController.navigationBarHidden = YES;
+            
+            ZKRSubArticlesController *vc = [[ZKRSubArticlesController alloc] init];
+            vc.item = cell.item;
             [self.navigationController pushViewController:vc animated:YES];
+            
         } else {
             [self searchClick];
-            
         }
-        
+
     } else {
         return;
     }

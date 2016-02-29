@@ -12,6 +12,8 @@
 #import "ZKRCommentChoiceItem.h"
 #import "MJExtension.h"
 #import "ZKRComChoiceCell.h"
+#import "ZKRRefreshFooter.h"
+#import "ZKRComChoiceDetailController.h"
 
 @interface ZKRComChoiceViewController ()
 
@@ -26,12 +28,6 @@
 static NSString *ComChoiceCell = @"ComChoiceCell";
 
 @implementation ZKRComChoiceViewController
-
-#pragma mark - ---| hehe |---
-- (CGLItemType)type
-{
-    return 0;
-}
 
 #pragma mark - ---| lazy load |---
 - (AFHTTPSessionManager *)manager
@@ -63,6 +59,9 @@ static NSString *ComChoiceCell = @"ComChoiceCell";
     self.tableView.mj_header = [ZKRRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewCell)];
     
     [self.tableView.mj_header beginRefreshing];
+    
+    // footer
+    self.tableView.mj_footer = [ZKRRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreCell)];
 }
 
 #pragma mark - ---| 加载数据 |---
@@ -78,8 +77,8 @@ static NSString *ComChoiceCell = @"ComChoiceCell";
     [self.manager GET:@"http://dis.myzaker.com/api/get_post_selected.php" parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         self.itemsArray = [ZKRCommentChoiceItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"posts"]];
         
-//        ZKRCommentChoiceItem *item = self.itemsArray[1];
-        //        NSLog(@"%@", [item getAllPropertiesAndVaules]);
+//        ZKRCommentChoiceItem *item = self.itemsArray[0];
+//        NSLog(@"%@", [item getAllPropertiesAndVaules]);
         
         /** 上拉刷新的连接 */
         self.loadOldDataUrl = responseObject[@"data"][@"info"][@"next_url"];
@@ -106,9 +105,6 @@ static NSString *ComChoiceCell = @"ComChoiceCell";
     [self.manager GET:@"http://dis.myzaker.com/api/get_post_selected.php" parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         self.itemsArray = [ZKRCommentChoiceItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"posts"]];
         
-        //        ZKRCommentChoiceItem *item = self.itemsArray[1];
-        //        NSLog(@"%@", [item getAllPropertiesAndVaules]);
-        
         /** 上拉刷新的连接 */
         self.loadOldDataUrl = responseObject[@"data"][@"info"][@"next_url"];
         [self.tableView reloadData];
@@ -119,7 +115,25 @@ static NSString *ComChoiceCell = @"ComChoiceCell";
     
 }
 
-
+- (void)loadMoreCell
+{
+    NSMutableDictionary *para = [NSMutableDictionary dictionary];
+    
+    [self.manager GET:self.loadOldDataUrl parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSArray *items = [ZKRCommentChoiceItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"posts"]];
+        [self.itemsArray addObjectsFromArray:items];
+        /** 上拉刷新的连接 */
+        self.loadOldDataUrl = responseObject[@"data"][@"info"][@"next_url"];
+//        NSLog(@"%@", responseObject);
+        [self.tableView reloadData];
+        [self.tableView.mj_footer endRefreshing];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@", error);
+    }];
+    
+    
+}
 
 #pragma mark - ---| date source |---
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -143,4 +157,10 @@ static NSString *ComChoiceCell = @"ComChoiceCell";
     return item.cellHeight;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ZKRComChoiceDetailController *detailVC = [[ZKRComChoiceDetailController alloc]init];
+    detailVC.item = self.itemsArray[indexPath.row];
+    [self.navigationController pushViewController:detailVC animated:YES];
+}
 @end

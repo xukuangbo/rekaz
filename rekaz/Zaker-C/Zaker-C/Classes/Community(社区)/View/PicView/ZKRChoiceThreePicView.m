@@ -25,12 +25,21 @@
     //    self.progressView.roundedCorners = 5;
     //    self.progressView.progressLabel.textColor = [UIColor whiteColor];
     
-    // 让iamgeView可以交互
-    self.firstImageView.userInteractionEnabled = YES;
-    self.secondImageView.userInteractionEnabled = YES;
-    self.thirdImageView.userInteractionEnabled = YES;
-    //    [self.picImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bigImageClick:)]];
+    [self setImageView:self.firstImageView];
+    [self setImageView:self.secondImageView];
+    [self setImageView:self.thirdImageView];
+    
 }
+
+- (void)setImageView:(UIImageView *)imageView
+{
+    imageView.userInteractionEnabled = NO;
+    imageView.clipsToBounds = YES;
+    imageView.layer.borderWidth = 0.5;
+    imageView.layer.borderColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1].CGColor;
+}
+
+
 - (void)setItem:(ZKRCommentChoiceItem *)item
 {
     _item = item;

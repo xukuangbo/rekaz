@@ -74,9 +74,9 @@
         if ([self.item_type intValue] == CGLItemTypeOne) {
             centerH = centerW * [self.medias_height intValue] / [self.medias_weight intValue];
         } else if ([self.item_type intValue] == CGLItemTypeTwo) {
-            centerH = 180;
+            centerH = 183;
         } else if ([self.item_type intValue] == CGLItemTypeThree) {
-            centerH = 120;
+            centerH = 123;
         }
         
         if (centerH > 300) {
@@ -90,7 +90,7 @@
         self.centerFrame = CGRectMake(centerX, centerY, centerW, centerH);
         
         // 累加中间内容的高度
-        _cellHeight += centerH + CGLMargin;
+        _cellHeight += centerH;
         
         /*
          centerW    self.width
