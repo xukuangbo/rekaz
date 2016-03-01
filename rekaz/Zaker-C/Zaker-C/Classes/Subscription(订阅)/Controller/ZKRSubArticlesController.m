@@ -13,6 +13,8 @@
 #import "UIImageView+WebCache.h"
 #import "ZKRArticleItem.h"
 #import "MJExtension.h"
+#import "ZKRSubArticlesCell2.h"
+#import "ZKRSubArticlesCell3.h"
 
 @interface ZKRSubArticlesController()<UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -36,6 +38,8 @@
 
 @implementation ZKRSubArticlesController
 static NSString *SubArticlesCell = @"SubArticlesCell";
+static NSString *SubArticlesCell2 = @"SubArticlesCell2";
+static NSString *SubArticlesCell3 = @"SubArticlesCell3";
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -74,6 +78,9 @@ static NSString *SubArticlesCell = @"SubArticlesCell";
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.contentView.bounds collectionViewLayout:layout];
     
     [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([ZKRSubArticlesCell class]) bundle:nil] forCellWithReuseIdentifier:SubArticlesCell];
+    [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([ZKRSubArticlesCell2 class]) bundle:nil] forCellWithReuseIdentifier:SubArticlesCell2];
+    [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([ZKRSubArticlesCell3 class]) bundle:nil] forCellWithReuseIdentifier:SubArticlesCell3];
+    
     collectionView.delegate = self;
     collectionView.dataSource = self;
     collectionView.pagingEnabled = YES;
@@ -144,14 +151,33 @@ static NSString *SubArticlesCell = @"SubArticlesCell";
     return self.pageArray.count;
 }
 
-- (ZKRSubArticlesCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ZKRSubArticlesCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:SubArticlesCell forIndexPath:indexPath];
     
     cell.articlesArray = self.pageArray[indexPath.row];
     cell.topImageURL = self.topImageURL;
     cell.item = self.item;
-    return cell;
+    
+    ZKRSubArticlesCell2 *cell2 = [collectionView dequeueReusableCellWithReuseIdentifier:SubArticlesCell2 forIndexPath:indexPath];
+    
+    cell2.articlesArray = self.pageArray[indexPath.row];
+    cell2.topImageURL = self.topImageURL;
+    cell2.item = self.item;
+    
+    ZKRSubArticlesCell3 *cell3 = [collectionView dequeueReusableCellWithReuseIdentifier:SubArticlesCell3 forIndexPath:indexPath];
+    
+    cell3.articlesArray = self.pageArray[indexPath.row];
+    cell3.topImageURL = self.topImageURL;
+    cell3.item = self.item;
+    
+    if (indexPath.row % 3 == 0) {
+        return cell;
+    } else if (indexPath.row % 3 == 1){
+        return cell2;
+    } else {
+        return cell3;
+    }
 }
 
 #pragma mark - ---| delegate |---

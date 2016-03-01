@@ -16,8 +16,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *topImageView;
 
-@property (weak, nonatomic) IBOutlet UIView *topView;
-
  /** top */
 @property (weak, nonatomic) IBOutlet UIView *contentView1;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *view1HeightConstranint;
@@ -53,6 +51,9 @@
 @property (nonatomic, strong) NSArray *authors;
 @property (nonatomic, strong) NSArray *contentViews;
 
+
+
+
 @end
 
 @implementation ZKRSubArticlesCell
@@ -72,6 +73,9 @@
     ZKRArticleItem *article = [[ZKRArticleItem alloc] init];
     UILabel *titleLabel = [[UILabel alloc] init];
     UILabel *authorLabel = [[UILabel alloc] init];
+    UIView *view = [[UIView alloc] init];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewClick)];
     
     for (int i = 0; i < count; ++i) {
         article = articlesArray[i];
@@ -87,24 +91,31 @@
         if (i == 0) {
             if (article.thumbnail_pic) {
                 [self.artiImageView sd_setImageWithURL:[NSURL URLWithString:article.thumbnail_mpic]];
-                self.artiImageView.backgroundColor = [UIColor clearColor];
                 self.titleConstraint.constant = 10;
                 self.view1HeightConstranint.constant = 230;
             } else {
                 [self.artiImageView sd_setImageWithURL:[NSURL URLWithString:@""]];
                 self.titleConstraint.constant = 60;
-                self.artiImageView.backgroundColor = [UIColor colorWithHexString:self.item.block_color];
                 self.view1HeightConstranint.constant = 150;
             }
         }
         
+        view = self.contentViews[i];
+        
+        [view addGestureRecognizer:tap];
     }
+    
+}
+
+- (void)viewClick:(UITapGestureRecognizer *)tap
+{
     
 }
 
 - (void)setItem:(ZKRRootTypeItem *)item
 {
     _item = item;
+    self.artiImageView.backgroundColor = [UIColor colorWithHexString:self.item.block_color];
 }
 
  /** 顶部标题图片加载 */

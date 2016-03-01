@@ -16,8 +16,6 @@
 		EE07D7D41C84075E00AF4B43 /* ZKRComChoiceDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE07D7D31C84075E00AF4B43 /* ZKRComChoiceDetailController.xib */; };
 		EE2A879E1C848456008BB94D /* NSObject+Object.m in Sources */ = {isa = PBXBuildFile; fileRef = EE2A879D1C848456008BB94D /* NSObject+Object.m */; };
 		EE2A87A11C84888D008BB94D /* ZKRSubArticlesController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE2A87A01C84888D008BB94D /* ZKRSubArticlesController.m */; };
-		EE2A87A41C848C46008BB94D /* ZKRSubArticlesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE2A87A31C848C46008BB94D /* ZKRSubArticlesCell.m */; };
-		EE2A87A61C848C55008BB94D /* ZKRSubArticlesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE2A87A51C848C55008BB94D /* ZKRSubArticlesCell.xib */; };
 		EE2A87A81C849181008BB94D /* ZKRSubArticlesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE2A87A71C849181008BB94D /* ZKRSubArticlesController.xib */; };
 		EE5593481C78D23100985094 /* hot.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE5593471C78D23100985094 /* hot.plist */; };
 		EE5593511C78D45C00985094 /* ZKRHotGroupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5593501C78D45C00985094 /* ZKRHotGroupItem.m */; };
@@ -36,6 +34,12 @@
 		EE5EBC431C7FDBC900777B5E /* ZKRComInterestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5EBC411C7FDBC900777B5E /* ZKRComInterestViewController.m */; };
 		EE5EBC441C7FDBC900777B5E /* ZKRComInterestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE5EBC421C7FDBC900777B5E /* ZKRComInterestViewController.xib */; };
 		EE6185601C856DA9004A4088 /* ZKRArticleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EE61855F1C856DA9004A4088 /* ZKRArticleItem.m */; };
+		EE61856D1C85B10F004A4088 /* ZKRSubArticlesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6185681C85B10F004A4088 /* ZKRSubArticlesCell.m */; };
+		EE61856E1C85B10F004A4088 /* ZKRSubArticlesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE6185691C85B10F004A4088 /* ZKRSubArticlesCell.xib */; };
+		EE61856F1C85B10F004A4088 /* ZKRSubArticlesCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = EE61856B1C85B10F004A4088 /* ZKRSubArticlesCell2.m */; };
+		EE6185701C85B10F004A4088 /* ZKRSubArticlesCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE61856C1C85B10F004A4088 /* ZKRSubArticlesCell2.xib */; };
+		EE6185741C85B73E004A4088 /* ZKRSubArticlesCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6185721C85B73E004A4088 /* ZKRSubArticlesCell3.m */; };
+		EE6185751C85B73E004A4088 /* ZKRSubArticlesCell3.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE6185731C85B73E004A4088 /* ZKRSubArticlesCell3.xib */; };
 		EE6646B41C5B96200064CDA6 /* ZKRMineTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6646B21C5B96200064CDA6 /* ZKRMineTableController.m */; };
 		EE6646B71C5B964F0064CDA6 /* ZKRMineTableController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE6646B61C5B964F0064CDA6 /* ZKRMineTableController.storyboard */; };
 		EE7AF3221C84BD9900A340DD /* rootBlocks.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE7AF3211C84BD9900A340DD /* rootBlocks.plist */; };
@@ -119,9 +123,6 @@
 		EE2A879D1C848456008BB94D /* NSObject+Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Object.m"; sourceTree = "<group>"; };
 		EE2A879F1C84888D008BB94D /* ZKRSubArticlesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRSubArticlesController.h; sourceTree = "<group>"; };
 		EE2A87A01C84888D008BB94D /* ZKRSubArticlesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRSubArticlesController.m; sourceTree = "<group>"; };
-		EE2A87A21C848C46008BB94D /* ZKRSubArticlesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRSubArticlesCell.h; sourceTree = "<group>"; };
-		EE2A87A31C848C46008BB94D /* ZKRSubArticlesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRSubArticlesCell.m; sourceTree = "<group>"; };
-		EE2A87A51C848C55008BB94D /* ZKRSubArticlesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZKRSubArticlesCell.xib; sourceTree = "<group>"; };
 		EE2A87A71C849181008BB94D /* ZKRSubArticlesController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZKRSubArticlesController.xib; sourceTree = "<group>"; };
 		EE5593471C78D23100985094 /* hot.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = hot.plist; path = ../hot.plist; sourceTree = "<group>"; };
 		EE55934F1C78D45C00985094 /* ZKRHotGroupItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRHotGroupItem.h; sourceTree = "<group>"; };
@@ -149,6 +150,15 @@
 		EE5EBC421C7FDBC900777B5E /* ZKRComInterestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZKRComInterestViewController.xib; sourceTree = "<group>"; };
 		EE61855E1C856DA9004A4088 /* ZKRArticleItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRArticleItem.h; sourceTree = "<group>"; };
 		EE61855F1C856DA9004A4088 /* ZKRArticleItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRArticleItem.m; sourceTree = "<group>"; };
+		EE6185671C85B10F004A4088 /* ZKRSubArticlesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRSubArticlesCell.h; sourceTree = "<group>"; };
+		EE6185681C85B10F004A4088 /* ZKRSubArticlesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRSubArticlesCell.m; sourceTree = "<group>"; };
+		EE6185691C85B10F004A4088 /* ZKRSubArticlesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZKRSubArticlesCell.xib; sourceTree = "<group>"; };
+		EE61856A1C85B10F004A4088 /* ZKRSubArticlesCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRSubArticlesCell2.h; sourceTree = "<group>"; };
+		EE61856B1C85B10F004A4088 /* ZKRSubArticlesCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRSubArticlesCell2.m; sourceTree = "<group>"; };
+		EE61856C1C85B10F004A4088 /* ZKRSubArticlesCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZKRSubArticlesCell2.xib; sourceTree = "<group>"; };
+		EE6185711C85B73E004A4088 /* ZKRSubArticlesCell3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRSubArticlesCell3.h; sourceTree = "<group>"; };
+		EE6185721C85B73E004A4088 /* ZKRSubArticlesCell3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRSubArticlesCell3.m; sourceTree = "<group>"; };
+		EE6185731C85B73E004A4088 /* ZKRSubArticlesCell3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZKRSubArticlesCell3.xib; sourceTree = "<group>"; };
 		EE6646B11C5B96200064CDA6 /* ZKRMineTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRMineTableController.h; sourceTree = "<group>"; };
 		EE6646B21C5B96200064CDA6 /* ZKRMineTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRMineTableController.m; sourceTree = "<group>"; };
 		EE6646B61C5B964F0064CDA6 /* ZKRMineTableController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZKRMineTableController.storyboard; sourceTree = "<group>"; };
@@ -317,6 +327,22 @@
 				EE5E7A091C619FE800F30275 /* placeholder.png */,
 			);
 			path = image;
+			sourceTree = "<group>";
+		};
+		EE6185661C85B10F004A4088 /* ZKRSubArticlesCell */ = {
+			isa = PBXGroup;
+			children = (
+				EE6185671C85B10F004A4088 /* ZKRSubArticlesCell.h */,
+				EE6185681C85B10F004A4088 /* ZKRSubArticlesCell.m */,
+				EE6185691C85B10F004A4088 /* ZKRSubArticlesCell.xib */,
+				EE61856A1C85B10F004A4088 /* ZKRSubArticlesCell2.h */,
+				EE61856B1C85B10F004A4088 /* ZKRSubArticlesCell2.m */,
+				EE61856C1C85B10F004A4088 /* ZKRSubArticlesCell2.xib */,
+				EE6185711C85B73E004A4088 /* ZKRSubArticlesCell3.h */,
+				EE6185721C85B73E004A4088 /* ZKRSubArticlesCell3.m */,
+				EE6185731C85B73E004A4088 /* ZKRSubArticlesCell3.xib */,
+			);
+			path = ZKRSubArticlesCell;
 			sourceTree = "<group>";
 		};
 		EE88D3861C552E47001300F8 = {
@@ -630,9 +656,7 @@
 				EE968F6D1C812BCC00C6D1E0 /* ZKRSearchChoiceTopView.h */,
 				EE968F6E1C812BCC00C6D1E0 /* ZKRSearchChoiceTopView.m */,
 				EE968F701C812BDB00C6D1E0 /* ZKRSearchChoiceTopView.xib */,
-				EE2A87A21C848C46008BB94D /* ZKRSubArticlesCell.h */,
-				EE2A87A31C848C46008BB94D /* ZKRSubArticlesCell.m */,
-				EE2A87A51C848C55008BB94D /* ZKRSubArticlesCell.xib */,
+				EE6185661C85B10F004A4088 /* ZKRSubArticlesCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -792,9 +816,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE61856E1C85B10F004A4088 /* ZKRSubArticlesCell.xib in Resources */,
 				EEF090701C836811005B522C /* ZKRComChoiceCell.xib in Resources */,
 				EE5593481C78D23100985094 /* hot.plist in Resources */,
 				EE07D7D41C84075E00AF4B43 /* ZKRComChoiceDetailController.xib in Resources */,
+				EE6185701C85B10F004A4088 /* ZKRSubArticlesCell2.xib in Resources */,
+				EE6185751C85B73E004A4088 /* ZKRSubArticlesCell3.xib in Resources */,
 				EE5E7A0F1C619FE800F30275 /* HeadLinePageIndicator.png in Resources */,
 				EE2A87A81C849181008BB94D /* ZKRSubArticlesController.xib in Resources */,
 				EEF090951C837A01005B522C /* ZKRChoiceTwoPicView.xib in Resources */,
@@ -805,7 +832,6 @@
 				EECC5E481C59181800540FB3 /* ZKRCollectionViewCell.xib in Resources */,
 				EE5EBC441C7FDBC900777B5E /* ZKRComInterestViewController.xib in Resources */,
 				EE5593591C78D57800985094 /* ZKRHotTableViewCell.xib in Resources */,
-				EE2A87A61C848C55008BB94D /* ZKRSubArticlesCell.xib in Resources */,
 				EE5E7A111C619FE800F30275 /* placeholder.png in Resources */,
 				EE5E7A0E1C619FE800F30275 /* HeadLineCurrentPageIndicator@2x.png in Resources */,
 				EE6646B71C5B964F0064CDA6 /* ZKRMineTableController.storyboard in Resources */,
@@ -891,7 +917,6 @@
 				EE88D3EC1C566EBE001300F8 /* ZKRHotViewController.m in Sources */,
 				EE7F72921C776565007EFCBE /* ZKRColoumnsViewController.m in Sources */,
 				EEF090921C837A01005B522C /* ZKRChoiceThreePicView.m in Sources */,
-				EE2A87A41C848C46008BB94D /* ZKRSubArticlesCell.m in Sources */,
 				EECC5E471C59181800540FB3 /* ZKRCollectionViewCell.m in Sources */,
 				EE9629D61C57907E00B992AD /* ZKRRotationItem.m in Sources */,
 				EE88D3E21C566C95001300F8 /* UIView+Frame.m in Sources */,
@@ -905,6 +930,7 @@
 				EE5593511C78D45C00985094 /* ZKRHotGroupItem.m in Sources */,
 				EE5EBC3F1C7F69D400777B5E /* CGLTitleButton.m in Sources */,
 				EE88D3E01C566C95001300F8 /* UIImage+Render.m in Sources */,
+				EE6185741C85B73E004A4088 /* ZKRSubArticlesCell3.m in Sources */,
 				EE5EBC431C7FDBC900777B5E /* ZKRComInterestViewController.m in Sources */,
 				EE7F72861C7751B0007EFCBE /* ZKRFunCellItem.m in Sources */,
 				EE968F6F1C812BCC00C6D1E0 /* ZKRSearchChoiceTopView.m in Sources */,
@@ -921,6 +947,8 @@
 				EEF0906B1C836554005B522C /* ZKRCommentChoiceItem.m in Sources */,
 				EEB687F61C7FE9A3008CE2DC /* ZKRComDiscoverViewController.m in Sources */,
 				EE07D7D21C84073700AF4B43 /* ZKRComChoiceDetailController.m in Sources */,
+				EE61856D1C85B10F004A4088 /* ZKRSubArticlesCell.m in Sources */,
+				EE61856F1C85B10F004A4088 /* ZKRSubArticlesCell2.m in Sources */,
 				EEA7ADBB1C8212B700C5A0DA /* ZKRTitlePageRefreshHeader.m in Sources */,
 				EE2A879E1C848456008BB94D /* NSObject+Object.m in Sources */,
 				EE9629D31C5788B400B992AD /* ZKRBarButtonItem.m in Sources */,
