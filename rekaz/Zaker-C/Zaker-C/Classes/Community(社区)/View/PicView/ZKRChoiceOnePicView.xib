@@ -15,7 +15,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsm-pS-WZr">
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsm-pS-WZr">
                     <rect key="frame" x="335" y="160" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="h8d-5T-NG8"/>
