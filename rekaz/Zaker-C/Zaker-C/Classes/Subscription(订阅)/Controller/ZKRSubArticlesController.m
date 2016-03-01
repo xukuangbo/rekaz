@@ -10,15 +10,28 @@
 #import "ZKRSubArticlesCell.h"
 #import "ZKRRootTypeItem.h"
 #import "ZKRHTTPSessionManager.h"
+#import "UIImageView+WebCache.h"
+#import "ZKRArticleItem.h"
+#import "MJExtension.h"
 
 @interface ZKRSubArticlesController()<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, weak) UICollectionView *collectionView;
+
 @property (weak, nonatomic) IBOutlet UILabel *nearTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *farTimeLabel;
+
 @property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UISlider *pageSliderView;
 
 @property (nonatomic, strong) ZKRHTTPSessionManager *manager;
+
+@property (nonatomic, strong) NSArray *itemsArray;
+@property (nonatomic, strong) NSMutableArray *pageArray;
+
+ /** 顶部图片url */
+@property (nonatomic, strong) NSMutableString *topImageURL;
+
 @end
 
 @implementation ZKRSubArticlesController
@@ -36,9 +49,12 @@ static NSString *SubArticlesCell = @"SubArticlesCell";
 {
     [super viewDidLoad];
     
+    [self loadData];
+    
     [self setupCollectionView];
     
-    [self loadData];
+    self.pageSliderView.minimumValue = 0;
+    [self.pageSliderView addTarget:self action:@selector(pageSliderViewDrag:) forControlEvents:UIControlEventTouchUpInside];
 }
 
  /** 初始化collectionview */
@@ -62,7 +78,7 @@ static NSString *SubArticlesCell = @"SubArticlesCell";
     collectionView.dataSource = self;
     collectionView.pagingEnabled = YES;
     collectionView.backgroundColor = [UIColor whiteColor];
-    
+    collectionView.showsHorizontalScrollIndicator = NO;
     
     self.collectionView = collectionView;
     [self.contentView addSubview:self.collectionView];
@@ -72,15 +88,50 @@ static NSString *SubArticlesCell = @"SubArticlesCell";
  /** 加载数据 */
 - (void)loadData
 {
-//    NSLog(@"%@", self.item.api_url);
+//    NSLog(@"%@", [self.item getAllPropertiesAndVaules]);
     
     self.manager = [ZKRHTTPSessionManager manager];
     
     NSMutableDictionary *para = [NSMutableDictionary dictionary];
+    para[@"_appid"] = @"iphone";
+    para[@"_udid"] = @"48E21014-9B62-48C3-B818-02F902C1619E";
+    para[@"_net"] = @"wifi";
+    para[@"_version"] = @"6.46";
+    
     
     [self.manager GET:self.item.api_url parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        [responseObject writeToFile:@"/Users/CGL/Desktop/articles.plist" atomically:YES];
+//        [responseObject writeToFile:@"/Users/CGL/Desktop/articles.plist" atomically:YES];
         
+        self.itemsArray = [ZKRArticleItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"articles"]];
+        
+        NSInteger count = self.itemsArray.count;
+        
+        NSMutableArray *page = [NSMutableArray arrayWithCapacity:6];
+        NSMutableArray *pages = [NSMutableArray array];
+        ZKRArticleItem *article = [[ZKRArticleItem alloc] init];
+        for (int i = 0; i < count; ++i) {
+            article = self.itemsArray[i];
+            [page addObject:article];
+            while (page.count == 6) {
+                [pages addObject:page];
+                page = [NSMutableArray arrayWithCapacity:6];
+            }
+        }
+        self.pageArray = pages;
+        
+        ZKRArticleItem *fir_article = self.itemsArray[0];
+        self.nearTimeLabel.text = fir_article.date;
+
+        
+        ZKRArticleItem *last_article = self.itemsArray[count - 1];
+        self.farTimeLabel.text = last_article.date;
+        
+        
+        self.topImageURL = responseObject[@"data"][@"ipadconfig"][@"pages"][0][@"diy"][@"bgimage_url"];
+        self.pageSliderView.maximumValue = self.pageArray.count;
+        
+        
+        [self.collectionView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);
     }];
@@ -90,18 +141,38 @@ static NSString *SubArticlesCell = @"SubArticlesCell";
 #pragma mark - ---| data source |---
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 5;
+    return self.pageArray.count;
 }
 
 - (ZKRSubArticlesCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ZKRSubArticlesCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:SubArticlesCell forIndexPath:indexPath];
-    cell.item = self.item;
     
+    cell.articlesArray = self.pageArray[indexPath.row];
+    cell.topImageURL = self.topImageURL;
+    cell.item = self.item;
     return cell;
 }
 
+#pragma mark - ---| delegate |---
 
+ /** 拖动页面 减速完毕 */
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    NSInteger pageNum = scrollView.contentOffset.x / scrollView.cgl_width;
+    [self.pageSliderView setValue:pageNum animated:YES];
+}
+
+#pragma mark - ---| event |---
+ /** 拖动滑块 跳转页面 */
+- (void)pageSliderViewDrag:(UISlider *)slider
+{
+    NSInteger page = (NSInteger)slider.value;
+    
+    [self.collectionView setContentOffset:CGPointMake(page * self.collectionView.cgl_width, 0) animated:YES];
+}
+
+ /** 返回按钮 */
 - (IBAction)backButtonClick:(UIButton *)sender {
     
     [self.navigationController popViewControllerAnimated:YES];
@@ -109,7 +180,9 @@ static NSString *SubArticlesCell = @"SubArticlesCell";
     
 }
 
+ /** 刷新按钮 */
 - (IBAction)refreshButtonClick:(UIButton *)sender {
+
 }
 
 

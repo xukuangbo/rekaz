@@ -261,7 +261,7 @@ static NSString *requestURL = @"http://iphone.myzaker.com/zaker/follow_promote.p
             ZKRSubArticlesController *vc = [[ZKRSubArticlesController alloc] init];
             vc.item = cell.item;
             [self.navigationController pushViewController:vc animated:YES];
-            
+//            NSLog(@"%@", [cell.item getAllPropertiesAndVaules]);
         } else {
             [self searchClick];
         }

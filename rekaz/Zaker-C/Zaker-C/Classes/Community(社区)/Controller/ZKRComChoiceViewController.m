@@ -125,7 +125,7 @@ static NSString *ComChoiceCell = @"ComChoiceCell";
         [self.itemsArray addObjectsFromArray:items];
         /** 上拉刷新的连接 */
         self.loadOldDataUrl = responseObject[@"data"][@"info"][@"next_url"];
-//        NSLog(@"%@", responseObject);
+
         [self.tableView reloadData];
         [self.tableView.mj_footer endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
