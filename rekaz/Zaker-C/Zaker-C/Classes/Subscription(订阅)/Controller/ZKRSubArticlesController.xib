@@ -10,6 +10,7 @@
                 <outlet property="contentView" destination="q2H-PU-VUZ" id="mWW-LW-0Qf"/>
                 <outlet property="farTimeLabel" destination="egK-P8-hXH" id="OPj-Ro-Gwf"/>
                 <outlet property="nearTimeLabel" destination="9fW-Aj-coU" id="PWY-42-zhG"/>
+                <outlet property="pageSliderView" destination="haS-Wm-044" id="eXf-Be-M0c"/>
                 <outlet property="view" destination="iN0-l3-epB" id="uk7-ru-V5R"/>
             </connections>
         </placeholder>

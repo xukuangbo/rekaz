@@ -11,5 +11,8 @@
 @interface ZKRSubArticlesCell : UICollectionViewCell
 
 @property (nonatomic, strong) ZKRRootTypeItem *item;
+//@property (weak, nonatomic) IBOutlet UIImageView *topImageView;
 
+@property (nonatomic, strong) NSArray *articlesArray;
+@property (nonatomic, strong) NSString *topImageURL;
 @end
