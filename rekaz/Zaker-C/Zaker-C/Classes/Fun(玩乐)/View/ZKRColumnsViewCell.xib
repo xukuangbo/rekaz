@@ -14,14 +14,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqI-W2-8pJ" customClass="DALabeledCircularProgressView">
-                        <rect key="frame" x="162" y="75" width="50" height="50"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="50" id="jNR-WS-7B3"/>
-                            <constraint firstAttribute="height" constant="50" id="wM0-GC-cPC"/>
-                        </constraints>
-                    </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vQp-7l-iwZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                     </imageView>
@@ -54,6 +46,14 @@
                                 <exclude reference="pC6-kA-MaL"/>
                             </mask>
                         </variation>
+                    </view>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqI-W2-8pJ" customClass="DALabeledCircularProgressView">
+                        <rect key="frame" x="162" y="75" width="50" height="50"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="jNR-WS-7B3"/>
+                            <constraint firstAttribute="height" constant="50" id="wM0-GC-cPC"/>
+                        </constraints>
                     </view>
                 </subviews>
                 <constraints>

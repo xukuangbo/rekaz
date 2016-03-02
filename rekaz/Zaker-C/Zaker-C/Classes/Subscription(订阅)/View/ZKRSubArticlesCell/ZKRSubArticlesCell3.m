@@ -13,6 +13,7 @@
 #import "ZKRArticleViewController.h"
 
 @interface ZKRSubArticlesCell3()
+@property (weak, nonatomic) IBOutlet UIImageView *typeImageView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *topImageView;
 
@@ -92,6 +93,13 @@
                 [self.artiImageView sd_setImageWithURL:[NSURL URLWithString:@""]];
                 self.titleConstraint.constant = 60;
                 self.view1HeightConstranint.constant = 150;
+            }
+            if ([article.open_type isEqualToString:@"discussion"]) {
+                [self.typeImageView sd_setImageWithURL:[NSURL URLWithString:article.icon_url]];
+                self.typeImageView.hidden = NO;
+            } else {
+                [self.typeImageView sd_setImageWithURL:[NSURL URLWithString:@""]];
+                self.typeImageView.hidden = YES;
             }
         }
         

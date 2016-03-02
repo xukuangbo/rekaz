@@ -12,7 +12,10 @@
 #import "AFHTTPSessionManager.h"
 #import "MJExtension.h"
 #import "ZKRLoginViewController.h"
-
+#import "ZKRComDiscTopicController.h"
+/**
+ *  社区->发现
+ */
 @interface ZKRComDiscoverViewController ()
 
 @property (nonatomic, strong) NSMutableArray *itemsArray;
@@ -134,13 +137,17 @@ static NSString *ID = @"DiscoverCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIViewController *vc = [[UIViewController alloc] init];
-    vc.view.backgroundColor = [UIColor whiteColor];
     
     ZKRCommentCellItem *cellItem = self.itemsArray[indexPath.row];
-    vc.navigationItem.title = cellItem.title;
-
-    [self.navigationController pushViewController:vc animated:YES];
+    ZKRComDiscTopicController *topicVC = [[ZKRComDiscTopicController alloc] init];
+    topicVC.view.backgroundColor = [UIColor whiteColor];
+    
+    topicVC.item = cellItem;
+    
+    
+    topicVC.navigationItem.title = cellItem.title;
+    
+    [self.navigationController pushViewController:topicVC animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath

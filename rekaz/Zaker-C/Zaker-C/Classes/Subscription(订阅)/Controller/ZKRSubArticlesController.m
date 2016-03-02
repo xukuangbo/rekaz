@@ -110,9 +110,8 @@ static NSString *SubArticlesCell3 = @"SubArticlesCell3";
 //        [responseObject writeToFile:@"/Users/CGL/Desktop/articles.plist" atomically:YES];
         
         self.itemsArray = [ZKRArticleItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"articles"]];
-        
         NSInteger count = self.itemsArray.count;
-        
+
         NSMutableArray *page = [NSMutableArray arrayWithCapacity:6];
         NSMutableArray *pages = [NSMutableArray array];
         ZKRArticleItem *article = [[ZKRArticleItem alloc] init];

@@ -74,8 +74,12 @@ typedef enum {
 @property (nonatomic, strong) NSString *item_type;
 
 
+ /** 第二张图片 */
 @property (nonatomic, strong) NSString *sec_min_url;
+
 @property (nonatomic, strong) NSString *thr_min_url;
+
+
 
 
 #pragma mark - ---| 跳转后需要 |---

@@ -9,7 +9,9 @@
 #import "ZKRComChoiceDetailController.h"
 #import "ZKRCommentChoiceItem.h"
 #import "UIImageView+WebCache.h"
-
+/**
+ *  社区->精选->详情
+ */
 @interface ZKRComChoiceDetailController()<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;

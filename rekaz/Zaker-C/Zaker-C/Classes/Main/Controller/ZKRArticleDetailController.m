@@ -15,6 +15,10 @@
 #import "MJExtension.h"
 #define TitleViewHeight 120
 #define StatusBarHeight 20
+
+/**
+ *  订阅->分类->新闻详情页
+ */
 @interface ZKRArticleDetailController ()<UIWebViewDelegate>
 @property (nonatomic, strong) AFHTTPSessionManager *manager;
 @property (nonatomic, strong) ZKRArticleContentItem *contentItem;
@@ -30,7 +34,7 @@ static NSString *CommentCellID = @"CommentCellID";
     [super viewDidLoad];
     
 //    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([UITableViewCell class]) bundle:nil] forCellReuseIdentifier:CommentCellID];
-    NSLog(@"%@", [self.item getAllPropertiesAndVaules]);
+//    NSLog(@"%@", [self.item getAllPropertiesAndVaules]);
     [self setupTableHeaderView];
     
     [self loadWebData];

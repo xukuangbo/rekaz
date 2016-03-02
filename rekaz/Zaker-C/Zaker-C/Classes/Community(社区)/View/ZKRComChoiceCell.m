@@ -90,7 +90,17 @@
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:item.icon]];
     self.userNameLabel.text = item.name;
     self.dateLabel.text = item.list_date;
-    [self.discussionTitleButton setTitle:[NSString stringWithFormat:@"#%@", item.discussion_title] forState:UIControlStateNormal];
+    
+    // 右侧话题标签
+    if (item.discussion_title) {
+        [self.discussionTitleButton setTitle:[NSString stringWithFormat:@"#%@", item.discussion_title] forState:UIControlStateNormal];
+        self.discussionTitleButton.hidden = NO;
+    } else {
+        [self.discussionTitleButton setTitle:@"" forState:UIControlStateNormal];
+        self.discussionTitleButton.hidden = YES;
+    }
+    
+    
     self.contentLabel.text = item.content;
     [self.userFlagImageView sd_setImageWithURL:[NSURL URLWithString:item.user_flag]];
     

@@ -30,4 +30,13 @@
 
  /** 标题背景颜色 */
 @property (nonatomic, strong) NSString *block_color;
+
+ /** 话题/分类(跳转类型) */
+@property (nonatomic, strong) NSString *open_type;
+@property (nonatomic, strong) NSString *icon_url;
+@property (nonatomic, strong) NSString *discussionTitle;
+@property (nonatomic, strong) NSString *discussionApi_url;
+
+
+
 @end

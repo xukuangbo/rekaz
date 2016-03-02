@@ -49,10 +49,8 @@
     
      /** 给内容类型添加图片 */
     if ([item.pic hasPrefix:@"http"]) {
-//        [_button setImage:image forState:UIControlStateNormal];
         _cellImageView.image = image;
     } else {
-//        [_button setImage:[UIImage imageNamed:item.pic] forState:UIControlStateNormal];
         _cellImageView.image = [UIImage imageNamed:item.pic];
     }
     
