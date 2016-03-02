@@ -28,6 +28,8 @@
 //    self.progressView.progressLabel.textColor = [UIColor whiteColor];
     self.picNumButton.hidden = YES;
 }
+
+ /** 加载 */
 - (void)setItem:(ZKRCommentChoiceItem *)item
 {
     _item = item;

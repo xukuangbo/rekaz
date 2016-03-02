@@ -38,7 +38,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DxG-tw-Xga">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qf0-8C-HvI">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qf0-8C-HvI">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="heheheheheheheh" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRj-dX-hWx">
@@ -55,6 +55,13 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ts1-nd-69n">
+                                        <rect key="frame" x="10" y="152" width="30" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="4Df-78-CgS"/>
+                                            <constraint firstAttribute="height" constant="15" id="VSx-Sl-Eu3"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -62,6 +69,8 @@
                                     <constraint firstAttribute="height" constant="200" id="3YP-66-DzF"/>
                                     <constraint firstAttribute="trailing" secondItem="Qf0-8C-HvI" secondAttribute="trailing" id="6oC-DL-YC9"/>
                                     <constraint firstItem="Qf0-8C-HvI" firstAttribute="top" secondItem="DxG-tw-Xga" secondAttribute="top" id="CTP-p4-qMa"/>
+                                    <constraint firstItem="QRj-dX-hWx" firstAttribute="top" secondItem="ts1-nd-69n" secondAttribute="bottom" id="QRH-wD-nlb"/>
+                                    <constraint firstItem="ts1-nd-69n" firstAttribute="leading" secondItem="DxG-tw-Xga" secondAttribute="leading" constant="10" id="V3q-WO-twE"/>
                                     <constraint firstItem="Qf0-8C-HvI" firstAttribute="leading" secondItem="DxG-tw-Xga" secondAttribute="leading" id="ZWb-v1-gJd"/>
                                     <constraint firstAttribute="trailing" secondItem="QRj-dX-hWx" secondAttribute="trailing" constant="10" id="axT-gK-Oel"/>
                                     <constraint firstAttribute="bottom" secondItem="QRj-dX-hWx" secondAttribute="bottom" constant="10" id="ba9-hw-9W4"/>
@@ -280,6 +289,7 @@
                 <outlet property="titleLabel5" destination="VEQ-QL-Qyc" id="n0e-3y-aft"/>
                 <outlet property="titleLabel6" destination="VZF-Wo-A0T" id="Exy-wj-JhW"/>
                 <outlet property="topImageView" destination="eTh-rw-vEK" id="nc7-yi-paV"/>
+                <outlet property="typeImageView" destination="ts1-nd-69n" id="5J0-pp-b01"/>
                 <outlet property="view1HeightConstranint" destination="3YP-66-DzF" id="nNR-dr-qVl"/>
             </connections>
             <point key="canvasLocation" x="347.5" y="199.5"/>

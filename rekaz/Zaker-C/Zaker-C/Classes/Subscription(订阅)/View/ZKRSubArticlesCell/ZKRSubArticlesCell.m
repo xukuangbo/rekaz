@@ -11,9 +11,8 @@
 #import "ZKRRootTypeItem.h"
 #import "ZKRArticleItem.h"
 #import "ZKRArticleViewController.h"
-
-
 @interface ZKRSubArticlesCell()
+@property (weak, nonatomic) IBOutlet UIImageView *typeImageView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *topImageView;
 
@@ -98,10 +97,19 @@
                 self.titleConstraint.constant = 60;
                 self.view1HeightConstranint.constant = 150;
             }
+            if ([article.open_type isEqualToString:@"discussion"]) {
+                [self.typeImageView sd_setImageWithURL:[NSURL URLWithString:article.icon_url]];
+                self.typeImageView.hidden = NO;
+            } else {
+                [self.typeImageView sd_setImageWithURL:[NSURL URLWithString:@""]];
+                self.typeImageView.hidden = YES;
+            }
+            
         }
         
         
 //        [view addGestureRecognizer:tap];
+        
     }
     
 }
@@ -115,10 +123,15 @@
         CGPoint curP = [touch locationInView:view];
         if ([view pointInside:curP withEvent:event]) {
             article = self.articlesArray[idx];
-            ZKRArticleViewController *vc = [[ZKRArticleViewController alloc] init];
-            vc.item = self.articlesArray[idx];
-            vc.item.block_color = self.item.block_color;
-            [[view navController] pushViewController:vc  animated:YES];
+            
+            if (![article.open_type isEqualToString:@"discussion"]) {
+                ZKRArticleViewController *vc = [[ZKRArticleViewController alloc] init];
+                vc.item = self.articlesArray[idx];
+                vc.item.block_color = self.item.block_color;
+                [[view navController] pushViewController:vc  animated:YES];
+            } else {
+                
+            }
             
         }
         

@@ -99,6 +99,7 @@
 		EECC5E481C59181800540FB3 /* ZKRCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EECC5E461C59181800540FB3 /* ZKRCollectionViewCell.xib */; };
 		EECEF94E1C849F020039B2F4 /* ZKRHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EECEF94D1C849F020039B2F4 /* ZKRHTTPSessionManager.m */; };
 		EEDF82E91C5C631100FF5AA8 /* HFStretchableTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDF82E81C5C631100FF5AA8 /* HFStretchableTableHeaderView.m */; };
+		EEDFC3041C86E597005FE564 /* ZKRComDiscTopicController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDFC3021C86E597005FE564 /* ZKRComDiscTopicController.m */; };
 		EEE7F27E1C757359000222AD /* ZKRAccountBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE7F27D1C757359000222AD /* ZKRAccountBarButtonItem.m */; };
 		EEF0906B1C836554005B522C /* ZKRCommentChoiceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF0906A1C836554005B522C /* ZKRCommentChoiceItem.m */; };
 		EEF0906F1C836811005B522C /* ZKRComChoiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF0906D1C836811005B522C /* ZKRComChoiceCell.m */; };
@@ -273,6 +274,8 @@
 		EECEF94D1C849F020039B2F4 /* ZKRHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRHTTPSessionManager.m; sourceTree = "<group>"; };
 		EEDF82E71C5C631100FF5AA8 /* HFStretchableTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFStretchableTableHeaderView.h; sourceTree = "<group>"; };
 		EEDF82E81C5C631100FF5AA8 /* HFStretchableTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFStretchableTableHeaderView.m; sourceTree = "<group>"; };
+		EEDFC3011C86E597005FE564 /* ZKRComDiscTopicController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRComDiscTopicController.h; sourceTree = "<group>"; };
+		EEDFC3021C86E597005FE564 /* ZKRComDiscTopicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRComDiscTopicController.m; sourceTree = "<group>"; };
 		EEE7F27C1C757359000222AD /* ZKRAccountBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRAccountBarButtonItem.h; sourceTree = "<group>"; };
 		EEE7F27D1C757359000222AD /* ZKRAccountBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRAccountBarButtonItem.m; sourceTree = "<group>"; };
 		EEF090691C836554005B522C /* ZKRCommentChoiceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRCommentChoiceItem.h; sourceTree = "<group>"; };
@@ -442,6 +445,8 @@
 				EE07D7D01C84073700AF4B43 /* ZKRComChoiceDetailController.h */,
 				EE07D7D11C84073700AF4B43 /* ZKRComChoiceDetailController.m */,
 				EE07D7D31C84075E00AF4B43 /* ZKRComChoiceDetailController.xib */,
+				EEDFC3011C86E597005FE564 /* ZKRComDiscTopicController.h */,
+				EEDFC3021C86E597005FE564 /* ZKRComDiscTopicController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -994,6 +999,7 @@
 				EE94550B1C85F31B00FF1FD1 /* ZKRArticleDetailController.m in Sources */,
 				EE968F531C80A2A800C6D1E0 /* ZKRFunCategoryController.m in Sources */,
 				EE5593581C78D57800985094 /* ZKRHotTableViewCell.m in Sources */,
+				EEDFC3041C86E597005FE564 /* ZKRComDiscTopicController.m in Sources */,
 				EE88D3C71C553414001300F8 /* ZKRTabBarController.m in Sources */,
 				EE6185601C856DA9004A4088 /* ZKRArticleItem.m in Sources */,
 				EE5593541C78D46B00985094 /* ZKRHotCellItem.m in Sources */,
