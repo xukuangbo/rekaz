@@ -27,4 +27,7 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *title_line_break;
 @property (nonatomic, strong) NSString *weburl;
+
+ /** 标题背景颜色 */
+@property (nonatomic, strong) NSString *block_color;
 @end

@@ -10,6 +10,7 @@
 #import "UIImageView+WebCache.h"
 #import "ZKRRootTypeItem.h"
 #import "ZKRArticleItem.h"
+#import "ZKRArticleViewController.h"
 
 
 @interface ZKRSubArticlesCell()
@@ -49,10 +50,7 @@
 
 @property (nonatomic, strong) NSArray *titles;
 @property (nonatomic, strong) NSArray *authors;
-@property (nonatomic, strong) NSArray *contentViews;
-
-
-
+@property (nonatomic, strong) NSArray *subViews;
 
 @end
 
@@ -75,10 +73,12 @@
     UILabel *authorLabel = [[UILabel alloc] init];
     UIView *view = [[UIView alloc] init];
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewClick)];
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:
     
     for (int i = 0; i < count; ++i) {
         article = articlesArray[i];
+        view = self.subViews[i];
+        
         if (article.title) {
             titleLabel = self.titles[i];
             titleLabel.text = article.title;
@@ -90,7 +90,7 @@
         }
         if (i == 0) {
             if (article.thumbnail_pic) {
-                [self.artiImageView sd_setImageWithURL:[NSURL URLWithString:article.thumbnail_mpic]];
+                [self.artiImageView sd_setImageWithURL:[NSURL URLWithString:article.thumbnail_pic]];
                 self.titleConstraint.constant = 10;
                 self.view1HeightConstranint.constant = 230;
             } else {
@@ -100,16 +100,30 @@
             }
         }
         
-        view = self.contentViews[i];
         
-        [view addGestureRecognizer:tap];
+//        [view addGestureRecognizer:tap];
     }
     
 }
 
-- (void)viewClick:(UITapGestureRecognizer *)tap
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
+    UITouch *touch =  [touches anyObject];
     
+    __block ZKRArticleItem *article = [[ZKRArticleItem alloc] init];
+    [self.subViews enumerateObjectsUsingBlock:^(id  _Nonnull view, NSUInteger idx, BOOL * _Nonnull stop) {
+        CGPoint curP = [touch locationInView:view];
+        if ([view pointInside:curP withEvent:event]) {
+            article = self.articlesArray[idx];
+            ZKRArticleViewController *vc = [[ZKRArticleViewController alloc] init];
+            vc.item = self.articlesArray[idx];
+            vc.item.block_color = self.item.block_color;
+            [[view navController] pushViewController:vc  animated:YES];
+            
+        }
+        
+    }];
+
 }
 
 - (void)setItem:(ZKRRootTypeItem *)item
@@ -156,18 +170,18 @@
     return _authors;
 }
 
-- (NSArray *)contentViews
+- (NSArray *)subViews
 {
-    if (!_contentViews) {
-        NSArray *contentViews = @[ self.contentView1,
+    if (!_subViews) {
+        NSArray *subViews = @[ self.contentView1,
                               self.contentView2,
                               self.contentView3,
                               self.contentView4,
                               self.contentView5,
                               self.contentView6];
-        _contentViews = contentViews;
+        _subViews = subViews;
     }
-    return _contentViews;
+    return _subViews;
 }
 
 @end

@@ -10,6 +10,7 @@
 #import "UIImageView+WebCache.h"
 #import "ZKRRootTypeItem.h"
 #import "ZKRArticleItem.h"
+#import "ZKRArticleViewController.h"
 
 @interface ZKRSubArticlesCell2()
 @property (weak, nonatomic) IBOutlet UIImageView *topImageView;
@@ -82,7 +83,7 @@
         }
         if (i == 0) {
             if (article.thumbnail_pic) {
-                [self.artiImageView sd_setImageWithURL:[NSURL URLWithString:article.thumbnail_mpic]];
+                [self.artiImageView sd_setImageWithURL:[NSURL URLWithString:article.thumbnail_pic]];
                 self.titleConstraint.constant = 10;
                 self.view1HeightConstranint.constant = 230;
             } else {
@@ -95,7 +96,25 @@
     }
     
 }
-
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch =  [touches anyObject];
+    
+    __block ZKRArticleItem *article = [[ZKRArticleItem alloc] init];
+    [self.contentViews enumerateObjectsUsingBlock:^(id  _Nonnull view, NSUInteger idx, BOOL * _Nonnull stop) {
+        CGPoint curP = [touch locationInView:view];
+        if ([view pointInside:curP withEvent:event]) {
+            article = self.articlesArray[idx];
+            ZKRArticleViewController *vc = [[ZKRArticleViewController alloc] init];
+            vc.item = self.articlesArray[idx];
+            vc.item.block_color = self.item.block_color;
+            [[view navController] pushViewController:vc  animated:YES];
+            
+        }
+        
+    }];
+    //    NSLog(@"%@", article.title);
+}
 - (void)setItem:(ZKRRootTypeItem *)item
 {
     _item = item;

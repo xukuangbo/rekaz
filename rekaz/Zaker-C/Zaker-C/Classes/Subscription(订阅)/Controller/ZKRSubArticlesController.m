@@ -181,7 +181,10 @@ static NSString *SubArticlesCell3 = @"SubArticlesCell3";
 }
 
 #pragma mark - ---| delegate |---
-
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+//    NSLog(@"%zd", indexPath.row);
+}
  /** 拖动页面 减速完毕 */
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
@@ -205,6 +208,8 @@ static NSString *SubArticlesCell3 = @"SubArticlesCell3";
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
 }
+
+
 
  /** 刷新按钮 */
 - (IBAction)refreshButtonClick:(UIButton *)sender {
