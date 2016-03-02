@@ -18,6 +18,7 @@
 #import "ZKRColumnsViewCell.h"
 #import "UIImageView+WebCache.h"
 #import "ZKRRefreshHeader.h"
+#import "ZKRArticleViewController.h"
 
 static NSString *CGLColumnsCellID = @"CGLColumnsCellID";
 @interface ZKRColoumnsViewController ()
@@ -133,5 +134,13 @@ static NSString *CGLColumnsCellID = @"CGLColumnsCellID";
     [UIView animateWithDuration:0.2 animations:^{
         cell.alpha = 1;
     }];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ZKRArticleViewController *articleVC = [[ZKRArticleViewController alloc] init];
+    articleVC.preVC = NSStringFromClass([[self.view viewController] class]);
+    
+    [[self.view navController] pushViewController:articleVC animated:YES];
 }
 @end

@@ -12,6 +12,7 @@
 #import "UIImage+Render.h"
 #import "UIView+Frame.h"
 #import "NSObject+Object.h"
+#import "UIView+Init.h"
 
 /*****屏幕*******/
 #define CGLScreenW [UIScreen mainScreen].bounds.size.width

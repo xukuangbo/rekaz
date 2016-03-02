@@ -81,12 +81,18 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="P75-K2-CYZ" secondAttribute="trailing" constant="10" id="ALZ-hd-GbX"/>
                                             <constraint firstItem="KCZ-2n-10S" firstAttribute="leading" secondItem="fP6-4G-7G4" secondAttribute="leading" constant="10" id="USr-9j-8Ub"/>
                                             <constraint firstItem="P75-K2-CYZ" firstAttribute="centerY" secondItem="fP6-4G-7G4" secondAttribute="centerY" constant="-10" id="jue-sn-CvG"/>
                                             <constraint firstItem="P75-K2-CYZ" firstAttribute="leading" secondItem="fP6-4G-7G4" secondAttribute="leading" constant="10" id="kQY-Qd-bUE"/>
                                             <constraint firstAttribute="trailing" secondItem="P75-K2-CYZ" secondAttribute="trailing" constant="10" id="lIf-8T-Vgz"/>
                                             <constraint firstItem="KCZ-2n-10S" firstAttribute="top" secondItem="P75-K2-CYZ" secondAttribute="bottom" id="rTw-T6-nOd"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="lIf-8T-Vgz"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -116,7 +122,7 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ngy-tK-KYh">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>

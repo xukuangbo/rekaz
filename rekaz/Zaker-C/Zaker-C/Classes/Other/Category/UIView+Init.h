@@ -10,4 +10,8 @@
 
 @interface UIView (Init)
 + (instancetype)cgl_viewFromXib;
+/** 获取view 的view控制器 */
+- (UINavigationController *)viewController;
+/** 获取view 的nav控制器 */
+- (UINavigationController *)navController;
 @end

@@ -148,6 +148,7 @@
 {
 //    CGLFunc
     ZKRFunCategoryController *categoryVC = [[ZKRFunCategoryController alloc] init];
+    
     [self.navigationController pushViewController:categoryVC animated:YES];
 }
 
