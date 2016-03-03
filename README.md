@@ -1,4 +1,5 @@
 #rekaz
+
 --
 
 # 已完成
@@ -9,7 +10,9 @@
 
 --
 
-# Coding...(待续)
+# Coding...
+
+## 待完成功能
 
 ### 全局
 - 全屏滑动返回
@@ -39,6 +42,15 @@
 ### 新闻详情页
 - 新闻评论
 - 新闻详情页点击图片打开图片浏览页 
+
+
+
+## 声明
+此版本用于开发测试,较正式版本请跳转至ZAKER-C
+(其实一般来讲没什么区别,哈哈哈哈哈哈哈哈哈哈哈哈哈)
+
+https://github.com/GLChan/ZAKER-C
+
 
 ## License
 © 2015~2016 GLChen. This code is distributed under the CC0 1.0 Universal license. See LICENSE in this directory.
