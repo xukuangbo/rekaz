@@ -18,7 +18,7 @@
 #import "SVProgressHUD.h"
 
 /**
- *  社区->精选
+ *  社区->发现->话题
  */
 @interface ZKRComDiscTopicController ()
 
@@ -81,9 +81,7 @@ static NSString *ComChoiceCell = @"ComChoiceCell";
 //    NSLog(@"%@", [item getAllPropertiesAndVaules]);
     
     [self setupRefresh];
-    
-    
-//    [self loadData];
+    [self loadData];
 }
 
 #pragma mark - ---| 加载数据 |---
@@ -104,6 +102,7 @@ static NSString *ComChoiceCell = @"ComChoiceCell";
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
     }];
+
 }
 
 

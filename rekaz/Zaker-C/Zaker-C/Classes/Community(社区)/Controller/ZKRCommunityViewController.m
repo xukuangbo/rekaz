@@ -16,6 +16,10 @@
 #import "ZKRComChoiceViewController.h"
 #import "ZKRComDiscoverViewController.h"
 
+/**
+ *  社区
+ */
+
 @interface ZKRCommunityViewController () <UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIView *titleScrollView;

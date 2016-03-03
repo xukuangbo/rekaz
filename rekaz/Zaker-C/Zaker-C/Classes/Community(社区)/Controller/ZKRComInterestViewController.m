@@ -9,6 +9,9 @@
 #import "ZKRComInterestViewController.h"
 #import "ZKRLoginViewController.h"
 
+/**
+ *  社区->关注
+ */
 @interface ZKRComInterestViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;

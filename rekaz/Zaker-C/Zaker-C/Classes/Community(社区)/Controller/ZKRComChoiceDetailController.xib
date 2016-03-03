@@ -9,7 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZKRComChoiceDetailController">
             <connections>
                 <outlet property="avatarImageView" destination="7xl-c7-w2Z" id="rnl-et-xlc"/>
-                <outlet property="mainScrollView" destination="URn-Hc-6jM" id="n3m-s3-KKf"/>
+                <outlet property="mainView" destination="gFj-wV-FWE" id="xgE-jA-bWJ"/>
                 <outlet property="timeLabel" destination="Pmy-KR-OGp" id="cNh-QW-yVb"/>
                 <outlet property="userNameLabel" destination="4SO-3N-KFe" id="Kcb-1x-Bch"/>
                 <outlet property="view" destination="iN0-l3-epB" id="GkW-F8-UMu"/>
@@ -20,10 +20,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="URn-Hc-6jM">
-                    <rect key="frame" x="0.0" y="64" width="375" height="568"/>
-                    <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FHs-wc-CKT" userLabel="bottom View">
                     <rect key="frame" x="0.0" y="632" width="375" height="35"/>
                     <subviews>
@@ -87,6 +83,10 @@
                         </mask>
                     </variation>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gFj-wV-FWE">
+                    <rect key="frame" x="0.0" y="64" width="375" height="568"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AnL-Yj-ktV" userLabel="Top View">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                     <subviews>
@@ -134,18 +134,19 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="URn-Hc-6jM" secondAttribute="trailing" id="3pg-Ms-gyT"/>
                 <constraint firstAttribute="trailing" secondItem="AnL-Yj-ktV" secondAttribute="trailing" id="8NN-6k-gbZ"/>
+                <constraint firstItem="gFj-wV-FWE" firstAttribute="top" secondItem="AnL-Yj-ktV" secondAttribute="bottom" id="B1i-M1-1ex"/>
                 <constraint firstItem="FHs-wc-CKT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="K3Y-f1-LPy"/>
                 <constraint firstItem="AnL-Yj-ktV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Q26-v4-QqV"/>
+                <constraint firstAttribute="trailing" secondItem="gFj-wV-FWE" secondAttribute="trailing" id="U0h-kA-WWl"/>
+                <constraint firstItem="FHs-wc-CKT" firstAttribute="top" secondItem="gFj-wV-FWE" secondAttribute="bottom" id="buz-6o-o63"/>
                 <constraint firstAttribute="bottom" secondItem="FHs-wc-CKT" secondAttribute="bottom" id="gbP-ak-uWX"/>
+                <constraint firstItem="gFj-wV-FWE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="h5n-L8-L0F"/>
                 <constraint firstAttribute="trailing" secondItem="FHs-wc-CKT" secondAttribute="trailing" id="pid-28-NGe"/>
-                <constraint firstItem="FHs-wc-CKT" firstAttribute="top" secondItem="URn-Hc-6jM" secondAttribute="bottom" id="qGE-U3-rEP"/>
-                <constraint firstItem="URn-Hc-6jM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qr0-8B-wdz"/>
                 <constraint firstItem="AnL-Yj-ktV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="sba-e4-WEo"/>
-                <constraint firstItem="URn-Hc-6jM" firstAttribute="top" secondItem="AnL-Yj-ktV" secondAttribute="bottom" id="sdz-WO-JxO"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="197.5" y="94.5"/>
         </view>
     </objects>
     <resources>
