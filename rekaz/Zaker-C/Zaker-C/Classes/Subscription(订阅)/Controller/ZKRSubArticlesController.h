@@ -11,4 +11,6 @@
 @interface ZKRSubArticlesController : UIViewController
 @property (nonatomic, strong) ZKRRootTypeItem *item;
 
+@property (nonatomic, strong) NSString *block_api_url;
+
 @end

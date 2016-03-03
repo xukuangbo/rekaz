@@ -14,6 +14,7 @@
 #import "ZKRComChoiceCell.h"
 #import "ZKRRefreshFooter.h"
 #import "ZKRComChoiceDetailController.h"
+#import "SVProgressHUD.h"
 
 /**
  *  社区->精选
@@ -54,6 +55,7 @@ static NSString *ComChoiceCell = @"ComChoiceCell";
     // cell底部分割线去除
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    [SVProgressHUD show];
     [self loadData];
 }
 
@@ -87,6 +89,7 @@ static NSString *ComChoiceCell = @"ComChoiceCell";
         self.loadOldDataUrl = responseObject[@"data"][@"info"][@"next_url"];
         [self.tableView reloadData];
         
+        [SVProgressHUD dismiss];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);
     }];

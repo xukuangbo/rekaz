@@ -19,6 +19,7 @@
 
 #import "ZKRColoumnsViewController.h"
 #import "ZKRFunCategoryController.h"
+#import "SVProgressHUD.h"
 
 @interface ZKRFunViewController ()
 
@@ -29,11 +30,22 @@
 @property (nonatomic, weak) UIImageView *imageView;
 
 @property (nonatomic, strong) ZKRColoumnsViewController *tableVC;
+@property (nonatomic, strong) AFHTTPSessionManager *manager;
+
 @end
 
 @implementation ZKRFunViewController
 
 #pragma mark - ---| lazy load |---
+- (AFHTTPSessionManager *)manager
+{
+    if (!_manager) {
+        AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
+        _manager = manager;
+    }
+    return _manager;
+}
+
 - (NSMutableArray *)groupsArray
 {
     if (!_groupsArray) {
@@ -47,7 +59,6 @@
     if (!_tableVC) {
         ZKRColoumnsViewController *tableVC = [[ZKRColoumnsViewController alloc] init];
         _tableVC = tableVC;
-//        _tableVC.view.backgroundColor = [UIColor whiteColor];
         _tableVC.groupsArray = self.groupsArray;
         _tableVC.cycleURLString = self.cycleURLString;
 
@@ -60,7 +71,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setNav];
-    
+    [SVProgressHUD show];
     [self loadData];
 }
 
@@ -100,16 +111,16 @@
 - (void)loadData
 {
     //http: //wl.myzaker.com/?_appid=iphone&_version=6.46&c=columns
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
     // 参数
+    
     NSMutableDictionary *para = [NSMutableDictionary dictionary];
     para[@"_appid"] = @"iphone";
     para[@"_version"] = @"6.46";
     para[@"c"] = @"columns";
     
-    [manager GET:@"http://wl.myzaker.com/" parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        [responseObject writeToFile:@"/Users/CGL/Desktop/hehe.plist" atomically:YES];
+    [self.manager GET:@"http://wl.myzaker.com/" parameters:para progress:^(NSProgress * _Nonnull downloadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
         NSArray *groups = [ZKRFunGroupItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"columns"]];
         
         // 用来保存一个组的cell
@@ -125,22 +136,26 @@
             [self.groupsArray addObject:group];
             // 清空数组
             newCellArray = [NSMutableArray array];
+            
         }
-        
-//        ZKRFunGroupItem *group = self.groupsArray[0];
-//        NSLog(@"%@", group.itemsArray);
+        //        ZKRFunGroupItem *group = self.groupsArray[0];
+        //        NSLog(@"%@", group.itemsArray);
         
         // 轮播图
         self.cycleURLString = responseObject[@"data"][@"promote"][0][@"promotion_img"];
         self.tableVC.groupsArray = self.groupsArray;
         [self setupTableView];
         
-//        [self.tableVC.tableView reloadData];
-        
+        [SVProgressHUD dismiss];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);
     }];
+}
+
+- (void)loadMoreData
+{
+    
 }
 
 #pragma mark - ---| event |---
@@ -151,5 +166,8 @@
     
     [self.navigationController pushViewController:categoryVC animated:YES];
 }
+
+#pragma mark - ---| delegate |---
+
 
 @end

@@ -11,6 +11,8 @@
 
  /** 用了这个模型 */
 #import "ZKRRotationItem.h"
+#import "ZKRSubArticlesController.h"
+#import "ZKRComDiscTopicController.h"
 
 #define ScrollViewW self.scrollView.bounds.size.width
 #define ScrollViewH self.scrollView.bounds.size.height
@@ -120,22 +122,22 @@ static NSString *requestURL = @"http://iphone.myzaker.com/zaker/follow_promote.p
     self.currentPageIndex = 0;
     
     // 占位图
-    UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
+//    UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
     
     // 布局三个按钮
      /** left */
     _leftButton   = [[CycleButon alloc] initWithFrame:CGRectMake(0, 0, ScrollViewW, ScrollViewH)];
-    [_leftButton setBackgroundImage:placeholderImage forState:UIControlStateNormal];
+    [_leftButton setBackgroundImage:[[UIImage alloc] init] forState:UIControlStateNormal];
     [self.scrollView addSubview:_leftButton];
 
      /** center */
     _centerButton = [[CycleButon alloc] initWithFrame:CGRectMake(ScrollViewW, 0, ScrollViewW, ScrollViewH)];
-    [_centerButton setBackgroundImage:placeholderImage forState:UIControlStateNormal];
+    [_centerButton setBackgroundImage:[[UIImage alloc] init] forState:UIControlStateNormal];
     [self.scrollView addSubview:_centerButton];
 
      /** right */
     _rightButton  = [[CycleButon alloc] initWithFrame:CGRectMake(ScrollViewW * 2, 0, ScrollViewW, ScrollViewH)];
-    [_rightButton setBackgroundImage:placeholderImage forState:UIControlStateNormal];
+    [_rightButton setBackgroundImage:[[UIImage alloc] init] forState:UIControlStateNormal];
     [self.scrollView addSubview:_rightButton];
     
      /** 设置scrollView的内容尺寸与偏移量 */
@@ -234,7 +236,26 @@ static NSString *requestURL = @"http://iphone.myzaker.com/zaker/follow_promote.p
  */
 - (void)centerButtonClick:(CycleButon *)button
 {
-//    NSLog(@"%@", button.item);
+//    NSLog(@"%@", [button.item getAllPropertiesAndVaules]);
+    // 判断类型跳转到不同的控制器
+    if ([button.item.type isEqualToString:@"block"]){ // 3. 频道 block
+        
+//        ZKRSubArticlesController *articleVC = [[ZKRSubArticlesController alloc] init];
+//        articleVC.block_api_url = button.item.block_api_url;
+//        [[self navController] pushViewController:articleVC animated:YES];
+        
+    } else if ([button.item.type isEqualToString:@"discussion"]){// discussion 讨论/话题
+        
+//        ZKRComDiscTopicController *topicVC = [[ZKRComDiscTopicController alloc] init];
+//        topicVC.discussion_api_url = button.item.discussion_api_url;
+//        [[self navController] pushViewController:topicVC animated:YES];
+        
+    } else if ([button.item.type isEqualToString:@"topic"]) {// topic 夜读 / 专题
+        
+            
+    } else { // 文章
+        
+    }
     
 }
 

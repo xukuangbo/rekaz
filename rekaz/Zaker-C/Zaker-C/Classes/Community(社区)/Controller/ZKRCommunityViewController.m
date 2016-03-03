@@ -15,6 +15,7 @@
 #import "ZKRComInterestViewController.h"
 #import "ZKRComChoiceViewController.h"
 #import "ZKRComDiscoverViewController.h"
+
 @interface ZKRCommunityViewController () <UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIView *titleScrollView;

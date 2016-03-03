@@ -12,4 +12,5 @@
 
 @property (nonatomic, strong) ZKRCommentCellItem *item;
 
+@property (nonatomic, strong) NSString *discussion_api_url;
 @end

@@ -13,11 +13,10 @@
 @interface ZKRHotTableViewCell()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
-@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @property (weak, nonatomic) IBOutlet UIImageView *typeImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *cellImageView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *typeImageLeftConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *typeImageConstraint;
 
 @end
 
@@ -57,9 +56,7 @@
     _cellItem = cellItem;
     
     self.titleLabel.text = _cellItem.title;
-    self.authorLabel.text = _cellItem.auther_name;
-//    self.timeLabel.text = _cellItem.date;
-    self.timeLabel.text = @"32分钟前";
+    self.authorLabel.text = [NSString stringWithFormat:@"%@ %@", _cellItem.auther_name, _cellItem.date];
     
     if (_cellItem.thumbnail_medias.count) {
         [self.cellImageView sd_setImageWithURL:[NSURL URLWithString:_cellItem.thumbnail_medias[0][@"url"]]];
@@ -68,21 +65,16 @@
     if (_cellItem.special_info[@"icon_url"]) {
         [self.typeImageView sd_setImageWithURL:[NSURL URLWithString:_cellItem.special_info[@"icon_url"]]];
         self.typeImageView.hidden = NO;
-        self.timeLabel.text = _cellItem.date;
     } else {
         self.typeImageView.hidden = YES;
-        self.timeLabel.text = @"32分钟前";
     }
     
-    if (!_cellItem.title) {
+    if (!self.authorLabel.text) {
         //改变typeImage左约束
-//        self.typeImageLeftConstraint.constant = 50;
-//        [self updateConstraintsIfNeeded];
+//        self.typeImageConstraint.constant = 0;
     } else {
-//        self.typeImageLeftConstraint.constant = 0;
+//        self.typeImageConstraint.constant = 10;
     }
-//    [self updateConstraintsIfNeeded];
-    
     
 }
 

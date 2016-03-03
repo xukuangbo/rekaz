@@ -15,6 +15,7 @@
 #import "ZKRRefreshFooter.h"
 #import "ZKRComChoiceDetailController.h"
 #import "ZKRCommentCellItem.h"
+#import "SVProgressHUD.h"
 
 /**
  *  社区->精选
@@ -56,13 +57,12 @@ static NSString *ComChoiceCell = @"ComChoiceCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZKRComChoiceCell class]) bundle:nil] forCellReuseIdentifier:ComChoiceCell];
     
     // cell底部分割线去除
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-
+    
+    [SVProgressHUD show];
 }
 
 - (void)setupRefresh
@@ -79,6 +79,7 @@ static NSString *ComChoiceCell = @"ComChoiceCell";
 {
     _item = item;
 //    NSLog(@"%@", [item getAllPropertiesAndVaules]);
+    
     [self setupRefresh];
     
     
@@ -99,6 +100,7 @@ static NSString *ComChoiceCell = @"ComChoiceCell";
         self.next_url = responseObject[@"data"][@"info"][@"next_url"];
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
+        [SVProgressHUD dismiss];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
     }];

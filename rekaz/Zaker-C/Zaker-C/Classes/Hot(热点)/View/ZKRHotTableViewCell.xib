@@ -36,29 +36,21 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19分钟前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upY-jW-3e3">
-                                <rect key="frame" x="39" y="43" width="41.5" height="12"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bOq-nI-YrD">
-                                <rect key="frame" x="90.5" y="43" width="30" height="15"/>
+                                <rect key="frame" x="39.5" y="41.5" width="30" height="15"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="15" id="14K-j4-yyx"/>
-                                    <constraint firstAttribute="width" constant="30" id="Zyd-cd-c9e"/>
+                                    <constraint firstAttribute="height" constant="15" id="8wi-eg-NBk"/>
+                                    <constraint firstAttribute="width" constant="30" id="zk8-gV-dIl"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="upY-jW-3e3" firstAttribute="leading" secondItem="VtP-Ld-gWN" secondAttribute="trailing" constant="10" id="HVa-Mh-cz5"/>
+                            <constraint firstItem="bOq-nI-YrD" firstAttribute="centerY" secondItem="VtP-Ld-gWN" secondAttribute="centerY" id="N8S-mq-M8D"/>
+                            <constraint firstItem="bOq-nI-YrD" firstAttribute="leading" secondItem="VtP-Ld-gWN" secondAttribute="trailing" constant="10" id="USj-zh-aXt"/>
                             <constraint firstItem="LYU-3u-mRh" firstAttribute="leading" secondItem="dir-Um-Zl9" secondAttribute="leading" id="Yog-aV-yi0"/>
-                            <constraint firstItem="bOq-nI-YrD" firstAttribute="top" secondItem="upY-jW-3e3" secondAttribute="top" id="aA4-XY-gXV"/>
                             <constraint firstItem="VtP-Ld-gWN" firstAttribute="top" secondItem="LYU-3u-mRh" secondAttribute="bottom" constant="5" id="daz-9r-Yak"/>
-                            <constraint firstItem="bOq-nI-YrD" firstAttribute="leading" secondItem="upY-jW-3e3" secondAttribute="trailing" constant="10" id="jB2-Nn-ECN"/>
-                            <constraint firstItem="upY-jW-3e3" firstAttribute="top" secondItem="VtP-Ld-gWN" secondAttribute="top" id="ks8-fM-jBB"/>
                             <constraint firstAttribute="trailing" secondItem="LYU-3u-mRh" secondAttribute="trailing" id="q6g-We-t91"/>
                             <constraint firstItem="VtP-Ld-gWN" firstAttribute="leading" secondItem="dir-Um-Zl9" secondAttribute="leading" id="wKX-xR-SV5"/>
                             <constraint firstItem="LYU-3u-mRh" firstAttribute="centerY" secondItem="dir-Um-Zl9" secondAttribute="centerY" constant="-10" id="yBy-Sl-Bqs"/>
@@ -79,9 +71,8 @@
             <connections>
                 <outlet property="authorLabel" destination="VtP-Ld-gWN" id="JP2-5S-y3r"/>
                 <outlet property="cellImageView" destination="erz-AU-xYn" id="bq6-HS-iYK"/>
-                <outlet property="timeLabel" destination="upY-jW-3e3" id="mCi-GX-uC7"/>
                 <outlet property="titleLabel" destination="LYU-3u-mRh" id="KM8-ak-5J7"/>
-                <outlet property="typeImageLeftConstraint" destination="jB2-Nn-ECN" id="Sj3-J7-Qkx"/>
+                <outlet property="typeImageConstraint" destination="USj-zh-aXt" id="Zsf-aA-Gnu"/>
                 <outlet property="typeImageView" destination="bOq-nI-YrD" id="auj-LA-fG1"/>
             </connections>
             <point key="canvasLocation" x="22.5" y="193"/>
