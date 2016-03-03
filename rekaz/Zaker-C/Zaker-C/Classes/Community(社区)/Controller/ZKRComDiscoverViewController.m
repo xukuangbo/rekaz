@@ -13,6 +13,7 @@
 #import "MJExtension.h"
 #import "ZKRLoginViewController.h"
 #import "ZKRComDiscTopicController.h"
+#import "SVProgressHUD.h"
 /**
  *  社区->发现
  */
@@ -50,6 +51,8 @@ static NSString *ID = @"DiscoverCell";
 //    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 //    self.tableView.backgroundColor = [UIColor blueColor];
     self.loadMoreCount = 0;
+    
+    [SVProgressHUD show];
     [self loadData];
     
 }
@@ -102,6 +105,7 @@ static NSString *ID = @"DiscoverCell";
         [self.tableView reloadData];
         self.loadMoreCount++;
         
+        [SVProgressHUD dismiss];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);
     }];

@@ -61,10 +61,11 @@ static NSString *CGLColumnsCellID = @"CGLColumnsCellID";
 - (void)setupTableHeaderView
 {
     if (self.cycleURLString) {
+    
         self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 35, 0);
         
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGLScreenW, 180)];
-        imageView.contentMode = UIViewContentModeScaleToFill;
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
         [imageView sd_setImageWithURL:[NSURL URLWithString:self.cycleURLString]];
         
         self.tableView.tableHeaderView = imageView;
@@ -72,11 +73,13 @@ static NSString *CGLColumnsCellID = @"CGLColumnsCellID";
 }
 
 #pragma mark - Table view
-
+ /** 组头部高度 */
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 30;
 }
+
+ /** 组头部view */
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIImageView *view = [[UIImageView alloc] init];
@@ -86,12 +89,13 @@ static NSString *CGLColumnsCellID = @"CGLColumnsCellID";
 
     return view;
 }
-
+ /** 组footer高度 */
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     return 0.1;
 }
 
+ /** 组footerview */
 - (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section
 {
     UITableViewHeaderFooterView *footer = (UITableViewHeaderFooterView *)view;
@@ -136,11 +140,15 @@ static NSString *CGLColumnsCellID = @"CGLColumnsCellID";
     }];
 }
 
+ /** 点击行 */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ZKRArticleViewController *articleVC = [[ZKRArticleViewController alloc] init];
-    articleVC.preVC = NSStringFromClass([[self.view viewController] class]);
+//    ZKRArticleViewController *articleVC = [[ZKRArticleViewController alloc] init];
+//    articleVC.preVC = NSStringFromClass([[self.view viewController] class]);
+//    
+//    [[self.view navController] pushViewController:articleVC animated:YES];
     
-    [[self.view navController] pushViewController:articleVC animated:YES];
+    
+    NSLog(@"%zd",indexPath.row);
 }
 @end

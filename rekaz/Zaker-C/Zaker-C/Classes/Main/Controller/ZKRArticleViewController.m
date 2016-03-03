@@ -10,6 +10,7 @@
 #import "ZKRArticleDetailController.h"
 #import "ZKRArticleItem.h"
 
+
 @interface ZKRArticleViewController ()
 @property (weak, nonatomic) IBOutlet UIView *articleView;
 @property (nonatomic, strong) ZKRArticleDetailController *articleDetailVC;
@@ -25,7 +26,6 @@
     articleDetailVC.item = self.item;
     [self.articleView addSubview:articleDetailVC.view];
     self.articleDetailVC = articleDetailVC;
-    
 }
 
 
@@ -43,17 +43,21 @@
 
  /** 分享 */
 - (IBAction)shareButtonClick:(UIButton *)sender {
+    
 }
 
  /** 查看评论 */
 - (IBAction)commentButtonClick:(UIButton *)sender {
+    
 }
  /** 回复按钮 */
 - (IBAction)answerButtonClick:(UIButton *)sender {
+    
 }
 
  /** 设置按钮 */
 - (IBAction)moreSettingButtonClick:(UIButton *)sender {
+    
 }
 
 
