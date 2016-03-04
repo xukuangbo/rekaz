@@ -16,7 +16,9 @@
 #import "ZKRSubArticlesCell2.h"
 #import "ZKRSubArticlesCell3.h"
 #import "SVProgressHUD.h"
-
+/**
+ *  订阅 -> 频道界面
+ */
 @interface ZKRSubArticlesController()<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, weak) UICollectionView *collectionView;
