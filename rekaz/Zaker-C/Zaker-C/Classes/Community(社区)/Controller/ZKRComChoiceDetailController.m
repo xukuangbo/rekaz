@@ -41,6 +41,7 @@
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CGLScreenW, CGLScreenH - 35 - 64)];
     self.tableView = tableView;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.delegate = self;
     tableView.dataSource = self;
     [self.mainView addSubview:tableView];
@@ -105,7 +106,7 @@
 //        CGFloat height = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"] floatValue];
         
         
-        self.webView.cgl_height = self.webView.scrollView.contentSize.height;
+        self.webView.cgl_height = self.webView.scrollView.contentSize.height + 100;
         
         
         self.tableView.tableHeaderView = self.webView;
@@ -131,7 +132,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [[UITableViewCell alloc] init];
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld", indexPath.row];
+//    cell.textLabel.text = [NSString stringWithFormat:@"%ld", indexPath.row];
     return cell;
 }
 @end

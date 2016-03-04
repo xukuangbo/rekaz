@@ -15,6 +15,7 @@
 #import "MJExtension.h"
 #import "ZKRSubArticlesCell2.h"
 #import "ZKRSubArticlesCell3.h"
+#import "SVProgressHUD.h"
 
 @interface ZKRSubArticlesController()<UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -52,7 +53,7 @@ static NSString *SubArticlesCell3 = @"SubArticlesCell3";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [SVProgressHUD show];
     [self loadData];
     
     [self setupCollectionView];
@@ -138,6 +139,8 @@ static NSString *SubArticlesCell3 = @"SubArticlesCell3";
         
         
         [self.collectionView reloadData];
+        
+        [SVProgressHUD dismiss];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);
     }];
