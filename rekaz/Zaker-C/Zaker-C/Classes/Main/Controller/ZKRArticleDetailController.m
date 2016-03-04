@@ -13,6 +13,7 @@
 #import "AFHTTPSessionManager.h"
 #import "ZKRArticleContentItem.h"
 #import "MJExtension.h"
+#import "SVProgressHUD.h"
 #define TitleViewHeight 120
 #define StatusBarHeight 20
 
@@ -35,9 +36,11 @@ static NSString *CommentCellID = @"CommentCellID";
     
 //    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([UITableViewCell class]) bundle:nil] forCellReuseIdentifier:CommentCellID];
 //    NSLog(@"%@", [self.item getAllPropertiesAndVaules]);
+    [SVProgressHUD show];
     [self setupTableHeaderView];
     
     [self loadWebData];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)setupTableHeaderView
@@ -72,7 +75,7 @@ static NSString *CommentCellID = @"CommentCellID";
         
         [self loadWebView:self.contentItem];
         [self.webView reload];
-        
+//        [SVProgressHUD dismiss];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
     }];
@@ -132,14 +135,15 @@ static NSString *CommentCellID = @"CommentCellID";
     
      /** webView新增底部view */
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, webViewHeight + 20, CGLScreenW, 100)];
-    view.backgroundColor = ZKRRedColor;
+//    view.backgroundColor = ZKRRedColor;
     [webView.scrollView addSubview:view];
 
     webView.cgl_height = webViewHeight + TitleViewHeight + StatusBarHeight + 100;
     
     self.tableView.tableHeaderView = webView;
-
+    
     [self.tableView reloadData];
+    [SVProgressHUD dismiss];
 }
 
 #pragma mark - Table view data source
@@ -151,7 +155,7 @@ static NSString *CommentCellID = @"CommentCellID";
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGLScreenW, 50)];
-    view.backgroundColor = [UIColor blueColor];
+//    view.backgroundColor = [UIColor blueColor];
     return view;
 }
 
@@ -167,8 +171,7 @@ static NSString *CommentCellID = @"CommentCellID";
 //    if (!cell) {
 //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CommentCellID];
 //    }
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"%zd", indexPath.row];
+//    cell.textLabel.text = [NSString stringWithFormat:@"%zd", indexPath.row];
     return cell;
 }
 
