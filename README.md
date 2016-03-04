@@ -13,7 +13,7 @@
 ### 更新日志
 - ...(前面的省略...)
 - 03.05 01:02 更新`订阅`界面右上角`搜索`跳转的`精选`
-	- ![](http://ww4.sinaimg.cn/large/6f23d9bagw1f1lc4d56ltj20pi16yjx2.jpg)
+ <img src="http://ww4.sinaimg.cn/large/6f23d9bagw1f1lc4d56ltj20pi16yjx2.jpg" width="30%" height="30%">
 
 --
 # Coding...
