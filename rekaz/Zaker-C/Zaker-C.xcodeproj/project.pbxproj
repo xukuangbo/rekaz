@@ -89,6 +89,14 @@
 		EE968F6F1C812BCC00C6D1E0 /* ZKRSearchChoiceTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE968F6E1C812BCC00C6D1E0 /* ZKRSearchChoiceTopView.m */; };
 		EE968F711C812BDB00C6D1E0 /* ZKRSearchChoiceTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE968F701C812BDB00C6D1E0 /* ZKRSearchChoiceTopView.xib */; };
 		EE97C8D61C66529500331134 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = EE97C8D51C66529500331134 /* UIImage+Tint.m */; };
+		EE98F1841C897330001D9E78 /* ZKRFunLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE98F1821C897330001D9E78 /* ZKRFunLocationController.m */; };
+		EE98F1881C8976E8001D9E78 /* ZKRFunCategoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EE98F1871C8976E8001D9E78 /* ZKRFunCategoryItem.m */; };
+		EE98F18A1C897B90001D9E78 /* funCategory.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE98F1891C897B90001D9E78 /* funCategory.plist */; };
+		EE98F18C1C898DC7001D9E78 /* city_list.json in Resources */ = {isa = PBXBuildFile; fileRef = EE98F18B1C898DC7001D9E78 /* city_list.json */; };
+		EE98F18F1C898DD9001D9E78 /* ZKRCityItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EE98F18E1C898DD9001D9E78 /* ZKRCityItem.m */; };
+		EE98F19A1C89E72B001D9E78 /* ZKRSearchChoiceChannelItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EE98F1991C89E72B001D9E78 /* ZKRSearchChoiceChannelItem.m */; };
+		EE98F19E1C89EA89001D9E78 /* ZKRSearchChoiceChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE98F19C1C89EA89001D9E78 /* ZKRSearchChoiceChannelCell.m */; };
+		EE98F19F1C89EA89001D9E78 /* ZKRSearchChoiceChannelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE98F19D1C89EA89001D9E78 /* ZKRSearchChoiceChannelCell.xib */; };
 		EEA7ADB81C8210F900C5A0DA /* ZKRRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA7ADB71C8210F900C5A0DA /* ZKRRefreshHeader.m */; };
 		EEA7ADBB1C8212B700C5A0DA /* ZKRTitlePageRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA7ADBA1C8212B700C5A0DA /* ZKRTitlePageRefreshHeader.m */; };
 		EEB687F61C7FE9A3008CE2DC /* ZKRComDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB687F51C7FE9A3008CE2DC /* ZKRComDiscoverViewController.m */; };
@@ -256,6 +264,19 @@
 		EE968F701C812BDB00C6D1E0 /* ZKRSearchChoiceTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZKRSearchChoiceTopView.xib; sourceTree = "<group>"; };
 		EE97C8D41C66529500331134 /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tint.h"; sourceTree = "<group>"; };
 		EE97C8D51C66529500331134 /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
+		EE98F1811C897330001D9E78 /* ZKRFunLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRFunLocationController.h; sourceTree = "<group>"; };
+		EE98F1821C897330001D9E78 /* ZKRFunLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRFunLocationController.m; sourceTree = "<group>"; };
+		EE98F1861C8976E8001D9E78 /* ZKRFunCategoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRFunCategoryItem.h; sourceTree = "<group>"; };
+		EE98F1871C8976E8001D9E78 /* ZKRFunCategoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRFunCategoryItem.m; sourceTree = "<group>"; };
+		EE98F1891C897B90001D9E78 /* funCategory.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = funCategory.plist; sourceTree = "<group>"; };
+		EE98F18B1C898DC7001D9E78 /* city_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city_list.json; sourceTree = "<group>"; };
+		EE98F18D1C898DD9001D9E78 /* ZKRCityItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRCityItem.h; sourceTree = "<group>"; };
+		EE98F18E1C898DD9001D9E78 /* ZKRCityItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRCityItem.m; sourceTree = "<group>"; };
+		EE98F1981C89E72B001D9E78 /* ZKRSearchChoiceChannelItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRSearchChoiceChannelItem.h; sourceTree = "<group>"; };
+		EE98F1991C89E72B001D9E78 /* ZKRSearchChoiceChannelItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRSearchChoiceChannelItem.m; sourceTree = "<group>"; };
+		EE98F19B1C89EA89001D9E78 /* ZKRSearchChoiceChannelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRSearchChoiceChannelCell.h; sourceTree = "<group>"; };
+		EE98F19C1C89EA89001D9E78 /* ZKRSearchChoiceChannelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRSearchChoiceChannelCell.m; sourceTree = "<group>"; };
+		EE98F19D1C89EA89001D9E78 /* ZKRSearchChoiceChannelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZKRSearchChoiceChannelCell.xib; sourceTree = "<group>"; };
 		EEA7ADB61C8210F900C5A0DA /* ZKRRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRRefreshHeader.h; sourceTree = "<group>"; };
 		EEA7ADB71C8210F900C5A0DA /* ZKRRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRRefreshHeader.m; sourceTree = "<group>"; };
 		EEA7ADB91C8212B700C5A0DA /* ZKRTitlePageRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRTitlePageRefreshHeader.h; sourceTree = "<group>"; };
@@ -498,6 +519,8 @@
 				EE968F501C80A2A800C6D1E0 /* ZKRFunCategoryController.h */,
 				EE968F511C80A2A800C6D1E0 /* ZKRFunCategoryController.m */,
 				EE968F521C80A2A800C6D1E0 /* ZKRFunCategoryController.xib */,
+				EE98F1811C897330001D9E78 /* ZKRFunLocationController.h */,
+				EE98F1821C897330001D9E78 /* ZKRFunLocationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -505,10 +528,16 @@
 		EE88D3B01C55316A001300F8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EE98F18B1C898DC7001D9E78 /* city_list.json */,
 				EE7F72821C7751B0007EFCBE /* ZKRFunCellItem.h */,
 				EE7F72831C7751B0007EFCBE /* ZKRFunCellItem.m */,
 				EE7F72841C7751B0007EFCBE /* ZKRFunGroupItem.h */,
 				EE7F72851C7751B0007EFCBE /* ZKRFunGroupItem.m */,
+				EE98F1861C8976E8001D9E78 /* ZKRFunCategoryItem.h */,
+				EE98F1871C8976E8001D9E78 /* ZKRFunCategoryItem.m */,
+				EE98F1891C897B90001D9E78 /* funCategory.plist */,
+				EE98F18D1C898DD9001D9E78 /* ZKRCityItem.h */,
+				EE98F18E1C898DD9001D9E78 /* ZKRCityItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -674,6 +703,8 @@
 				EE7E8DC51C58F60D004E71DA /* ZKRRootTypeItem.m */,
 				EE61855E1C856DA9004A4088 /* ZKRArticleItem.h */,
 				EE61855F1C856DA9004A4088 /* ZKRArticleItem.m */,
+				EE98F1981C89E72B001D9E78 /* ZKRSearchChoiceChannelItem.h */,
+				EE98F1991C89E72B001D9E78 /* ZKRSearchChoiceChannelItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -693,6 +724,9 @@
 				EE968F6E1C812BCC00C6D1E0 /* ZKRSearchChoiceTopView.m */,
 				EE968F701C812BDB00C6D1E0 /* ZKRSearchChoiceTopView.xib */,
 				EE6185661C85B10F004A4088 /* ZKRSubArticlesCell */,
+				EE98F19B1C89EA89001D9E78 /* ZKRSearchChoiceChannelCell.h */,
+				EE98F19C1C89EA89001D9E78 /* ZKRSearchChoiceChannelCell.m */,
+				EE98F19D1C89EA89001D9E78 /* ZKRSearchChoiceChannelCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -864,6 +898,7 @@
 				EE5E7A0D1C619FE800F30275 /* HeadLineCurrentPageIndicator.png in Resources */,
 				EE7AF3221C84BD9900A340DD /* rootBlocks.plist in Resources */,
 				EE7F728F1C7763E2007EFCBE /* ZKRColumnsViewCell.xib in Resources */,
+				EE98F19F1C89EA89001D9E78 /* ZKRSearchChoiceChannelCell.xib in Resources */,
 				EEF090911C837A01005B522C /* ZKRChoiceOnePicView.xib in Resources */,
 				EECC5E481C59181800540FB3 /* ZKRCollectionViewCell.xib in Resources */,
 				EE5EBC441C7FDBC900777B5E /* ZKRComInterestViewController.xib in Resources */,
@@ -877,6 +912,8 @@
 				EEB688011C7FF609008CE2DC /* ZKRComDiscoverCell.xib in Resources */,
 				EE00B8C81C74CEE8001A444B /* ZKRSlideView.xib in Resources */,
 				EE5E7A101C619FE800F30275 /* HeadLinePageIndicator@2x.png in Resources */,
+				EE98F18C1C898DC7001D9E78 /* city_list.json in Resources */,
+				EE98F18A1C897B90001D9E78 /* funCategory.plist in Resources */,
 				EEF090931C837A01005B522C /* ZKRChoiceThreePicView.xib in Resources */,
 				EE968F541C80A2A800C6D1E0 /* ZKRFunCategoryController.xib in Resources */,
 				EE968F4F1C80459100C6D1E0 /* ZKRZAKERLoginController.xib in Resources */,
@@ -950,6 +987,7 @@
 				EE968F3D1C80325B00C6D1E0 /* ZKRLoginViewController.m in Sources */,
 				EE968F601C80B71C00C6D1E0 /* ZKRSearchChoiceController.m in Sources */,
 				EE07D7CF1C83F78500AF4B43 /* ZKRRefreshFooter.m in Sources */,
+				EE98F1841C897330001D9E78 /* ZKRFunLocationController.m in Sources */,
 				EEF090981C837E42005B522C /* UIView+Init.m in Sources */,
 				EE97C8D61C66529500331134 /* UIImage+Tint.m in Sources */,
 				EE88D3EF1C566EC7001300F8 /* ZKRFunViewController.m in Sources */,
@@ -966,18 +1004,22 @@
 				EE968F4A1C8041A100C6D1E0 /* ZKRInfiniteScrollView.m in Sources */,
 				EEF090941C837A01005B522C /* ZKRChoiceTwoPicView.m in Sources */,
 				EE7F728E1C7763E2007EFCBE /* ZKRColumnsViewCell.m in Sources */,
+				EE98F19E1C89EA89001D9E78 /* ZKRSearchChoiceChannelCell.m in Sources */,
 				EE5593511C78D45C00985094 /* ZKRHotGroupItem.m in Sources */,
 				EE5EBC3F1C7F69D400777B5E /* CGLTitleButton.m in Sources */,
 				EE88D3E01C566C95001300F8 /* UIImage+Render.m in Sources */,
 				EE6185741C85B73E004A4088 /* ZKRSubArticlesCell3.m in Sources */,
+				EE98F18F1C898DD9001D9E78 /* ZKRCityItem.m in Sources */,
 				EE5EBC431C7FDBC900777B5E /* ZKRComInterestViewController.m in Sources */,
 				EE7F72861C7751B0007EFCBE /* ZKRFunCellItem.m in Sources */,
 				EE968F6F1C812BCC00C6D1E0 /* ZKRSearchChoiceTopView.m in Sources */,
 				EE5E7A0C1C619FE800F30275 /* CycleView.m in Sources */,
+				EE98F19A1C89E72B001D9E78 /* ZKRSearchChoiceChannelItem.m in Sources */,
 				EE968F391C80282600C6D1E0 /* ZKRCommentCellItem.m in Sources */,
 				EEA7ADB81C8210F900C5A0DA /* ZKRRefreshHeader.m in Sources */,
 				EE9455071C85E28C00FF1FD1 /* ZKRArticleViewController.m in Sources */,
 				EE2A87A11C84888D008BB94D /* ZKRSubArticlesController.m in Sources */,
+				EE98F1881C8976E8001D9E78 /* ZKRFunCategoryItem.m in Sources */,
 				EE88D3DF1C566C95001300F8 /* UIColor+Hex.m in Sources */,
 				EE968F641C80B7AC00C6D1E0 /* ZKRSearchChannelController.m in Sources */,
 				EE7E8DC61C58F60D004E71DA /* ZKRRootTypeItem.m in Sources */,

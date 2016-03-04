@@ -12,6 +12,9 @@
 #import "ZKRSearchChannelController.h"
 #import "ZKRSearchChoiceController.h"
 
+/**
+ *  订阅 -> 右上角搜索
+ */
 @interface ZKRSubSearchController () <UIScrollViewDelegate, UISearchBarDelegate>
 @property (nonatomic, strong) UIView *titleScrollView;
 
@@ -29,8 +32,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self setupNav];
@@ -92,7 +93,7 @@
     // 遍历给每个控制器的view定位
     for (NSUInteger i = 0; i < count; i++) {
         UIViewController *vc = self.childViewControllers[i];
-        vc.view.frame = CGRectMake(i * CGLScreenW, 35, CGLScreenW, CGLScreenH - 99);
+        vc.view.frame = CGRectMake(i * CGLScreenW, 35, CGLScreenW, CGLScreenH-99);
         [self.mainScrollView addSubview:vc.view];
     }
     
