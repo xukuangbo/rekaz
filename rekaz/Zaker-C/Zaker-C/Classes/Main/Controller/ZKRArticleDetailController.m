@@ -108,9 +108,8 @@ static NSString *CommentCellID = @"CommentCellID";
 }
 
 /**
- *  初始化body内容
+ *  初始化网页body内容
  */
-
 - (NSString *)setupBody:(ZKRArticleContentItem *)contentItem
 {
     NSMutableString *body = [NSMutableString stringWithFormat:@"%@",contentItem.content];

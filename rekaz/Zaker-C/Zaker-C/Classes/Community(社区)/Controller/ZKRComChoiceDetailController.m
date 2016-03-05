@@ -53,6 +53,7 @@
 {
     UIWebView *webView = [[UIWebView alloc] initWithFrame:self.mainView.bounds];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.item.content_url]];
+
     [webView loadRequest:request];
     webView.scrollView.scrollEnabled = NO;
     self.webView = webView;
@@ -103,10 +104,8 @@
 //            } completion:nil];
     
             // webView彻底加载完
-//        CGFloat height = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"] floatValue];
-        
-        
-        self.webView.cgl_height = self.webView.scrollView.contentSize.height + 100;
+        CGFloat height = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.clientHeight;"] floatValue];
+        self.webView.cgl_height = height;
         
         
         self.tableView.tableHeaderView = self.webView;

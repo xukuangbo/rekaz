@@ -129,11 +129,11 @@ static NSString *SubArticlesCell3 = @"SubArticlesCell3";
         self.pageArray = pages;
         
         ZKRArticleItem *fir_article = self.itemsArray[0];
-        self.nearTimeLabel.text = fir_article.date;
+        self.nearTimeLabel.text = [fir_article.date setupCreatedAt];
 
         
         ZKRArticleItem *last_article = self.itemsArray[count - 1];
-        self.farTimeLabel.text = last_article.date;
+        self.farTimeLabel.text = [last_article.date setupCreatedAt];
         
         
         self.topImageURL = responseObject[@"data"][@"ipadconfig"][@"pages"][0][@"diy"][@"bgimage_url"];

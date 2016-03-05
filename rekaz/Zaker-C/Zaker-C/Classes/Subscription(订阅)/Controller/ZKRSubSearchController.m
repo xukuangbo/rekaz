@@ -71,7 +71,8 @@
     UIScrollView *mainScrollView   = [[UIScrollView alloc] init];
     mainScrollView.frame           = self.view.bounds;
     mainScrollView.backgroundColor = [UIColor whiteColor];
-    
+    // 关闭弹簧效果
+    mainScrollView.bounces         = NO;
     mainScrollView.delegate        = self;
     
     self.mainScrollView            = mainScrollView;

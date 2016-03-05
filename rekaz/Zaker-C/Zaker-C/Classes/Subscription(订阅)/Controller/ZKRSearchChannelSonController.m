@@ -25,6 +25,7 @@ static NSString *ChannelCell = @"ChannelCell";
     self.tableView.separatorInset = UIEdgeInsetsZero;
     self.tableView.rowHeight = 60;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.separatorColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1];
     [self setupNav];
 }
 

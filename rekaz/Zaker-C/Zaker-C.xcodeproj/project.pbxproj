@@ -116,6 +116,10 @@
 		EEDF82E91C5C631100FF5AA8 /* HFStretchableTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDF82E81C5C631100FF5AA8 /* HFStretchableTableHeaderView.m */; };
 		EEDFC3041C86E597005FE564 /* ZKRComDiscTopicController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDFC3021C86E597005FE564 /* ZKRComDiscTopicController.m */; };
 		EEE7F27E1C757359000222AD /* ZKRAccountBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE7F27D1C757359000222AD /* ZKRAccountBarButtonItem.m */; };
+		EEE975DD1C8ACCAE00CD667D /* ZKRTopWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE975DC1C8ACCAE00CD667D /* ZKRTopWindow.m */; };
+		EEE975E01C8AD0EC00CD667D /* NSCalendar+Init.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE975DF1C8AD0EC00CD667D /* NSCalendar+Init.m */; };
+		EEE975E31C8AD19C00CD667D /* NSDate+Interval.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE975E21C8AD19C00CD667D /* NSDate+Interval.m */; };
+		EEE975E61C8AD43E00CD667D /* NSString+Date.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE975E51C8AD43E00CD667D /* NSString+Date.m */; };
 		EEF0906B1C836554005B522C /* ZKRCommentChoiceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF0906A1C836554005B522C /* ZKRCommentChoiceItem.m */; };
 		EEF0906F1C836811005B522C /* ZKRComChoiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF0906D1C836811005B522C /* ZKRComChoiceCell.m */; };
 		EEF090701C836811005B522C /* ZKRComChoiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEF0906E1C836811005B522C /* ZKRComChoiceCell.xib */; };
@@ -318,6 +322,14 @@
 		EEDFC3021C86E597005FE564 /* ZKRComDiscTopicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRComDiscTopicController.m; sourceTree = "<group>"; };
 		EEE7F27C1C757359000222AD /* ZKRAccountBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRAccountBarButtonItem.h; sourceTree = "<group>"; };
 		EEE7F27D1C757359000222AD /* ZKRAccountBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRAccountBarButtonItem.m; sourceTree = "<group>"; };
+		EEE975DB1C8ACCAE00CD667D /* ZKRTopWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRTopWindow.h; sourceTree = "<group>"; };
+		EEE975DC1C8ACCAE00CD667D /* ZKRTopWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRTopWindow.m; sourceTree = "<group>"; };
+		EEE975DE1C8AD0EC00CD667D /* NSCalendar+Init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+Init.h"; sourceTree = "<group>"; };
+		EEE975DF1C8AD0EC00CD667D /* NSCalendar+Init.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+Init.m"; sourceTree = "<group>"; };
+		EEE975E11C8AD19C00CD667D /* NSDate+Interval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Interval.h"; sourceTree = "<group>"; };
+		EEE975E21C8AD19C00CD667D /* NSDate+Interval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Interval.m"; sourceTree = "<group>"; };
+		EEE975E41C8AD43E00CD667D /* NSString+Date.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Date.h"; sourceTree = "<group>"; };
+		EEE975E51C8AD43E00CD667D /* NSString+Date.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Date.m"; sourceTree = "<group>"; };
 		EEF090691C836554005B522C /* ZKRCommentChoiceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRCommentChoiceItem.h; sourceTree = "<group>"; };
 		EEF0906A1C836554005B522C /* ZKRCommentChoiceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRCommentChoiceItem.m; sourceTree = "<group>"; };
 		EEF0906C1C836811005B522C /* ZKRComChoiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRComChoiceCell.h; sourceTree = "<group>"; };
@@ -667,6 +679,8 @@
 				EE9455101C86060200FF1FD1 /* ZKRArticleDetailTopView.h */,
 				EE9455111C86060200FF1FD1 /* ZKRArticleDetailTopView.m */,
 				EE9455131C86061000FF1FD1 /* ZKRArticleDetailTopView.xib */,
+				EEE975DB1C8ACCAE00CD667D /* ZKRTopWindow.h */,
+				EEE975DC1C8ACCAE00CD667D /* ZKRTopWindow.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -793,6 +807,12 @@
 				EEF090971C837E42005B522C /* UIView+Init.m */,
 				EE2A879C1C848456008BB94D /* NSObject+Object.h */,
 				EE2A879D1C848456008BB94D /* NSObject+Object.m */,
+				EEE975DE1C8AD0EC00CD667D /* NSCalendar+Init.h */,
+				EEE975DF1C8AD0EC00CD667D /* NSCalendar+Init.m */,
+				EEE975E11C8AD19C00CD667D /* NSDate+Interval.h */,
+				EEE975E21C8AD19C00CD667D /* NSDate+Interval.m */,
+				EEE975E41C8AD43E00CD667D /* NSString+Date.h */,
+				EEE975E51C8AD43E00CD667D /* NSString+Date.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1026,6 +1046,7 @@
 				EE88D3EF1C566EC7001300F8 /* ZKRFunViewController.m in Sources */,
 				EE88D3EC1C566EBE001300F8 /* ZKRHotViewController.m in Sources */,
 				EE7F72921C776565007EFCBE /* ZKRColoumnsViewController.m in Sources */,
+				EEE975DD1C8ACCAE00CD667D /* ZKRTopWindow.m in Sources */,
 				EEF090921C837A01005B522C /* ZKRChoiceThreePicView.m in Sources */,
 				EECC5E471C59181800540FB3 /* ZKRCollectionViewCell.m in Sources */,
 				EE9629D61C57907E00B992AD /* ZKRRotationItem.m in Sources */,
@@ -1046,8 +1067,10 @@
 				EE6185741C85B73E004A4088 /* ZKRSubArticlesCell3.m in Sources */,
 				EE98F18F1C898DD9001D9E78 /* ZKRCityItem.m in Sources */,
 				EE5EBC431C7FDBC900777B5E /* ZKRComInterestViewController.m in Sources */,
+				EEE975E31C8AD19C00CD667D /* NSDate+Interval.m in Sources */,
 				EE7F72861C7751B0007EFCBE /* ZKRFunCellItem.m in Sources */,
 				EE968F6F1C812BCC00C6D1E0 /* ZKRSearchChoiceTopView.m in Sources */,
+				EEE975E61C8AD43E00CD667D /* NSString+Date.m in Sources */,
 				EE5E7A0C1C619FE800F30275 /* CycleView.m in Sources */,
 				EE98F1A71C8A70FD001D9E78 /* ZKRChannelGroupItem.m in Sources */,
 				EE98F19A1C89E72B001D9E78 /* ZKRSearchChoiceChannelItem.m in Sources */,
@@ -1088,6 +1111,7 @@
 				EE88D3C31C55316A001300F8 /* AppDelegate.m in Sources */,
 				EE968F571C80A67700C6D1E0 /* ZKRCategoryButton.m in Sources */,
 				EEE7F27E1C757359000222AD /* ZKRAccountBarButtonItem.m in Sources */,
+				EEE975E01C8AD0EC00CD667D /* NSCalendar+Init.m in Sources */,
 				EE9455761C868F9400FF1FD1 /* ZKRArticleContentItem.m in Sources */,
 				EEDF82E91C5C631100FF5AA8 /* HFStretchableTableHeaderView.m in Sources */,
 				EE88D3E11C566C95001300F8 /* UITextField+CGLplaceholderLabel.m in Sources */,
