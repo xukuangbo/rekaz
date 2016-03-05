@@ -24,6 +24,7 @@
 - (void)awakeFromNib {
     // Initialization code
     self.separatorInset = UIEdgeInsetsZero;
+    
 }
 
 //- (void)setFrame:(CGRect)frame

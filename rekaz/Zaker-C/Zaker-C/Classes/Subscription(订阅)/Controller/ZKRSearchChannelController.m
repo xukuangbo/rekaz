@@ -33,8 +33,9 @@ static NSString *ChannelsGroupCell = @"ChannelsGroupCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1];
+    
     self.tableView.separatorInset = UIEdgeInsetsZero;
+    self.tableView.separatorColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZKRSearchChannelCell class]) bundle:nil] forCellReuseIdentifier:ChannelsGroupCell];
     self.tableView.rowHeight = 62;
     
