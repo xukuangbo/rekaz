@@ -1,8 +1,6 @@
 #rekaz
 
---
-
-# 已完成
+## 已完成
 
 - ![](http://ww4.sinaimg.cn/large/6f23d9bagw1f1jzpxt8hhj20v90j5tdv.jpg)
 - ![](http://ww2.sinaimg.cn/large/6f23d9bagw1f1jznm0zsqj20v90j5wlc.jpg)
@@ -11,9 +9,11 @@
 --
 
 ### 更新日志
-- ...(前面的省略...)
+- 03.05 10:58 更新`订阅`界面右上角`搜索`跳转的`频道`
+	- ![](http://ww1.sinaimg.cn/large/6f23d9bagw1f1lswvef7ag207t0ek47b.gif)
 - 03.05 01:02 更新`订阅`界面右上角`搜索`跳转的`精选`
- <img src="http://ww4.sinaimg.cn/large/6f23d9bagw1f1lc4d56ltj20pi16yjx2.jpg" width="30%" height="30%">
+	- <img src="http://ww4.sinaimg.cn/large/6f23d9bagw1f1lc4d56ltj20pi16yjx2.jpg" width="30%" height="30%">
+- ...(前面的省略...)
 
 --
 # Coding...

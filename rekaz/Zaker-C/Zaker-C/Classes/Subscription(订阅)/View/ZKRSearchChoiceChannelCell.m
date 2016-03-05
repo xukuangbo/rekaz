@@ -26,12 +26,12 @@
     self.separatorInset = UIEdgeInsetsZero;
 }
 
-- (void)setFrame:(CGRect)frame
-{
-    frame.origin.y +=1;
-    frame.size.height -= 1;
-    [super setFrame:frame];
-}
+//- (void)setFrame:(CGRect)frame
+//{
+//    frame.origin.y +=1;
+//    frame.size.height -= 1;
+//    [super setFrame:frame];
+//}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
