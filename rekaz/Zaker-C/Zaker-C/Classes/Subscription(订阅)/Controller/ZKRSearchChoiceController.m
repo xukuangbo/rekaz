@@ -14,6 +14,7 @@
 #import "ZKRSearchChoiceTopView.h"
 #import "ZKRSearchChoiceChannelItem.h"
 #import "ZKRSearchChoiceChannelCell.h"
+#import "SVProgressHUD.h"
 /**
  *  订阅 -> 搜索 -> 精选
  */
@@ -47,8 +48,11 @@ static NSString *ChoiceChannelCell = @"ChoiceChannelCell";
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [SVProgressHUD show];
+    
     [self setupTopView];
     [self loadTopData];
+    
 }
 
 - (void)viewDidLoad {
@@ -62,6 +66,7 @@ static NSString *ChoiceChannelCell = @"ChoiceChannelCell";
     self.tableView.rowHeight = 100;
     // cell底部分割线去除
 //    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.separatorInset = UIEdgeInsetsZero;
     // 加载精选频道
     self.tableView.backgroundColor = [UIColor whiteColor];
     [self loadChoiceData];
@@ -101,6 +106,7 @@ static NSString *ChoiceChannelCell = @"ChoiceChannelCell";
         }
         
         self.topView.items = self.itemsArray;
+        [SVProgressHUD dismiss];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);
     }];
