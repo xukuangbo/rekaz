@@ -11,7 +11,7 @@
 @interface CGLInterval : NSObject
 @property (nonatomic, assign) NSInteger cgl_day NS_AVAILABLE_IOS(6_0);
 /** 天 */
-@property (nonatomic, assign) NSInteger day NS_DEPRECATED_IOS(2_0, 7_0, "Use cgl_day");
+@property (nonatomic, assign) NSInteger day;
 /** 小时 */
 @property (nonatomic, assign) NSInteger hour;
 /** 分钟 */

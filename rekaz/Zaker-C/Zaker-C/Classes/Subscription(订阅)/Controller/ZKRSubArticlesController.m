@@ -211,6 +211,7 @@ static NSString *SubArticlesCell3 = @"SubArticlesCell3";
     [self.navigationController popViewControllerAnimated:YES];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
+    [SVProgressHUD dismiss];
 }
 
 
