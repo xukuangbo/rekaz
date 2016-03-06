@@ -27,6 +27,10 @@
 		EE5593541C78D46B00985094 /* ZKRHotCellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5593531C78D46B00985094 /* ZKRHotCellItem.m */; };
 		EE5593581C78D57800985094 /* ZKRHotTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5593561C78D57800985094 /* ZKRHotTableViewCell.m */; };
 		EE5593591C78D57800985094 /* ZKRHotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE5593571C78D57800985094 /* ZKRHotTableViewCell.xib */; };
+		EE5902311C8C93CC005BCEB2 /* ZKRArticleCommentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5902301C8C93CC005BCEB2 /* ZKRArticleCommentItem.m */; };
+		EE5902341C8C9596005BCEB2 /* ZKRArticleCommentGroupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5902331C8C9596005BCEB2 /* ZKRArticleCommentGroupItem.m */; };
+		EE5902371C8C9737005BCEB2 /* ZKRArticleCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5902361C8C9737005BCEB2 /* ZKRArticleCommentCell.m */; };
+		EE5902391C8C9760005BCEB2 /* ZKRArticleCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE5902381C8C9760005BCEB2 /* ZKRArticleCommentCell.xib */; };
 		EE5E7A0A1C619FE800F30275 /* CycleButon.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5E79FF1C619FE800F30275 /* CycleButon.m */; };
 		EE5E7A0B1C619FE800F30275 /* CyclePageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5E7A011C619FE800F30275 /* CyclePageControl.m */; };
 		EE5E7A0C1C619FE800F30275 /* CycleView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5E7A031C619FE800F30275 /* CycleView.m */; };
@@ -170,6 +174,13 @@
 		EE5593551C78D57800985094 /* ZKRHotTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRHotTableViewCell.h; sourceTree = "<group>"; };
 		EE5593561C78D57800985094 /* ZKRHotTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRHotTableViewCell.m; sourceTree = "<group>"; };
 		EE5593571C78D57800985094 /* ZKRHotTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZKRHotTableViewCell.xib; sourceTree = "<group>"; };
+		EE59022F1C8C93CC005BCEB2 /* ZKRArticleCommentItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRArticleCommentItem.h; sourceTree = "<group>"; };
+		EE5902301C8C93CC005BCEB2 /* ZKRArticleCommentItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRArticleCommentItem.m; sourceTree = "<group>"; };
+		EE5902321C8C9596005BCEB2 /* ZKRArticleCommentGroupItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRArticleCommentGroupItem.h; sourceTree = "<group>"; };
+		EE5902331C8C9596005BCEB2 /* ZKRArticleCommentGroupItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRArticleCommentGroupItem.m; sourceTree = "<group>"; };
+		EE5902351C8C9737005BCEB2 /* ZKRArticleCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRArticleCommentCell.h; sourceTree = "<group>"; };
+		EE5902361C8C9737005BCEB2 /* ZKRArticleCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRArticleCommentCell.m; sourceTree = "<group>"; };
+		EE5902381C8C9760005BCEB2 /* ZKRArticleCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZKRArticleCommentCell.xib; sourceTree = "<group>"; };
 		EE5E79FE1C619FE800F30275 /* CycleButon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CycleButon.h; sourceTree = "<group>"; };
 		EE5E79FF1C619FE800F30275 /* CycleButon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleButon.m; sourceTree = "<group>"; };
 		EE5E7A001C619FE800F30275 /* CyclePageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CyclePageControl.h; sourceTree = "<group>"; };
@@ -689,6 +700,10 @@
 			children = (
 				EE9455741C868F9400FF1FD1 /* ZKRArticleContentItem.h */,
 				EE9455751C868F9400FF1FD1 /* ZKRArticleContentItem.m */,
+				EE59022F1C8C93CC005BCEB2 /* ZKRArticleCommentItem.h */,
+				EE5902301C8C93CC005BCEB2 /* ZKRArticleCommentItem.m */,
+				EE5902321C8C9596005BCEB2 /* ZKRArticleCommentGroupItem.h */,
+				EE5902331C8C9596005BCEB2 /* ZKRArticleCommentGroupItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -705,6 +720,9 @@
 				EE9455101C86060200FF1FD1 /* ZKRArticleDetailTopView.h */,
 				EE9455111C86060200FF1FD1 /* ZKRArticleDetailTopView.m */,
 				EE9455131C86061000FF1FD1 /* ZKRArticleDetailTopView.xib */,
+				EE5902351C8C9737005BCEB2 /* ZKRArticleCommentCell.h */,
+				EE5902361C8C9737005BCEB2 /* ZKRArticleCommentCell.m */,
+				EE5902381C8C9760005BCEB2 /* ZKRArticleCommentCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -968,6 +986,7 @@
 				EE5593481C78D23100985094 /* hot.plist in Resources */,
 				EE07D7D41C84075E00AF4B43 /* ZKRComChoiceDetailController.xib in Resources */,
 				EE6185701C85B10F004A4088 /* ZKRSubArticlesCell2.xib in Resources */,
+				EE5902391C8C9760005BCEB2 /* ZKRArticleCommentCell.xib in Resources */,
 				EE6185751C85B73E004A4088 /* ZKRSubArticlesCell3.xib in Resources */,
 				EE5E7A0F1C619FE800F30275 /* HeadLinePageIndicator.png in Resources */,
 				EE2A87A81C849181008BB94D /* ZKRSubArticlesController.xib in Resources */,
@@ -1069,6 +1088,7 @@
 				EE98F1841C897330001D9E78 /* ZKRFunLocationController.m in Sources */,
 				EEF090981C837E42005B522C /* UIView+Init.m in Sources */,
 				EE97C8D61C66529500331134 /* UIImage+Tint.m in Sources */,
+				EE5902371C8C9737005BCEB2 /* ZKRArticleCommentCell.m in Sources */,
 				EE88D3EF1C566EC7001300F8 /* ZKRFunViewController.m in Sources */,
 				EE88D3EC1C566EBE001300F8 /* ZKRHotViewController.m in Sources */,
 				EE7F72921C776565007EFCBE /* ZKRColoumnsViewController.m in Sources */,
@@ -1136,6 +1156,7 @@
 				EE5593541C78D46B00985094 /* ZKRHotCellItem.m in Sources */,
 				EE88D3E91C566EB5001300F8 /* ZKRSubscriptionViewController.m in Sources */,
 				EE00B8CB1C754D1A001A444B /* ZKRSlideViewButton.m in Sources */,
+				EE5902341C8C9596005BCEB2 /* ZKRArticleCommentGroupItem.m in Sources */,
 				EE88D3C31C55316A001300F8 /* AppDelegate.m in Sources */,
 				EE968F571C80A67700C6D1E0 /* ZKRCategoryButton.m in Sources */,
 				EEE7F27E1C757359000222AD /* ZKRAccountBarButtonItem.m in Sources */,
@@ -1144,6 +1165,7 @@
 				EEDF82E91C5C631100FF5AA8 /* HFStretchableTableHeaderView.m in Sources */,
 				EE88D3E11C566C95001300F8 /* UITextField+CGLplaceholderLabel.m in Sources */,
 				EE6646B41C5B96200064CDA6 /* ZKRMineTableController.m in Sources */,
+				EE5902311C8C93CC005BCEB2 /* ZKRArticleCommentItem.m in Sources */,
 				EEF0906F1C836811005B522C /* ZKRComChoiceCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
