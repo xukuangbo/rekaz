@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ZKRTopWindow : UIWindow
+
++ (instancetype)sharedTopWindow;
 /**
  *  显示顶层window
  *

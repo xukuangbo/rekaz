@@ -22,7 +22,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQ9-MQ-aFs" userLabel="bottom View">
                     <rect key="frame" x="0.0" y="632" width="375" height="35"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mht-aK-MwB">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mht-aK-MwB">
                             <rect key="frame" x="10" y="2" width="32" height="32"/>
                             <state key="normal" image="common_icon_return"/>
                             <connections>

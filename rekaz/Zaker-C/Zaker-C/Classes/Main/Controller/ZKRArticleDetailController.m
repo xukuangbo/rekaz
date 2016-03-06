@@ -30,6 +30,25 @@
 static NSString *CommentCellID = @"CommentCellID";
 
 @implementation ZKRArticleDetailController
+#pragma mark - ---| lazy load |---
+- (AFHTTPSessionManager *)manager
+{
+    if (!_manager) {
+        _manager = [AFHTTPSessionManager manager];
+    }
+    return _manager;
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, -20, CGLScreenW, 20)];
+    view.backgroundColor = [UIColor colorWithHexString:self.item.block_color alpha:0.8];
+    [self.view addSubview:view];
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,8 +60,10 @@ static NSString *CommentCellID = @"CommentCellID";
     
     [self loadWebData];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
 }
 
+#pragma mark - ---| 加载view |---
 - (void)setupTableHeaderView
 {
     
@@ -51,40 +72,59 @@ static NSString *CommentCellID = @"CommentCellID";
     topView.item = self.item;
     
     UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, CGLScreenW, 350)];
-    webView.delegate = self;
-    
-    webView.scrollView.contentInset = UIEdgeInsetsMake(TitleViewHeight, 0, 0, 0);
-    [webView.scrollView addSubview:topView];
-    webView.scrollView.showsVerticalScrollIndicator = NO;
+    webView.delegate                 = self;
     webView.scrollView.scrollEnabled = NO;
+    webView.scrollView.showsVerticalScrollIndicator = NO;
+    webView.scrollView.contentInset  = UIEdgeInsetsMake(TitleViewHeight, 0, 0, 0);
 
+    [webView.scrollView addSubview:topView];
     self.webView = webView;
 }
 
+#pragma mark - ---| load data |---
+/**
+ *  http://c.myzaker.com/weibo/api_comment_article_url.php?
+ _appid=iphone
+ &_dev=iPhone%2C9.2.1
+ &_v=6.4.7
+ &_version=6.46
+ &act=get_comments
+ &pk=56daf9a29490cb876e00016c
+ */
+- (void)loadCommentData
+{
+    NSMutableDictionary *para = [NSMutableDictionary dictionary];
+    para[@"_appid"]   = @"iphone";
+    para[@"_version"] = @"6.46";
+    para[@"act"]      = @"get_comments";
+    para[@"pk"]       = self.item.pk;
+    NSLog(@"%@", self.item.pk);
+    
+//    para[@""] = @"";
+}
+
+ /** 加载网页信息 */
 - (void)loadWebData
 {
     NSString *url = self.item.full_url;
     
-    self.manager = [AFHTTPSessionManager manager];
-    
     NSMutableDictionary *para = [NSMutableDictionary dictionary];
     
     [self.manager GET:url parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
         ZKRArticleContentItem *contentItem  = [ZKRArticleContentItem mj_objectWithKeyValues:responseObject[@"data"]];
         self.contentItem = contentItem ;
         
         [self loadWebView:self.contentItem];
         [self.webView reload];
-//        [SVProgressHUD dismiss];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
     }];
     
+    
+    
 }
 
-
- /** 加载网页 */
+ /** 设置网页内容格式 */
 - (void)loadWebView:(ZKRArticleContentItem *)contentItem
 {
     NSMutableString *html = [NSMutableString string];
@@ -119,14 +159,16 @@ static NSString *CommentCellID = @"CommentCellID";
         
         NSMutableString *m_url = obj[@"m_url"];
         
-        
-        NSMutableString *div = [NSMutableString stringWithFormat:@"onclick='window.location.href=\"http://www.myzaker.com/?_zkcmd=open_media&index=%zd\"'", idx];
+        // 原div点击事件
+        NSMutableString *div   = [NSMutableString stringWithFormat:@"onclick='window.location.href=\"http://www.myzaker.com/?_zkcmd=open_media&index=%zd\"'", idx];
+        // 替换的div点击事件
         NSMutableString *reDiv = [NSMutableString stringWithFormat:@"onclick='alert(this.src)'"];
+        
         [body replaceOccurrencesOfString:div withString:reDiv options:NSCaseInsensitiveSearch range:NSMakeRange(0, body.length)];
         
         
         
-        NSString *imgTargetString = [NSString stringWithFormat:@"id=\"id_image_%zd\" class=\"\" src=\"article_html_content_loading.png\"", idx];
+        NSString *imgTargetString  = [NSString stringWithFormat:@"id=\"id_image_%zd\" class=\"\" src=\"article_html_content_loading.png\"", idx];
         NSString *imgReplaceString = [NSString stringWithFormat:@"id=\"id_image_%zd\" class=\"\" src=\"%@\"", idx, m_url];
 
         [body replaceOccurrencesOfString:imgTargetString withString:imgReplaceString options:NSCaseInsensitiveSearch range:NSMakeRange(0, body.length)];
@@ -134,6 +176,8 @@ static NSString *CommentCellID = @"CommentCellID";
 //    NSLog(@"%@", body);
     return body;
 }
+
+
 
 #pragma mark - ---| webView delegate |---
 - (void)webViewDidFinishLoad:(UIWebView *)webView
@@ -143,7 +187,7 @@ static NSString *CommentCellID = @"CommentCellID";
     
      /** webView新增底部view */
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, webViewHeight + 20, CGLScreenW, 100)];
-//    view.backgroundColor = ZKRRedColor;
+
     [webView.scrollView addSubview:view];
 
     webView.cgl_height = webViewHeight + TitleViewHeight + StatusBarHeight + 100;
@@ -170,6 +214,21 @@ static NSString *CommentCellID = @"CommentCellID";
 }
 
 #pragma mark - Table view data source
+ /** 评论数 */
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 5;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    
+    return cell;
+}
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 50;
@@ -178,25 +237,8 @@ static NSString *CommentCellID = @"CommentCellID";
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGLScreenW, 50)];
-//    view.backgroundColor = [UIColor blueColor];
+    //    view.backgroundColor = [UIColor blueColor];
     return view;
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CommentCellID forIndexPath:indexPath];
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
-    
-//    if (!cell) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CommentCellID];
-//    }
-//    cell.textLabel.text = [NSString stringWithFormat:@"%zd", indexPath.row];
-    return cell;
-}
-
 
 @end

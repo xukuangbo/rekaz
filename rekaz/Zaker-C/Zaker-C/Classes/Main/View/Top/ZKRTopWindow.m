@@ -7,46 +7,19 @@
 //
 
 #import "ZKRTopWindow.h"
-/***** ZKRTopViewController *****/
-@interface ZKRTopViewController : UIViewController
-@property (nonatomic, copy) void (^statusBarClickBlock)();
-@end
-
-@implementation ZKRTopViewController
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    if (self.statusBarClickBlock) self.statusBarClickBlock();
-    //    !self.statusBarClickBlock ? : self.statusBarClickBlock();
-}
-
-#pragma mark - 状态栏控制
-- (BOOL)prefersStatusBarHidden
-{
-    return NO;
-}
-
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleDefault;
-}
-@end
-/***** ZKRTopViewController *****/
-
+#import "ZKRTopViewController.h"
 
 @implementation ZKRTopWindow
 
-
-static ZKRTopWindow *window_;
 
 + (void)showWithStatusBarClickBlock:(void (^)())block
 {
     if (window_) return;
     
-    window_ = [[ZKRTopWindow alloc] init];
-    window_.windowLevel = UIWindowLevelAlert;
-    window_.backgroundColor = [UIColor clearColor];
+    [ZKRTopWindow sharedTopWindow].windowLevel = UIWindowLevelAlert;
+    [ZKRTopWindow sharedTopWindow].backgroundColor = [UIColor clearColor];
     // 先显示window
-    window_.hidden = NO;
+    [ZKRTopWindow sharedTopWindow].hidden = NO;
     
     // 设置根控制器
     ZKRTopViewController *topVc = [[ZKRTopViewController alloc] init];
@@ -54,7 +27,7 @@ static ZKRTopWindow *window_;
     topVc.view.frame = [UIApplication sharedApplication].statusBarFrame;
     topVc.view.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     topVc.statusBarClickBlock = block;
-    window_.rootViewController = topVc;
+    [ZKRTopWindow sharedTopWindow].rootViewController = topVc;
 }
 
 /**
@@ -70,6 +43,34 @@ static ZKRTopWindow *window_;
     // 如果触摸点的y值 <= 20，按照默认做法处理
     return [super hitTest:point withEvent:event];
 }
+
+#pragma mark - 单例模式
+
+static ZKRTopWindow *window_;
+
++ (instancetype)sharedTopWindow
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        window_ = [[self alloc] init];
+    });
+    return window_;
+}
+
++ (instancetype)allocWithZone:(struct _NSZone *)zone
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        window_ = [super allocWithZone:zone];
+    });
+    return window_;
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return window_;
+}
+
 
 
 @end

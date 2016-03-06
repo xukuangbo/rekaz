@@ -38,13 +38,14 @@
     [SVProgressHUD show];
     // 顶部view 加载
     [self setupTopView];
-    
+
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CGLScreenW, CGLScreenH - 35 - 64)];
     self.tableView = tableView;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.delegate = self;
     tableView.dataSource = self;
-    [self.mainView addSubview:tableView];
+    
+//    [self.mainView addSubview:tableView];
     
     [self setupWebView];
 }
@@ -55,9 +56,11 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.item.content_url]];
 
     [webView loadRequest:request];
-    webView.scrollView.scrollEnabled = NO;
+//    webView.scrollView.scrollEnabled = NO;
+    self.webView.backgroundColor = [UIColor whiteColor];
+
     self.webView = webView;
-    
+    [self.mainView addSubview:webView];
     // 用来监听web加载进度
     NJKWebViewProgress *progressProxy = [[NJKWebViewProgress alloc] init];
     self.progressProxy = progressProxy;
@@ -65,7 +68,7 @@
     self.progressProxy.progressDelegate = self;
     self.webView.delegate = self.progressProxy;
     
-    self.webView.backgroundColor = [UIColor whiteColor];
+//    [self.webView reload];
 }
 
  /** 加载顶部视图 */
@@ -103,12 +106,23 @@
 //            _progressView.alpha = 0.0;
 //            } completion:nil];
     
-            // webView彻底加载完
-        CGFloat height = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.clientHeight;"] floatValue];
-        self.webView.cgl_height = height;
+        /**
+         *  可能要计算所有图片在手机屏幕比例下的高度,然后全部加在一起才是网页的高度
+         */
         
         
-        self.tableView.tableHeaderView = self.webView;
+//        CGFloat height = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"] floatValue];
+//        CGFloat height = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.getElementById(\"content\").offsetHeight;"] floatValue];
+//        NSArray *height = ;
+        
+//        NSString *jsStr = @"var img = document.getElementsByClassName(\"pic\").children[0];img.getAttribute('imgheight')";
+        
+//        NSLog(@"%@", [self.webView stringByEvaluatingJavaScriptFromString:jsStr]);
+//        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 375, 20)];
+//        view.cgl_y = height;
+//        view.backgroundColor = [UIColor blueColor];
+//        [self.webView.scrollView addSubview:view];
+        
         
         [self.tableView reloadData];
         [SVProgressHUD dismiss];
