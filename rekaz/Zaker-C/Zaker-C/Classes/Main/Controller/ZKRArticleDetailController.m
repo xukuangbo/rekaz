@@ -14,6 +14,9 @@
 #import "ZKRArticleContentItem.h"
 #import "MJExtension.h"
 #import "SVProgressHUD.h"
+#import "ZKRArticleCommentGroupItem.h"
+#import "ZKRArticleCommentItem.h"
+#import "ZKRArticleCommentCell.h"
 #define TitleViewHeight 120
 #define StatusBarHeight 20
 
@@ -25,10 +28,12 @@
 @property (nonatomic, strong) ZKRArticleContentItem *contentItem;
 @property (nonatomic, strong) NSString *contentString;
 @property (nonatomic, strong) UIWebView *webView;
+
+@property (nonatomic, strong) NSMutableArray *commentGroupsArray;
+
 @end
 
-static NSString *CommentCellID = @"CommentCellID";
-
+static NSString *ArticleCommentCell = @"ArticleCommentCell";
 @implementation ZKRArticleDetailController
 #pragma mark - ---| lazy load |---
 - (AFHTTPSessionManager *)manager
@@ -39,6 +44,10 @@ static NSString *CommentCellID = @"CommentCellID";
     return _manager;
 }
 
+- (instancetype)initWithStyle:(UITableViewStyle)style
+{
+    return [super initWithStyle:UITableViewStyleGrouped];
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -48,18 +57,25 @@ static NSString *CommentCellID = @"CommentCellID";
     view.backgroundColor = [UIColor colorWithHexString:self.item.block_color alpha:0.8];
     [self.view addSubview:view];
     
+//    self.view.backgroundColor = [UIColor whiteColor];
+//    self.automaticallyAdjustsScrollViewInsets = NO;
+//    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 50, 0);
+//    self.tableView.backgroundView = [[UIView alloc]init];
+//    self.tableView.backgroundColor = [UIColor clearColor];
+    
+    self.tableView.backgroundView = nil;
+    self.tableView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([UITableViewCell class]) bundle:nil] forCellReuseIdentifier:CommentCellID];
-//    NSLog(@"%@", [self.item getAllPropertiesAndVaules]);
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZKRArticleCommentCell class]) bundle:nil] forCellReuseIdentifier:ArticleCommentCell];
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 35, 0);
     [SVProgressHUD show];
     [self setupTableHeaderView];
     
     [self loadWebData];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
     
 }
 
@@ -83,13 +99,7 @@ static NSString *CommentCellID = @"CommentCellID";
 
 #pragma mark - ---| load data |---
 /**
- *  http://c.myzaker.com/weibo/api_comment_article_url.php?
- _appid=iphone
- &_dev=iPhone%2C9.2.1
- &_v=6.4.7
- &_version=6.46
- &act=get_comments
- &pk=56daf9a29490cb876e00016c
+ *  加载评论数据
  */
 - (void)loadCommentData
 {
@@ -98,9 +108,26 @@ static NSString *CommentCellID = @"CommentCellID";
     para[@"_version"] = @"6.46";
     para[@"act"]      = @"get_comments";
     para[@"pk"]       = self.item.pk;
-    NSLog(@"%@", self.item.pk);
     
-//    para[@""] = @"";
+    [self.manager GET:@"http://c.myzaker.com/weibo/api_comment_article_url.php?" parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        self.commentGroupsArray = [ZKRArticleCommentGroupItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"comments"]];
+        
+        [self.commentGroupsArray enumerateObjectsUsingBlock:^(ZKRArticleCommentGroupItem *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+
+            if (obj.list.count != 0) {
+                obj.list = [ZKRArticleCommentItem mj_objectArrayWithKeyValuesArray:obj.list];
+            }
+            self.commentGroupsArray[idx] = obj;
+        }];
+        
+        [self.tableView reloadData];
+        
+        [SVProgressHUD dismiss];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+    
+    
 }
 
  /** 加载网页信息 */
@@ -195,7 +222,10 @@ static NSString *CommentCellID = @"CommentCellID";
     self.tableView.tableHeaderView = webView;
     
     [self.tableView reloadData];
-    [SVProgressHUD dismiss];
+    
+    // 在网页加载后加载评论
+    [self loadCommentData];
+    
 }
 
 /**
@@ -214,31 +244,72 @@ static NSString *CommentCellID = @"CommentCellID";
 }
 
 #pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return self.commentGroupsArray.count;
+}
+
  /** 评论数 */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    ZKRArticleCommentGroupItem *group = self.commentGroupsArray[section];
+    return group.list.count;
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (ZKRArticleCommentCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ZKRArticleCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:ArticleCommentCell];
     
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    ZKRArticleCommentGroupItem *group = self.commentGroupsArray[indexPath.section];
+    ZKRArticleCommentItem *item = group.list[indexPath.row];
     
+    cell.item = item;
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ZKRArticleCommentGroupItem *group = self.commentGroupsArray[indexPath.section];
+    ZKRArticleCommentItem *item = group.list[indexPath.row];
+    return item.cellHeight;
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 50;
+    return 30;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGLScreenW, 50)];
-    //    view.backgroundColor = [UIColor blueColor];
+    view.backgroundColor = [UIColor whiteColor];
+    
+    ZKRArticleCommentGroupItem *group = self.commentGroupsArray[section];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 40, 50)];
+//    label.text = group.title;
+    NSDictionary *att = @{
+                          NSFontAttributeName : [UIFont systemFontOfSize:10],
+                          NSForegroundColorAttributeName : [UIColor lightGrayColor]
+                          };
+    
+    NSAttributedString *attStr = [[NSAttributedString alloc] initWithString:group.title attributes:att];
+    
+    [label setAttributedText:attStr];
+    
+    
+    [view addSubview:label];
+    
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(label.frame) + 10, label.center.y, view.cgl_width - CGRectGetMaxX(label.frame) - 30, 1)];
+    lineView.backgroundColor = [UIColor lightGrayColor];
+    [view addSubview:lineView];
     return view;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.1;
+}
 @end
