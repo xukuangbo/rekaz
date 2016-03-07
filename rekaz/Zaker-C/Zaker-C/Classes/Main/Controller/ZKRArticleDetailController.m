@@ -7,16 +7,20 @@
 //
 
 #import "ZKRArticleDetailController.h"
-#import "ZKRArticleItem.h"
-#import "UIImageView+WebCache.h"
 #import "ZKRArticleDetailTopView.h"
-#import "AFHTTPSessionManager.h"
+#import "ZKRArticleCommentCell.h"
+#import "ZKRAtricleShowMediaController.h"
+
+#import "ZKRArticleItem.h"
+#import "ZKRArticleCommentItem.h"
 #import "ZKRArticleContentItem.h"
+#import "ZKRArticleCommentGroupItem.h"
+
 #import "MJExtension.h"
 #import "SVProgressHUD.h"
-#import "ZKRArticleCommentGroupItem.h"
-#import "ZKRArticleCommentItem.h"
-#import "ZKRArticleCommentCell.h"
+#import "AFHTTPSessionManager.h"
+#import "UIImageView+WebCache.h"
+
 #define TitleViewHeight 120
 #define StatusBarHeight 20
 
@@ -174,24 +178,23 @@ static NSString *ArticleCommentCell = @"ArticleCommentCell";
 {
     NSMutableString *body = [NSMutableString stringWithFormat:@"%@",contentItem.content];
 
-    
+//    NSLog(@"%@", body);
     [contentItem.media enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         NSMutableString *m_url = obj[@"m_url"];
-        
-        // 原div点击事件
-        NSMutableString *div   = [NSMutableString stringWithFormat:@"onclick='window.location.href=\"http://www.myzaker.com/?_zkcmd=open_media&index=%zd\"'", idx];
-        // 替换的div点击事件
-        NSMutableString *reDiv = [NSMutableString stringWithFormat:@"onclick='alert(this.src)'"];
-        
-        [body replaceOccurrencesOfString:div withString:reDiv options:NSCaseInsensitiveSearch range:NSMakeRange(0, body.length)];
-        
-        
-        
-        NSString *imgTargetString  = [NSString stringWithFormat:@"id=\"id_image_%zd\" class=\"\" src=\"article_html_content_loading.png\"", idx];
-        NSString *imgReplaceString = [NSString stringWithFormat:@"id=\"id_image_%zd\" class=\"\" src=\"%@\"", idx, m_url];
+//        NSLog(@"%@", m_url);
+//        NSString *imgTargetString  = [NSString stringWithFormat:@"id=\"id_image_%zd\" class=\"\" src=\"article_html_content_loading.png\"", idx];
+        NSString *imgTargetString  = [NSString stringWithFormat:@"id=\"id_image_%zd\"", idx];
+        NSString *imgReplaceString = [NSString stringWithFormat:@"id=\"id_image_%zd\"  src=\"%@\"", idx, m_url];
 
         [body replaceOccurrencesOfString:imgTargetString withString:imgReplaceString options:NSCaseInsensitiveSearch range:NSMakeRange(0, body.length)];
+        
+        
+         /** 
+          
+          <img id="id_image_1" class=" zaker_gif_cache" src="article_html_content_loading.png">
+          
+          */
     }];
 //    NSLog(@"%@", body);
     return body;
@@ -200,8 +203,60 @@ static NSString *ArticleCommentCell = @"ArticleCommentCell";
 
 
 #pragma mark - ---| webView delegate |---
+/**
+ *  每当webView发送请求之前都会先调用的方法
+ *
+ *  @param webView
+ *  @param request        即将发送的请求
+ *  @param navigationType
+ *
+ *  @return 代理返回yes允许发送请求,返回no禁止发送这个请求
+ */
+
+/**
+ *  <div class="img_box" id="id_imagebox_5" style="height:195px; overflow:hidden;" onclick='window.location.href="http://www.myzaker.com/?_zkcmd=open_media&index=5"'>
+ 
+ http://www.myzaker.com/?
+ 调用方法的名字  _zkcmd=open_media
+ 图片的序列     &index=5
+ */
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    NSString *url = request.URL.absoluteString;
+    NSRange range = [url rangeOfString:@"http://www.myzaker.com/?_zkcmd="];
+    if (range.location != NSNotFound) {
+        NSUInteger loc = range.location + range.length;
+        NSString *src = [url substringFromIndex:loc];
+        
+        if ([src containsString:@"open_media"]) {
+            NSRange indexRange = [src rangeOfString:@"&index="];
+            NSInteger index = [[src substringFromIndex:(indexRange.location + indexRange.length)] integerValue];
+//            NSLog(@"open_media");
+            [self openMedia:index];
+        }
+        
+        return NO;
+    }
+    return YES;
+}
+
+ /** 点击图片打开图片浏览器 */
+- (void)openMedia:(NSInteger )index
+{
+//    NSLog(@"%zd", index);
+    
+    ZKRAtricleShowMediaController *showVC = [[ZKRAtricleShowMediaController alloc] init];
+    showVC.medias = self.contentItem.media;
+    showVC.currentIndex = index;
+
+    [self.view.window.rootViewController presentViewController:showVC animated:NO completion:nil];
+    
+}
+
+
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
+    
      /** 加载后的webView高度 */
     CGFloat webViewHeight= [[webView stringByEvaluatingJavaScriptFromString: @"document.body.offsetHeight"]floatValue];
     
@@ -221,20 +276,7 @@ static NSString *ArticleCommentCell = @"ArticleCommentCell";
     
 }
 
-/**
- *  每当webView发送请求之前都会先调用的方法
- *
- *  @param webView
- *  @param request        即将发送的请求
- *  @param navigationType
- *
- *  @return 代理返回yes允许发送请求,返回no禁止发送这个请求
- */
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-{
-    
-    return YES;
-}
+
 
 #pragma mark - Table view data source
 
