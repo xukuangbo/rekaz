@@ -113,6 +113,8 @@
 		EE98F1A41C8A6E25001D9E78 /* ZKRSearchChannelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE98F1A21C8A6E25001D9E78 /* ZKRSearchChannelCell.xib */; };
 		EE98F1A71C8A70FD001D9E78 /* ZKRChannelGroupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EE98F1A61C8A70FD001D9E78 /* ZKRChannelGroupItem.m */; };
 		EE98F1AA1C8A7109001D9E78 /* ZKRChannelItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EE98F1A91C8A7109001D9E78 /* ZKRChannelItem.m */; };
+		EEAA054B1C8D4E5E008F9331 /* ZKRFileCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EEAA054A1C8D4E5E008F9331 /* ZKRFileCacheManager.m */; };
+		EEAA054E1C8D5AE2008F9331 /* CNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EEAA054D1C8D5AE2008F9331 /* CNotificationManager.m */; };
 		EEB687F61C7FE9A3008CE2DC /* ZKRComDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB687F51C7FE9A3008CE2DC /* ZKRComDiscoverViewController.m */; };
 		EEB687FC1C7FEAE1008CE2DC /* ZKRComChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB687FB1C7FEAE1008CE2DC /* ZKRComChoiceViewController.m */; };
 		EEB687FF1C7FF5FF008CE2DC /* ZKRComDiscoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB687FE1C7FF5FF008CE2DC /* ZKRComDiscoverCell.m */; };
@@ -323,6 +325,10 @@
 		EE98F1A61C8A70FD001D9E78 /* ZKRChannelGroupItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRChannelGroupItem.m; sourceTree = "<group>"; };
 		EE98F1A81C8A7109001D9E78 /* ZKRChannelItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRChannelItem.h; sourceTree = "<group>"; };
 		EE98F1A91C8A7109001D9E78 /* ZKRChannelItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRChannelItem.m; sourceTree = "<group>"; };
+		EEAA05491C8D4E5E008F9331 /* ZKRFileCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRFileCacheManager.h; sourceTree = "<group>"; };
+		EEAA054A1C8D4E5E008F9331 /* ZKRFileCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRFileCacheManager.m; sourceTree = "<group>"; };
+		EEAA054C1C8D5AE2008F9331 /* CNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNotificationManager.h; sourceTree = "<group>"; };
+		EEAA054D1C8D5AE2008F9331 /* CNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNotificationManager.m; sourceTree = "<group>"; };
 		EEB687F41C7FE9A3008CE2DC /* ZKRComDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRComDiscoverViewController.h; sourceTree = "<group>"; };
 		EEB687F51C7FE9A3008CE2DC /* ZKRComDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKRComDiscoverViewController.m; sourceTree = "<group>"; };
 		EEB687FA1C7FEAE1008CE2DC /* ZKRComChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKRComChoiceViewController.h; sourceTree = "<group>"; };
@@ -826,6 +832,10 @@
 				EEDF82E81C5C631100FF5AA8 /* HFStretchableTableHeaderView.m */,
 				EECEF94C1C849F020039B2F4 /* ZKRHTTPSessionManager.h */,
 				EECEF94D1C849F020039B2F4 /* ZKRHTTPSessionManager.m */,
+				EEAA05491C8D4E5E008F9331 /* ZKRFileCacheManager.h */,
+				EEAA054A1C8D4E5E008F9331 /* ZKRFileCacheManager.m */,
+				EEAA054C1C8D5AE2008F9331 /* CNotificationManager.h */,
+				EEAA054D1C8D5AE2008F9331 /* CNotificationManager.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -1130,6 +1140,7 @@
 				EE88D3DF1C566C95001300F8 /* UIColor+Hex.m in Sources */,
 				EE968F641C80B7AC00C6D1E0 /* ZKRSearchChannelController.m in Sources */,
 				EE7E8DC61C58F60D004E71DA /* ZKRRootTypeItem.m in Sources */,
+				EEAA054B1C8D4E5E008F9331 /* ZKRFileCacheManager.m in Sources */,
 				EE98F1A31C8A6E25001D9E78 /* ZKRSearchChannelCell.m in Sources */,
 				EE88D3E61C566D77001300F8 /* ZKRNavigationController.m in Sources */,
 				EE3D80741C8C31C4008B41AE /* ZKRRefreshHeader.m in Sources */,
@@ -1161,6 +1172,7 @@
 				EE968F571C80A67700C6D1E0 /* ZKRCategoryButton.m in Sources */,
 				EEE7F27E1C757359000222AD /* ZKRAccountBarButtonItem.m in Sources */,
 				EEE975E01C8AD0EC00CD667D /* NSCalendar+Init.m in Sources */,
+				EEAA054E1C8D5AE2008F9331 /* CNotificationManager.m in Sources */,
 				EE9455761C868F9400FF1FD1 /* ZKRArticleContentItem.m in Sources */,
 				EEDF82E91C5C631100FF5AA8 /* HFStretchableTableHeaderView.m in Sources */,
 				EE88D3E11C566C95001300F8 /* UITextField+CGLplaceholderLabel.m in Sources */,

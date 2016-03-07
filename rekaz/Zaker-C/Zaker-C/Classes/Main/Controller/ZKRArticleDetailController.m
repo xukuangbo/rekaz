@@ -32,7 +32,11 @@
 @property (nonatomic, strong) NSMutableArray *commentGroupsArray;
 
 @end
-
+/**
+ *  暂存问题:
+    点赞动画
+    组头部会停留在顶部
+ */
 static NSString *ArticleCommentCell = @"ArticleCommentCell";
 @implementation ZKRArticleDetailController
 #pragma mark - ---| lazy load |---
@@ -52,31 +56,19 @@ static NSString *ArticleCommentCell = @"ArticleCommentCell";
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, -20, CGLScreenW, 20)];
-    view.backgroundColor = [UIColor colorWithHexString:self.item.block_color alpha:0.8];
-    [self.view addSubview:view];
-    
-//    self.view.backgroundColor = [UIColor whiteColor];
-//    self.automaticallyAdjustsScrollViewInsets = NO;
-//    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 50, 0);
-//    self.tableView.backgroundView = [[UIView alloc]init];
-//    self.tableView.backgroundColor = [UIColor clearColor];
-    
-    self.tableView.backgroundView = nil;
-    self.tableView.backgroundColor = [UIColor clearColor];
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+    
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZKRArticleCommentCell class]) bundle:nil] forCellReuseIdentifier:ArticleCommentCell];
+    
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 35, 0);
     [SVProgressHUD show];
     [self setupTableHeaderView];
     
     [self loadWebData];
-
-    
 }
 
 #pragma mark - ---| 加载view |---
@@ -123,6 +115,7 @@ static NSString *ArticleCommentCell = @"ArticleCommentCell";
         [self.tableView reloadData];
         
         [SVProgressHUD dismiss];
+//        self.tableView.separatorColor = [UIColor lightGrayColor];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
     }];
@@ -278,17 +271,18 @@ static NSString *ArticleCommentCell = @"ArticleCommentCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 30;
+
+    return 10;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGLScreenW, 50)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGLScreenW, 10)];
     view.backgroundColor = [UIColor whiteColor];
     
     ZKRArticleCommentGroupItem *group = self.commentGroupsArray[section];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 40, 50)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 40, 10)];
 //    label.text = group.title;
     NSDictionary *att = @{
                           NSFontAttributeName : [UIFont systemFontOfSize:10],
@@ -305,6 +299,8 @@ static NSString *ArticleCommentCell = @"ArticleCommentCell";
     UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(label.frame) + 10, label.center.y, view.cgl_width - CGRectGetMaxX(label.frame) - 30, 1)];
     lineView.backgroundColor = [UIColor lightGrayColor];
     [view addSubview:lineView];
+    
+    
     return view;
 }
 
