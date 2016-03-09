@@ -9,6 +9,7 @@
 #import "ZKRArticleViewController.h"
 #import "ZKRArticleDetailController.h"
 #import "ZKRArticleItem.h"
+#import "SVProgressHUD.h"
 
 
 @interface ZKRArticleViewController ()
@@ -39,6 +40,8 @@
     if ([self.preVC isEqualToString:@"ZKRColoumnsViewController"]) {
         [self.navigationController setNavigationBarHidden:NO animated:YES];
     }
+    
+    [SVProgressHUD dismiss];
 }
 
  /** 分享 */

@@ -182,19 +182,11 @@ static NSString *ArticleCommentCell = @"ArticleCommentCell";
     [contentItem.media enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         NSMutableString *m_url = obj[@"m_url"];
-//        NSLog(@"%@", m_url);
 //        NSString *imgTargetString  = [NSString stringWithFormat:@"id=\"id_image_%zd\" class=\"\" src=\"article_html_content_loading.png\"", idx];
         NSString *imgTargetString  = [NSString stringWithFormat:@"id=\"id_image_%zd\"", idx];
         NSString *imgReplaceString = [NSString stringWithFormat:@"id=\"id_image_%zd\"  src=\"%@\"", idx, m_url];
 
         [body replaceOccurrencesOfString:imgTargetString withString:imgReplaceString options:NSCaseInsensitiveSearch range:NSMakeRange(0, body.length)];
-        
-        
-         /** 
-          
-          <img id="id_image_1" class=" zaker_gif_cache" src="article_html_content_loading.png">
-          
-          */
     }];
 //    NSLog(@"%@", body);
     return body;
@@ -204,21 +196,17 @@ static NSString *ArticleCommentCell = @"ArticleCommentCell";
 
 #pragma mark - ---| webView delegate |---
 /**
- *  每当webView发送请求之前都会先调用的方法
- *
- *  @param webView
- *  @param request        即将发送的请求
- *  @param navigationType
- *
- *  @return 代理返回yes允许发送请求,返回no禁止发送这个请求
- */
-
-/**
  *  <div class="img_box" id="id_imagebox_5" style="height:195px; overflow:hidden;" onclick='window.location.href="http://www.myzaker.com/?_zkcmd=open_media&index=5"'>
  
  http://www.myzaker.com/?
  调用方法的名字  _zkcmd=open_media
  图片的序列     &index=5
+ */
+
+/**
+ *  每当webView发送请求之前都会先调用的方法
+ *  @param request        即将发送的请求
+ *  @return 代理返回yes允许发送请求,返回no禁止发送这个请求
  */
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
