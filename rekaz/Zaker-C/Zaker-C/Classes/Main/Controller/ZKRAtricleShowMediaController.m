@@ -74,6 +74,10 @@ static NSString *ArticleViewCell = @"ArticleViewCell";
     return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self backButtonClick:[UIButton buttonWithType:UIButtonTypeCustom]];
+}
 
 #pragma mark - ---| event|---
 - (IBAction)backButtonClick:(UIButton *)sender {
