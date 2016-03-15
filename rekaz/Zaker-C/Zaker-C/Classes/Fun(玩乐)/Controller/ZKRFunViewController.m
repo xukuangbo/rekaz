@@ -8,18 +8,18 @@
 #import "ZKRAccountBarButtonItem.h"
 #import "ZKRFunViewController.h"
 #import "ZKRBarButtonItem.h"
+#import "ZKRFunGroupItem.h"
+#import "ZKRFunCellItem.h"
+#import "ZKRFunCategoryController.h"
+#import "ZKRColoumnsViewController.h"
 
 #import "UIBarButtonItem+CGLExtension.h"
 
 #import "AFHTTPSessionManager.h"
-#import "ZKRFunGroupItem.h"
-#import "ZKRFunCellItem.h"
 #import "MJExtension.h"
 #import "UIImageView+WebCache.h"
-
-#import "ZKRColoumnsViewController.h"
-#import "ZKRFunCategoryController.h"
 #import "SVProgressHUD.h"
+
 
 @interface ZKRFunViewController ()
 
@@ -52,6 +52,7 @@
         _groupsArray = [NSMutableArray array];
     }
     return _groupsArray;
+    
 }
 
 - (ZKRColoumnsViewController *)tableVC
@@ -71,7 +72,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setNav];
+    
     [SVProgressHUD show];
+    
     [self loadData];
 }
 

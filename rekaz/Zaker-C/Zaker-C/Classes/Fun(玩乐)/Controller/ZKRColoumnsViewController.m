@@ -138,6 +138,8 @@ static NSString *CGLColumnsCellID = @"CGLColumnsCellID";
     [UIView animateWithDuration:0.2 animations:^{
         cell.alpha = 1;
     }];
+    
+    
 }
 
  /** 点击行 */
@@ -147,7 +149,6 @@ static NSString *CGLColumnsCellID = @"CGLColumnsCellID";
 //    articleVC.preVC = NSStringFromClass([[self.view viewController] class]);
 //    
 //    [[self.view navController] pushViewController:articleVC animated:YES];
-    
     
     NSLog(@"%zd",indexPath.row);
 }
