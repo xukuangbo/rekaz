@@ -47,22 +47,22 @@
 {
     //订阅
     ZKRSubscriptionViewController *subscriptionVC = [[ZKRSubscriptionViewController alloc] init];
-    ZKRNavigationController *nav = [[ZKRNavigationController alloc] initWithRootViewController:subscriptionVC];
+    ZKRNavigationController *nav                  = [[ZKRNavigationController alloc] initWithRootViewController:subscriptionVC];
     [self addChildViewController:nav];
     
     //热点
-    ZKRHotViewController *hotVC = [[ZKRHotViewController alloc] init];
+    ZKRHotViewController *hotVC   = [[ZKRHotViewController alloc] init];
     ZKRNavigationController *nav1 = [[ZKRNavigationController alloc] initWithRootViewController:hotVC];
     [self addChildViewController:nav1];
     
     //玩乐
-    ZKRFunViewController *funVC = [[ZKRFunViewController alloc] init];
+    ZKRFunViewController *funVC   = [[ZKRFunViewController alloc] init];
     ZKRNavigationController *nav3 = [[ZKRNavigationController alloc] initWithRootViewController:funVC];
     [self addChildViewController:nav3];
     
     //社区
     ZKRCommunityViewController *communityVC = [[ZKRCommunityViewController alloc] init];
-    ZKRNavigationController *nav4 = [[ZKRNavigationController alloc] initWithRootViewController:communityVC];
+    ZKRNavigationController *nav4           = [[ZKRNavigationController alloc] initWithRootViewController:communityVC];
     [self addChildViewController:nav4];
 }
 

@@ -117,10 +117,10 @@
     // 参数
     
     NSMutableDictionary *para = [NSMutableDictionary dictionary];
-    para[@"_appid"] = @"iphone";
+    para[@"_appid"]   = @"iphone";
     para[@"_version"] = @"6.46";
-    para[@"c"] = @"columns";
-    
+    para[@"c"]        = @"columns";
+
     [self.manager GET:@"http://wl.myzaker.com/" parameters:para progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
