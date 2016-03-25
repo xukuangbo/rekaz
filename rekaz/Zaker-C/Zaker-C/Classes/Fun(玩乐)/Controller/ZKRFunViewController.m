@@ -141,8 +141,9 @@
             newCellArray = [NSMutableArray array];
             
         }
-        //        ZKRFunGroupItem *group = self.groupsArray[0];
-        //        NSLog(@"%@", group.itemsArray);
+//        ZKRFunGroupItem *group = self.groupsArray[0];
+//        ZKRFunCellItem *cell = group.items[1];
+//        NSLog(@"%@", [cell getAllPropertiesAndVaules]);
         
         // 轮播图
         self.cycleURLString = responseObject[@"data"][@"promote"][0][@"promotion_img"];
