@@ -21,6 +21,7 @@
 
 + (void)load
 {
+    
     UITabBarItem *item = [UITabBarItem appearanceWhenContainedIn:self, nil];
     //设置字体大小
     //设置字体大小的时候要设置在正常状态下的时候
