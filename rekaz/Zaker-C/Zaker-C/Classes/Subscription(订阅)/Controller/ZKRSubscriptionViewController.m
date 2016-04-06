@@ -272,7 +272,6 @@ static NSString *requestURL = @"http://iphone.myzaker.com/zaker/follow_promote.p
         } else {
             [self searchClick];
         }
-
     } else { // 编辑状态下
 //        if (cell.isEditing) {
 //            cell.editing = NO;
