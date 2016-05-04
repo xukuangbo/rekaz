@@ -28,8 +28,13 @@
     
     // 显示顶层window
     [ZKRTopWindow showWithStatusBarClickBlock:^{
-        [self searchAllScrollViewsInView:application.keyWindow];
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            
+            [self searchAllScrollViewsInView:application.keyWindow];
+        });
+        
     }];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }

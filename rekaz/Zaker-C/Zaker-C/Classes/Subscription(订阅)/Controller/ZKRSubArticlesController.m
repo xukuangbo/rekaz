@@ -60,7 +60,7 @@ static NSString *SubArticlesCell3 = @"SubArticlesCell3";
     
     [self setupCollectionView];
     
-    self.pageSliderView.minimumValue = 0;
+    self.pageSliderView.minimumValue = 1;
     [self.pageSliderView addTarget:self action:@selector(pageSliderViewDrag:) forControlEvents:UIControlEventTouchUpInside];
 }
 
