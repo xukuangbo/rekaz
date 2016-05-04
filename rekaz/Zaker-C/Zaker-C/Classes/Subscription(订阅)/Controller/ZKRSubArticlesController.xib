@@ -29,13 +29,6 @@
                                 <action selector="backButtonClick:" destination="-1" eventType="touchUpInside" id="SuG-Rz-tqe"/>
                             </connections>
                         </button>
-                        <slider contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="haS-Wm-044">
-                            <rect key="frame" x="125" y="2" width="124" height="31"/>
-                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="120" id="kXW-ez-z4d"/>
-                            </constraints>
-                        </slider>
                         <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KsF-AE-r1G">
                             <rect key="frame" x="333" y="1" width="32" height="32"/>
                             <state key="normal" image="common_icon_refresh_3"/>
@@ -59,6 +52,13 @@
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <slider contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="haS-Wm-044">
+                            <rect key="frame" x="125" y="2" width="124" height="31"/>
+                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="kXW-ez-z4d"/>
+                            </constraints>
+                        </slider>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>

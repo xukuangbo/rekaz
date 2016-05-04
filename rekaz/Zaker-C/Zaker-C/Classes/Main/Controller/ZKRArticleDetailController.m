@@ -69,7 +69,9 @@ static NSString *ArticleCommentCell = @"ArticleCommentCell";
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZKRArticleCommentCell class]) bundle:nil] forCellReuseIdentifier:ArticleCommentCell];
     
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 35, 0);
+    
     [SVProgressHUD show];
+    
     [self setupTableHeaderView];
     
     [self loadWebData];
@@ -90,6 +92,7 @@ static NSString *ArticleCommentCell = @"ArticleCommentCell";
     webView.scrollView.contentInset  = UIEdgeInsetsMake(TitleViewHeight, 0, 0, 0);
 
     [webView.scrollView addSubview:topView];
+    
     self.webView = webView;
 }
 
@@ -106,7 +109,9 @@ static NSString *ArticleCommentCell = @"ArticleCommentCell";
     para[@"pk"]       = self.item.pk;
     
     [self.manager GET:@"http://c.myzaker.com/weibo/api_comment_article_url.php?" parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
         self.commentGroupsArray = [ZKRArticleCommentGroupItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"comments"]];
+        
         
         [self.commentGroupsArray enumerateObjectsUsingBlock:^(ZKRArticleCommentGroupItem *obj, NSUInteger idx, BOOL * _Nonnull stop) {
 
@@ -135,11 +140,14 @@ static NSString *ArticleCommentCell = @"ArticleCommentCell";
     NSMutableDictionary *para = [NSMutableDictionary dictionary];
     
     [self.manager GET:url parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
         ZKRArticleContentItem *contentItem  = [ZKRArticleContentItem mj_objectWithKeyValues:responseObject[@"data"]];
         self.contentItem = contentItem ;
         
         [self loadWebView:self.contentItem];
+        
         [self.webView reload];
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
     }];
@@ -261,7 +269,11 @@ static NSString *ArticleCommentCell = @"ArticleCommentCell";
     [self.tableView reloadData];
     
     // 在网页加载后加载评论
+    
+
+        
     [self loadCommentData];
+
     
 }
 
